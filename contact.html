@@ -578,7 +578,7 @@ a{color:inherit}
   .footer-grid{grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:28px}
 }
 
-@media (max-width:980px){
+@media (max-width:1180px){
   .nav-toggle{display:block}
 
   /* Less room either side of the logo once the hamburger takes over. */
@@ -1400,6 +1400,23 @@ a{color:inherit}
    an equally compound selector here. */
 .adm-band .adm-form-wrap{padding-block:0 clamp(28px,4vw,44px)}
 
+/* Map on the left, form on the right. */
+.adm-columns{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;
+}
+
+.adm-map{
+  border-radius:10px;overflow:hidden;min-height:320px;
+  border:1px solid rgba(255,255,255,.18);
+}
+.adm-map iframe{width:100%;height:100%;min-height:320px;border:0;display:block}
+
+@media (max-width:760px){
+  .adm-columns{grid-template-columns:1fr}
+  .adm-map{order:2}
+  .enquiry-form{order:1}
+}
+
 .enquiry-form{
   background:var(--panel);border-radius:10px;
   padding:clamp(20px,3vw,30px);
@@ -1711,7 +1728,18 @@ a{color:inherit}
   </div>
 
   <div class="wrap adm-form-wrap">
-    <form class="enquiry-form" id="enquiryForm" novalidate>
+    <div class="adm-columns">
+
+      <div class="adm-map">
+        <iframe
+          src="https://www.google.com/maps?q=540-A%2C%20Ratanlal%20Nagar%20Main%20Road%2C%20Neemeshwar%20MahaMandir%20Society%2C%20Ratan%20Lal%20Nagar%2C%20Kanpur%2C%20Uttar%20Pradesh%20208022&output=embed"
+          title="Radha Krishna Memorial Education Centre, Ratanlal Nagar branch location"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+
+      <form class="enquiry-form" id="enquiryForm" novalidate>
       <p class="enquiry-title">Or send us your details and we&rsquo;ll call you back</p>
 
       <div class="enquiry-row">
@@ -1746,7 +1774,9 @@ a{color:inherit}
       <button type="submit" class="btn btn-gold">Send Enquiry <span class="arw" aria-hidden="true">&rarr;</span></button>
 
       <p class="enquiry-msg" role="status" aria-live="polite"></p>
-    </form>
+      </form>
+
+    </div>
   </div>
 
 </section>

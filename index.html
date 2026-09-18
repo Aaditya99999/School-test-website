@@ -578,7 +578,7 @@ a{color:inherit}
   .footer-grid{grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:28px}
 }
 
-@media (max-width:980px){
+@media (max-width:1180px){
   .nav-toggle{display:block}
 
   /* Less room either side of the logo once the hamburger takes over. */
@@ -896,22 +896,11 @@ a{color:inherit}
   to{transform:scaleY(1);opacity:1}
 }
 
-/* The three figures sit at the corners of an inverted triangle, with a
-   gold hairline drawn through them. The polygon is stretched to the
-   block and its stroke held at 1px, so the shape tracks the layout at
-   any width; each figure carries the band's own green, which breaks the
-   line behind it rather than letting it run through the type. */
+/* The three figures sit at the corners of an inverted triangle. */
 .results-tri{
   position:relative;
   margin:clamp(28px,4vw,44px) 0 0;padding-top:34px;
   border-top:1px solid rgba(255,255,255,.16);
-}
-
-.tri-line{
-  position:absolute;left:0;right:0;top:34px;bottom:0;
-  width:100%;height:calc(100% - 34px);
-  color:rgba(212,165,55,.5);
-  pointer-events:none;
 }
 
 .results-stats{
@@ -1120,9 +1109,6 @@ a{color:inherit}
 
 /* Must stay after the 760px block above, which also sets results-stats. */
 @media (max-width:480px){
-  /* Too little width to draw the triangle without squeezing the labels
-     into three lines each. Drop the shape and stack the figures. */
-  .tri-line{display:none}
   .results-stats{grid-template-columns:1fr;gap:16px}
   .results-stats > div,
   .results-stats > div:last-child{max-width:none;padding:0}
@@ -1848,10 +1834,6 @@ a{color:inherit}
     </ol>
 
     <div class="results-tri">
-      <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-        <polygon points="25,20 75,20 50,80" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      </svg>
-
       <dl class="results-stats">
         <div><dt>100%</dt><dd>Pass rate, Class X &amp; XII</dd></div>
         <div><dt>62%</dt><dd>Scored above 90%</dd></div>
@@ -1995,10 +1977,6 @@ a{color:inherit}
         </div>
       </article>
 
-    </div>
-
-    <div class="center-btn">
-      <a href="#" class="btn btn-outline">View All Facilities <span class="arw" aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>

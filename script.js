@@ -222,9 +222,10 @@
   }
 
   /* ---------- 5. ADMISSION ENQUIRY FORM ---------- */
-  // No backend to receive this yet, so a submission is turned into a
-  // WhatsApp message to the school's own WhatsApp number instead of
-  // silently going nowhere.
+  // A submission is saved as a lead via /api/leads (so staff can see it in
+  // the CRM at /crm.html), then turned into a WhatsApp message as before.
+  // Saving is best-effort: if it fails, the WhatsApp handoff still happens
+  // so a visitor's enquiry is never silently lost.
   var enqForm = document.getElementById('enquiryForm');
 
   if (enqForm) {
@@ -256,6 +257,18 @@
         phone.focus();
         return;
       }
+
+      fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: nameVal,
+          phone: phoneVal,
+          class: klass.value,
+          message: message.value.trim(),
+          source: location.pathname
+        })
+      }).catch(function () { /* best-effort; WhatsApp handoff still happens */ });
 
       var lines = [
         'Hello, I would like to enquire about admission.',

@@ -4,6 +4,9 @@
   "functions": {
     "api/chat.js": {
       "maxDuration": 45
+    },
+    "api/leads.js": {
+      "maxDuration": 15
     }
   },
   "headers": [

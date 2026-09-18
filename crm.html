@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Leads CRM — Radha Krishna Memorial Education Centre</title>
+<style>
+:root{
+  --green-800:#0f4d2e;
+  --green-700:#14603a;
+  --gold:#d4a537;
+  --gold-600:#c1901f;
+  --ink:#1f2a26;
+  --ink-soft:#5d6b64;
+  --ground:#fdfcf9;
+  --panel:#ffffff;
+  --line:#e4e6e0;
+  --shadow:0 16px 40px -22px rgba(15,77,46,.32);
+  --ff-display:"Spectral","Iowan Old Style",Georgia,serif;
+  --ff-body:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --red:#a33;
+  --status-new:#c1901f;
+  --status-contacted:#2a6db0;
+  --status-enrolled:#0f4d2e;
+  --status-lost:#8a8a8a;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:var(--ff-body);background:var(--ground);color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2{font-family:var(--ff-display);color:var(--green-800);margin:0}
+a{color:var(--green-800)}
+
+/* ---------- gate ---------- */
+#gate{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:20px;
+}
+#gate .card{
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  box-shadow:var(--shadow);padding:32px;max-width:360px;width:100%;
+}
+#gate h1{font-size:1.3rem;margin-bottom:.3em}
+#gate p{color:var(--ink-soft);font-size:.86rem;margin:0 0 1.2em}
+#gate input{
+  width:100%;padding:.7em .9em;border:1px solid var(--line);border-radius:6px;
+  font-size:.9rem;margin-bottom:12px;font-family:inherit;
+}
+#gate button{
+  width:100%;padding:.7em;border:0;border-radius:6px;background:var(--gold);
+  color:var(--green-800);font-weight:700;font-size:.9rem;cursor:pointer;
+  font-family:inherit;letter-spacing:.02em;
+}
+#gate button:hover{background:var(--gold-600)}
+#gate .err{color:var(--red);font-size:.82rem;min-height:1.2em;margin:0 0 8px}
+
+/* ---------- app ---------- */
+#app{display:none;max-width:1200px;margin:0 auto;padding:24px 20px 60px}
+header.top{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  margin-bottom:22px;
+}
+header.top h1{font-size:1.5rem}
+header.top .sub{color:var(--ink-soft);font-size:.82rem;margin-top:2px}
+#logout{
+  background:none;border:1px solid var(--line);border-radius:6px;padding:.5em 1em;
+  font-family:inherit;font-size:.8rem;color:var(--ink-soft);cursor:pointer;
+}
+#logout:hover{border-color:var(--gold);color:var(--green-800)}
+
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.stat{
+  background:var(--panel);border:1px solid var(--line);border-radius:8px;
+  padding:12px 18px;min-width:110px;
+}
+.stat b{display:block;font-family:var(--ff-display);font-size:1.4rem;color:var(--green-800)}
+.stat span{font-size:.74rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.05em}
+
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{
+  padding:.45em 1em;border-radius:999px;border:1px solid var(--line);background:var(--panel);
+  font-size:.8rem;cursor:pointer;color:var(--ink-soft);font-family:inherit;
+}
+.tab.is-active{background:var(--green-800);border-color:var(--green-800);color:#fff}
+#search{
+  margin-left:auto;padding:.5em .9em;border:1px solid var(--line);border-radius:6px;
+  font-family:inherit;font-size:.85rem;min-width:200px;
+}
+#refresh{
+  border:1px solid var(--line);background:var(--panel);border-radius:6px;
+  padding:.5em .9em;font-size:.8rem;cursor:pointer;color:var(--ink-soft);font-family:inherit;
+}
+#refresh:hover{border-color:var(--gold);color:var(--green-800)}
+
+.table-wrap{
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  overflow-x:auto;box-shadow:var(--shadow);
+}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:900px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{
+  font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);
+  background:var(--ground);white-space:nowrap;
+}
+tr:last-child td{border-bottom:0}
+td.name{font-weight:600;color:var(--green-800);white-space:nowrap}
+td.phone a{color:var(--ink);text-decoration:none}
+td.phone a:hover{text-decoration:underline}
+td.msg{max-width:240px;color:var(--ink-soft);font-size:.82rem}
+td.date{white-space:nowrap;color:var(--ink-soft);font-size:.8rem}
+td.source{white-space:nowrap;color:var(--ink-soft);font-size:.78rem}
+
+select.status{
+  border:1px solid var(--line);border-radius:6px;padding:.4em .6em;font-family:inherit;
+  font-size:.78rem;font-weight:600;cursor:pointer;background:var(--panel);
+}
+select.status option{color:var(--ink)}
+.status-new{color:var(--status-new)}
+.status-contacted{color:var(--status-contacted)}
+.status-enrolled{color:var(--status-enrolled)}
+.status-lost{color:var(--status-lost)}
+
+textarea.note{
+  width:170px;min-height:36px;border:1px solid var(--line);border-radius:6px;
+  padding:.4em .6em;font-family:inherit;font-size:.78rem;resize:vertical;
+}
+
+.icon-btn{
+  border:0;background:none;cursor:pointer;color:var(--ink-soft);font-size:.78rem;
+  padding:.3em .5em;border-radius:4px;
+}
+.icon-btn:hover{color:var(--red);background:#fbeaea}
+
+.empty,.loading{padding:40px 20px;text-align:center;color:var(--ink-soft);font-size:.9rem}
+.error-banner{
+  background:#fbeaea;color:var(--red);border:1px solid #eacaca;border-radius:8px;
+  padding:12px 16px;font-size:.85rem;margin-bottom:16px;
+}
+
+/* ---------- phone layout ---------- */
+@media (max-width:700px){
+  #app{padding:16px 14px 40px}
+  header.top{flex-direction:column;align-items:stretch}
+  header.top h1{font-size:1.25rem}
+  #logout{align-self:flex-start}
+
+  .stats{gap:8px}
+  .stat{flex:1 1 calc(50% - 8px);min-width:0;padding:10px 12px}
+
+  .toolbar{flex-direction:column;align-items:stretch}
+  .tabs{overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
+  .tab{flex:0 0 auto}
+  #search{margin-left:0;width:100%}
+  #refresh{width:100%}
+
+  /* Table becomes a stack of cards: each row is a card, each cell a
+     labelled line, driven off the column's <th> text via a data attr
+     set in JS so markup stays in one place. */
+  .table-wrap{overflow-x:visible;box-shadow:none;border:0;background:none}
+  table,thead,tbody,tr,td{display:block;width:100%}
+  thead{display:none}
+  tr{
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    box-shadow:var(--shadow);margin-bottom:14px;padding:6px 14px;
+  }
+  td{
+    border-bottom:1px solid var(--line);padding:10px 0;
+    display:flex;justify-content:space-between;align-items:flex-start;gap:12px;
+  }
+  td:last-child{border-bottom:0}
+  td::before{
+    content:attr(data-label);flex:0 0 auto;
+    font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;
+    color:var(--ink-soft);padding-top:.3em;
+  }
+  td.name,td.msg,td.source,td.date{white-space:normal;text-align:right}
+  td.msg{max-width:none}
+  textarea.note{width:100%;margin-left:auto}
+  td:has(.icon-btn){justify-content:flex-end}
+}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="card">
+    <h1>Leads CRM</h1>
+    <p>Enter the admin key to view enquiries.</p>
+    <p class="err" id="gateErr"></p>
+    <input type="password" id="gateKey" placeholder="Admin key" autocomplete="off">
+    <button id="gateBtn" type="button">Unlock</button>
+  </div>
+</div>
+
+<div id="app">
+  <header class="top">
+    <div>
+      <h1>Admission Leads</h1>
+      <p class="sub">Enquiries submitted from the website forms.</p>
+    </div>
+    <button id="logout" type="button">Log out</button>
+  </header>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="toolbar">
+    <div class="tabs" id="tabs">
+      <button class="tab is-active" data-status="all" type="button">All</button>
+      <button class="tab" data-status="new" type="button">New</button>
+      <button class="tab" data-status="contacted" type="button">Contacted</button>
+      <button class="tab" data-status="enrolled" type="button">Enrolled</button>
+      <button class="tab" data-status="lost" type="button">Lost</button>
+    </div>
+    <input type="search" id="search" placeholder="Search name or phone…">
+    <button id="refresh" type="button">Refresh</button>
+  </div>
+
+  <div id="errorBanner"></div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Class / programme</th>
+          <th>Message</th>
+          <th>Source</th>
+          <th>Status</th>
+          <th>Note</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <div class="empty" id="emptyState" hidden>No leads yet.</div>
+    <div class="loading" id="loadingState">Loading…</div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var STORAGE_KEY = 'rkg-crm-admin-key';
+  var gate = document.getElementById('gate');
+  var app = document.getElementById('app');
+  var gateKey = document.getElementById('gateKey');
+  var gateBtn = document.getElementById('gateBtn');
+  var gateErr = document.getElementById('gateErr');
+
+  var rowsEl = document.getElementById('rows');
+  var statsEl = document.getElementById('stats');
+  var tabsEl = document.getElementById('tabs');
+  var searchEl = document.getElementById('search');
+  var refreshBtn = document.getElementById('refresh');
+  var logoutBtn = document.getElementById('logout');
+  var emptyState = document.getElementById('emptyState');
+  var loadingState = document.getElementById('loadingState');
+  var errorBanner = document.getElementById('errorBanner');
+
+  var allLeads = [];
+  var activeStatus = 'all';
+
+  function adminKey() {
+    return sessionStorage.getItem(STORAGE_KEY) || '';
+  }
+
+  function showApp() {
+    gate.style.display = 'none';
+    app.style.display = 'block';
+    loadLeads();
+  }
+
+  function showGate(message) {
+    app.style.display = 'none';
+    gate.style.display = 'flex';
+    gateErr.textContent = message || '';
+    gateKey.focus();
+  }
+
+  gateBtn.addEventListener('click', function () {
+    var key = gateKey.value.trim();
+    if (!key) return;
+    sessionStorage.setItem(STORAGE_KEY, key);
+    gateErr.textContent = '';
+    showApp();
+  });
+
+  gateKey.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') gateBtn.click();
+  });
+
+  logoutBtn.addEventListener('click', function () {
+    sessionStorage.removeItem(STORAGE_KEY);
+    allLeads = [];
+    showGate('');
+  });
+
+  refreshBtn.addEventListener('click', loadLeads);
+  searchEl.addEventListener('input', render);
+
+  tabsEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.tab');
+    if (!btn) return;
+    activeStatus = btn.dataset.status;
+    Array.prototype.forEach.call(tabsEl.querySelectorAll('.tab'), function (t) {
+      t.classList.toggle('is-active', t === btn);
+    });
+    render();
+  });
+
+  function api(path, options) {
+    options = options || {};
+    options.headers = Object.assign({ 'x-admin-key': adminKey() }, options.headers || {});
+    return fetch('/api/leads' + path, options).then(function (res) {
+      if (res.status === 401) {
+        sessionStorage.removeItem(STORAGE_KEY);
+        showGate('Wrong admin key.');
+        throw new Error('unauthorized');
+      }
+      return res.json().then(function (data) {
+        if (!res.ok) throw new Error(data.error || 'Request failed.');
+        return data;
+      });
+    });
+  }
+
+  function loadLeads() {
+    loadingState.hidden = false;
+    emptyState.hidden = true;
+    errorBanner.innerHTML = '';
+    rowsEl.innerHTML = '';
+
+    api('', { method: 'GET' })
+      .then(function (data) {
+        allLeads = data.leads || [];
+        render();
+      })
+      .catch(function (err) {
+        if (err.message === 'unauthorized') return;
+        errorBanner.innerHTML = '<div class="error-banner">' + escapeHtml(err.message) + '</div>';
+      })
+      .finally(function () {
+        loadingState.hidden = true;
+      });
+  }
+
+  function render() {
+    var q = searchEl.value.trim().toLowerCase();
+
+    var filtered = allLeads.filter(function (lead) {
+      if (activeStatus !== 'all' && lead.status !== activeStatus) return false;
+      if (!q) return true;
+      return (
+        (lead.name || '').toLowerCase().indexOf(q) !== -1 ||
+        (lead.phone || '').toLowerCase().indexOf(q) !== -1
+      );
+    });
+
+    renderStats();
+    rowsEl.innerHTML = filtered.map(rowHtml).join('');
+    emptyState.hidden = filtered.length !== 0;
+
+    Array.prototype.forEach.call(rowsEl.querySelectorAll('select.status'), function (sel) {
+      sel.addEventListener('change', onStatusChange);
+    });
+    Array.prototype.forEach.call(rowsEl.querySelectorAll('textarea.note'), function (ta) {
+      ta.addEventListener('change', onNoteChange);
+    });
+    Array.prototype.forEach.call(rowsEl.querySelectorAll('.icon-btn[data-delete]'), function (btn) {
+      btn.addEventListener('click', onDelete);
+    });
+  }
+
+  function renderStats() {
+    var counts = { new: 0, contacted: 0, enrolled: 0, lost: 0 };
+    allLeads.forEach(function (l) { if (counts[l.status] !== undefined) counts[l.status]++; });
+
+    statsEl.innerHTML = [
+      ['Total', allLeads.length],
+      ['New', counts.new],
+      ['Contacted', counts.contacted],
+      ['Enrolled', counts.enrolled]
+    ].map(function (pair) {
+      return '<div class="stat"><b>' + pair[1] + '</b><span>' + pair[0] + '</span></div>';
+    }).join('');
+  }
+
+  function rowHtml(lead) {
+    var date = new Date(lead.created_at);
+    var dateStr = isNaN(date) ? '' : date.toLocaleDateString(undefined, { day: '2-digit', month: 'short', year: 'numeric' }) +
+      ' ' + date.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+
+    var digits = (lead.phone || '').replace(/\D/g, '');
+    var telHref = 'tel:' + (lead.phone || '');
+    var waHref = digits ? 'https://wa.me/' + digits : '';
+
+    return (
+      '<tr data-id="' + lead.id + '">' +
+        '<td class="date" data-label="Date">' + escapeHtml(dateStr) + '</td>' +
+        '<td class="name" data-label="Name">' + escapeHtml(lead.name || '') + '</td>' +
+        '<td class="phone" data-label="Phone">' +
+          '<a href="' + telHref + '">' + escapeHtml(lead.phone || '') + '</a>' +
+          (waHref ? ' &middot; <a href="' + waHref + '" target="_blank" rel="noopener">WhatsApp</a>' : '') +
+        '</td>' +
+        '<td data-label="Class / programme">' + escapeHtml(lead.class || '&mdash;') + '</td>' +
+        '<td class="msg" data-label="Message">' + escapeHtml(lead.message || '') + '</td>' +
+        '<td class="source" data-label="Source">' + escapeHtml(lead.source || '') + '</td>' +
+        '<td data-label="Status">' +
+          '<select class="status status-' + lead.status + '">' +
+            ['new', 'contacted', 'enrolled', 'lost'].map(function (s) {
+              return '<option value="' + s + '"' + (s === lead.status ? ' selected' : '') + '>' +
+                s.charAt(0).toUpperCase() + s.slice(1) + '</option>';
+            }).join('') +
+          '</select>' +
+        '</td>' +
+        '<td data-label="Note"><textarea class="note" placeholder="Note…">' + escapeHtml(lead.note || '') + '</textarea></td>' +
+        '<td><button class="icon-btn" data-delete title="Delete lead">Delete</button></td>' +
+      '</tr>'
+    );
+  }
+
+  function onStatusChange(e) {
+    var tr = e.target.closest('tr');
+    var id = Number(tr.dataset.id);
+    var status = e.target.value;
+    e.target.className = 'status status-' + status;
+
+    api('', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: id, status: status })
+    }).then(function () {
+      var lead = allLeads.find(function (l) { return l.id === id; });
+      if (lead) lead.status = status;
+      renderStats();
+    }).catch(function (err) {
+      errorBanner.innerHTML = '<div class="error-banner">' + escapeHtml(err.message) + '</div>';
+    });
+  }
+
+  function onNoteChange(e) {
+    var tr = e.target.closest('tr');
+    var id = Number(tr.dataset.id);
+    var note = e.target.value;
+
+    api('', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: id, note: note })
+    }).then(function () {
+      var lead = allLeads.find(function (l) { return l.id === id; });
+      if (lead) lead.note = note;
+    }).catch(function (err) {
+      errorBanner.innerHTML = '<div class="error-banner">' + escapeHtml(err.message) + '</div>';
+    });
+  }
+
+  function onDelete(e) {
+    var tr = e.target.closest('tr');
+    var id = Number(tr.dataset.id);
+    var lead = allLeads.find(function (l) { return l.id === id; });
+    if (!confirm('Delete the enquiry from ' + (lead ? lead.name : 'this person') + '?')) return;
+
+    api('?id=' + id, { method: 'DELETE' }).then(function () {
+      allLeads = allLeads.filter(function (l) { return l.id !== id; });
+      render();
+    }).catch(function (err) {
+      errorBanner.innerHTML = '<div class="error-banner">' + escapeHtml(err.message) + '</div>';
+    });
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  if (adminKey()) {
+    showApp();
+  } else {
+    showGate('');
+  }
+})();
+</script>
+</body>
+</html>
