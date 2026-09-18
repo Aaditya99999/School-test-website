@@ -151,17 +151,35 @@
   }
 
   /* ---------- 4. SCROLL REVEAL ---------- */
-  // Cards drop into place the first time their section is reached.
-  // Items in the same row are staggered so the row lands as a wave
-  // rather than all at once.
+  // Each section's contents arrive the first time it is reached. Items in
+  // the same row are staggered so the row lands as a wave, not all at once.
+  // A plain string rises from below; { sel, dir } slides in sideways.
   var REVEAL_GROUPS = [
+    // Section headings, so the copy arrives before the cards under it.
+    '.results-head',
+    '.branches-head',
+    '.gallery-head',
+    '.facilities > .wrap > .eyebrow, .facilities > .wrap > h2',
+    '.academics-main > .eyebrow, .academics-main > h2',
+
+    // Two-column blocks meet in the middle.
+    { sel: '.about-img',        dir: 'l' },
+    { sel: '.about-body',       dir: 'r' },
+    { sel: '.principal-figure', dir: 'l' },
+    { sel: '.principal-body',   dir: 'r' },
+
+    // Card rows.
     '.feature-card .feat',
     '.acad-card',
     '.fac-card',
     '.branch-card',
     '.blog-card',
     '.gal-strip figure',
-    '.results-stats > div'
+    '.results-stats > div',
+
+    // Closing bands.
+    '.adm-inner > *',
+    '.footer-grid > *'
   ];
 
   if (!reduceMotion && 'IntersectionObserver' in window) {
@@ -173,16 +191,23 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-    REVEAL_GROUPS.forEach(function (selector) {
-      var items = [].slice.call(document.querySelectorAll(selector));
+    REVEAL_GROUPS.forEach(function (group) {
+      var selector = typeof group === 'string' ? group : group.sel;
+      var dir      = typeof group === 'string' ? null   : group.dir;
+      var items    = [].slice.call(document.querySelectorAll(selector));
 
       items.forEach(function (el, i) {
         // Leave anything already on screen alone — collapsing it now
         // would make visible content jump on load.
         if (el.getBoundingClientRect().top < window.innerHeight) return;
 
+        // Nested targets would fade twice, once with their parent and
+        // once on their own, which reads as a stutter.
+        if (el.closest('.reveal')) return;
+
         el.style.setProperty('--d', (i % 4) * 90 + 'ms');
         el.classList.add('reveal');
+        if (dir) el.classList.add('reveal-' + dir);
         revealObserver.observe(el);
       });
     });

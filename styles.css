@@ -509,6 +509,11 @@ a{color:inherit}
    would sit on top of the :hover lifts defined further down. */
 .reveal:not(.is-shown){opacity:0;transform:translateY(26px)}
 
+/* Two-column blocks come in from their own side instead, so the
+   picture and the text meet in the middle. */
+.reveal.reveal-l:not(.is-shown){transform:translateX(-30px)}
+.reveal.reveal-r:not(.is-shown){transform:translateX(30px)}
+
 .reveal.is-shown{
   transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1);
   transition-delay:var(--d,0ms);
