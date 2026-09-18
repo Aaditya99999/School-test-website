@@ -1,0 +1,11 @@
+# never commit secrets
+.env
+.env.*
+.htaccess
+
+# vercel
+.vercel
+
+# os / editor
+Thumbs.db
+.DS_Store
