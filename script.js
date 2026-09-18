@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------
-   Trident Public School — interactions
+   Radha Krishna Gurukulam — interactions
    1. Hero slider (auto-advance, arrows, dots)
    2. Mobile nav + accordion submenus
    3. Podium rise + scroll reveal
@@ -159,12 +159,12 @@
     '.results-head',
     '.branches-head',
     '.gallery-head',
-    '.facilities > .wrap > .eyebrow, .facilities > .wrap > h2',
     '.academics-main > .eyebrow, .academics-main > h2',
+    '.facilities > .wrap > .eyebrow, .facilities > .wrap > h2',
 
     // Two-column blocks meet in the middle.
-    { sel: '.about-img',        dir: 'l' },
-    { sel: '.about-body',       dir: 'r' },
+    { sel: '.about-img',  dir: 'l' },
+    { sel: '.about-body', dir: 'r' },
     { sel: '.principal-figure', dir: 'l' },
     { sel: '.principal-body',   dir: 'r' },
 
@@ -173,8 +173,8 @@
     '.acad-card',
     '.fac-card',
     '.branch-card',
-    '.blog-card',
     '.gal-strip figure',
+    '.blog-card',
     '.results-stats > div',
 
     // Closing bands.
@@ -221,25 +221,58 @@
     }, 8000);
   }
 
-  /* ---------- 5. NEWSLETTER ---------- */
-  var form = document.querySelector('.news-form');
-  var msg  = document.querySelector('.news-msg');
+  /* ---------- 5. ADMISSION ENQUIRY FORM ---------- */
+  // No backend to receive this yet, so a submission is turned into a
+  // WhatsApp message to the school's own WhatsApp number instead of
+  // silently going nowhere.
+  var enqForm = document.getElementById('enquiryForm');
 
-  if (form && msg) {
-    form.addEventListener('submit', function (e) {
+  if (enqForm) {
+    var enqStatus = enqForm.querySelector('.enquiry-msg');
+
+    enqForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      var input = form.querySelector('input[type="email"]');
-      var value = input.value.trim();
 
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
-        msg.textContent = 'Enter a valid email address to subscribe.';
-        input.focus();
+      var name    = enqForm.querySelector('#enqName');
+      var phone   = enqForm.querySelector('#enqPhone');
+      var klass   = enqForm.querySelector('#enqClass');
+      var message = enqForm.querySelector('#enqMessage');
+
+      var nameVal  = name.value.trim();
+      var phoneVal = phone.value.trim();
+
+      if (!nameVal) {
+        enqStatus.textContent = 'Enter your name.';
+        enqStatus.classList.add('is-error');
+        name.focus();
         return;
       }
 
-      // No backend yet — wire this to the school's mailing list.
-      msg.textContent = 'Thank you. You are subscribed to school updates.';
-      form.reset();
+      // Loose check: at least 7 digits, so a typo like "98765" is
+      // caught without rejecting real numbers in any local format.
+      if (phoneVal.replace(/\D/g, '').length < 7) {
+        enqStatus.textContent = 'Enter a phone number we can call you back on.';
+        enqStatus.classList.add('is-error');
+        phone.focus();
+        return;
+      }
+
+      var lines = [
+        'Hello, I would like to enquire about admission.',
+        'Name: ' + nameVal,
+        'Phone: ' + phoneVal
+      ];
+      if (klass.value) lines.push('Class/programme: ' + klass.value);
+      if (message.value.trim()) lines.push('Message: ' + message.value.trim());
+
+      var url = 'https://wa.me/919582305719?text=' + encodeURIComponent(lines.join('\n'));
+
+      enqStatus.classList.remove('is-error');
+      enqStatus.textContent = 'Opening WhatsApp with your details filled in…';
+
+      window.open(url, '_blank', 'noopener');
+      enqForm.reset();
     });
   }
+
 })();

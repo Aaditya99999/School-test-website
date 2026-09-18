@@ -56,8 +56,8 @@ In `chat-proxy.php`, set `ALLOWED_ORIGINS` to your real domain(s):
 
 ```php
 const ALLOWED_ORIGINS = [
-    'https://tridentpublicschool.com',
-    'https://www.tridentpublicschool.com',
+    'https://your-domain-here.com',
+    'https://www.your-domain-here.com',
 ];
 ```
 
@@ -97,13 +97,23 @@ Then open `http://localhost:8000`.
 
 ## Changing what the bot knows
 
-Edit `SYSTEM_PROMPT` in `chat-proxy.php`. It currently holds the school's
-affiliation, the four branches with their classes and student counts, the
-facilities, the 2025 results, the Principal's details, and office hours.
+The same `SYSTEM_PROMPT` text lives in two places — `chat-proxy.php` (PHP
+hosting) and `api/chat.js` (Vercel). Whichever one you deploy is the one
+that runs, but keep both in sync: if you only edit one, the other becomes
+wrong and silently ships stale facts the day you switch hosting.
+
+It currently holds the board (ICSE), the programmes offered (IIT-JEE, NEET,
+NDA, foundation courses, classes 9th-12th, kindergarten), hostel and mess,
+the three branch addresses, and the contact numbers, WhatsApp and email.
+It is explicitly told it does NOT know per-branch class lists, student or
+teacher counts, founding years, office hours, exam results, or fees — do
+not add invented numbers for any of these; either get the real figures from
+the school first, or leave the prompt saying it does not have them.
 
 It is told to refuse to invent fees, dates or marks and to redirect those to
-the office phone number — keep that instruction. Update the facts whenever the
-site content changes, otherwise the bot will confidently state stale numbers.
+the phone numbers or WhatsApp — keep that instruction. Update the facts
+whenever the site content changes, otherwise the bot will confidently state
+stale information.
 
 ## Cost control
 
@@ -130,9 +140,9 @@ and change `ENDPOINT` in `chatbot.js` back to `'chat-proxy.php'`.
 ```bash
 git init
 git add .
-git commit -m "Trident Public School website"
+git commit -m "Radha Krishna Gurukulam website"
 git branch -M main
-git remote add origin https://github.com/<you>/trident-school.git
+git remote add origin https://github.com/<you>/radha-krishna-gurukulam.git
 git push -u origin main
 ```
 
@@ -191,5 +201,5 @@ will return its fallback error, because nothing is serving `/api/chat`.
 
 ## Custom domain
 
-Project → **Settings → Domains** → add `tridentpublicschool.com` and follow
+Project → **Settings → Domains** → add your live domain and follow
 the DNS instructions. HTTPS is issued automatically.

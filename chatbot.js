@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------
-   Trident Public School — chat assistant
+   Radha Krishna Gurukulam — chat assistant
    ------------------------------------------------------------
    The browser never holds the API key. It posts to chat-proxy.php
    on this same domain, and that file talks to the AI provider.
@@ -13,11 +13,11 @@
   //   PHP shared hosting ..... chat-proxy.php   → chat-proxy.php
   var ENDPOINT   = '/api/chat';
   var MAX_TURNS  = 12;                // turns kept and sent for context
-  var STORE_KEY  = 'tps-chat-history';
+  var STORE_KEY  = 'rkg-chat-history';
 
   var GREETING =
-    'Namaste! I can help with admissions, branches, facilities and school ' +
-    'timings. What would you like to know?';
+    'Namaste! I can help with admissions, branches and our IIT-JEE, ' +
+    'NEET and NDA programmes. What would you like to know?';
 
   var fab   = document.getElementById('chatFab');
   var panel = document.getElementById('chatPanel');
@@ -190,16 +190,16 @@
 
         var msg;
         if (err && err.name === 'AbortError') {
-          msg = 'That took too long. Please try again, or call +91 7544000044.';
+          msg = 'That took too long. Please try again, or call +91 87388 85544.';
         } else if (err && err.fromProxy && err.message.length < 200) {
           msg = err.message;          // written by our proxy, safe to show
         } else {
           msg = 'Sorry — I could not reach the assistant. Please try again, ' +
-                'or call the office on +91 7544000044.';
+                'or call the office on +91 87388 85544.';
         }
 
         bubble('error', msg);
-        if (window.console) console.error('[tps-chat]', err);
+        if (window.console) console.error('[rkg-chat]', err);
       })
       .then(function () {
         clearTimeout(timeout);

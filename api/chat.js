@@ -1,5 +1,5 @@
 /**
- * Trident Public School — chatbot proxy (Vercel Serverless Function)
+ * Radha Krishna Gurukulam — chatbot proxy (Vercel Serverless Function)
  * -------------------------------------------------------------------
  * Deployed automatically at  /api/chat  by Vercel.
  *
@@ -31,36 +31,45 @@ const RATE_LIMIT_MS   = 5 * 60 * 1000;
 const hits = new Map();
 
 const SYSTEM_PROMPT = `
-You are the admissions and information assistant for Trident Public School,
-a CBSE co-educational school in Beldari, Simri Bakhtiyarpur, Patna, Bihar.
+You are the admissions and information assistant for Radha Krishna
+Gurukulam, an ICSE school in Kanpur, Uttar Pradesh. Its motto is
+"Knowledge is Power".
 
 Facts you may rely on:
-- Affiliation: CBSE. Teacher-student ratio 1:20. Over 20 years of operation.
-- Four campuses: Beldari (main, Nursery-XII, 980 students, since 2004);
-  Bakhtiyarpur (senior wing, VI-XII, 720 students, since 2011);
-  Fatuha (junior wing, Nursery-V, 460 students, since 2016);
-  Patna City (Nursery-X, 540 students, since 2019).
-- Facilities: smart classrooms, science laboratories, library, GPS-enabled
-  school buses.
-- Results 2025: 100% pass rate in Class X and XII for eleven consecutive
-  years; 62% of students scored above 90%; 28 merit admissions.
-- Principal: Dr. Anjali Mehra, Ph.D. Education (Patna University), 22 years
-  in education, 9 as Principal.
-- Admissions for 2025-26 are open. Office hours Monday to Saturday,
-  8:00 AM to 4:00 PM.
-- Phone +91 7544000044. Email info@tridentpublicschool.com.
+- Board: ICSE.
+- Kindergarten section: Nursery, LKG and UKG.
+- Classes 9th to 12th.
+- Entrance preparation: IIT-JEE, NEET and NDA, plus foundation courses.
+- Experienced faculty, mentorship for students, regular tests, and an
+  emphasis on discipline and values.
+- Hostel facilities and a mess/canteen for students who stay.
+- Students have been selected in IIT, NIT, SSC and Uttar Pradesh state
+  examinations.
+- Registrations for the new session are open.
+- Three branches, all in Kanpur:
+    Main branch, Ratanlal Nagar: 540-A, Ratanlal Nagar Main Road,
+      Neemeshwar MahaMandir Society, Near Petrol Pump, Ratan Lal Nagar,
+      Kanpur, UP 208022.
+    Govind Nagar: 98/4, Block-10, Near Nandlal Chauraha, Govind Nagar,
+      Kanpur, UP 208006.
+    Meharban Singh Purva: C7GM+9C, Meharavan Singh Purva, Meharban Singh
+      Ka Purva, Durjanpur, Uttar Pradesh 209305.
+- Phone: +91 87388 85544, +91 79053 84057, +91 91513 15203.
+- WhatsApp: +91 95823 05719.
+- Email: radhakrishnagurukulam@gmail.com.
 
 How to answer:
 - Be warm, brief and practical. Two to four sentences is usually right.
-- You are talking mostly to parents. Avoid jargon.
-- For fees, exact cut-off dates, seat availability, transfer certificates or
-  anything about a specific child, say you do not have that detail and give
-  the office phone number and hours.
-- Never invent fees, dates, marks, staff names or policies. If you are not
-  sure, say so and point to the office.
+- You are talking mostly to parents and students. Avoid jargon.
+- You do not know which classes or programmes each individual branch
+  offers, student or teacher counts, founding years, office hours, exam
+  results, or fees. If asked, say you do not have that detail and give
+  the phone numbers or WhatsApp.
+- Never invent fees, dates, marks, staff names or policies. If you are
+  not sure, say so and point to the phone numbers or WhatsApp.
 - Answer in the language the parent writes in (English or Hindi).
-- You only discuss this school and its admissions. Politely decline anything
-  unrelated.
+- You only discuss this school and its admissions. Politely decline
+  anything unrelated.
 `.trim();
 
 function rateLimited(ip) {
@@ -92,7 +101,7 @@ export default async function handler(req, res) {
   }
 
   if (!process.env.AICREDITS_API_KEY) {
-    console.error('[tps-chat] AICREDITS_API_KEY is not set');
+    console.error('[rkg-chat] AICREDITS_API_KEY is not set');
     return res.status(500).json({ error: 'The chat service is not configured yet.' });
   }
 
@@ -161,9 +170,9 @@ export default async function handler(req, res) {
     if (!upstream.ok) {
       // Log the provider's message for us; never show it to the visitor,
       // since upstream errors can echo back key or account details.
-      console.error(`[tps-chat] provider ${upstream.status}: ${text.slice(0, 500)}`);
+      console.error(`[rkg-chat] provider ${upstream.status}: ${text.slice(0, 500)}`);
       return res.status(502).json({
-        error: 'The assistant is unavailable right now. Please call +91 7544000044.',
+        error: 'The assistant is unavailable right now. Please call +91 87388 85544.',
       });
     }
 
@@ -171,7 +180,7 @@ export default async function handler(req, res) {
     try {
       reply = JSON.parse(text)?.choices?.[0]?.message?.content ?? '';
     } catch {
-      console.error('[tps-chat] unparseable provider response');
+      console.error('[rkg-chat] unparseable provider response');
     }
 
     if (!reply.trim()) {
@@ -181,10 +190,10 @@ export default async function handler(req, res) {
     return res.status(200).json({ reply });
   } catch (err) {
     const timedOut = err?.name === 'AbortError';
-    console.error('[tps-chat]', timedOut ? 'upstream timeout' : err);
+    console.error('[rkg-chat]', timedOut ? 'upstream timeout' : err);
     return res.status(502).json({
       error: timedOut
-        ? 'That took too long. Please try again, or call +91 7544000044.'
+        ? 'That took too long. Please try again, or call +91 87388 85544.'
         : 'Could not reach the assistant. Please try again.',
     });
   } finally {
