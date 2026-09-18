@@ -2,7 +2,8 @@
    Trident Public School — interactions
    1. Hero slider (auto-advance, arrows, dots)
    2. Mobile nav + accordion submenus
-   3. Newsletter form feedback
+   3. Podium rise + scroll reveal
+   4. Newsletter form feedback
    ------------------------------------------------------------ */
 
 (function () {
@@ -149,7 +150,53 @@
     }
   }
 
-  /* ---------- 4. NEWSLETTER ---------- */
+  /* ---------- 4. SCROLL REVEAL ---------- */
+  // Cards drop into place the first time their section is reached.
+  // Items in the same row are staggered so the row lands as a wave
+  // rather than all at once.
+  var REVEAL_GROUPS = [
+    '.feature-card .feat',
+    '.acad-card',
+    '.fac-card',
+    '.branch-card',
+    '.blog-card',
+    '.gal-strip figure',
+    '.results-stats > div'
+  ];
+
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-shown');
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    REVEAL_GROUPS.forEach(function (selector) {
+      var items = [].slice.call(document.querySelectorAll(selector));
+
+      items.forEach(function (el, i) {
+        // Leave anything already on screen alone — collapsing it now
+        // would make visible content jump on load.
+        if (el.getBoundingClientRect().top < window.innerHeight) return;
+
+        el.style.setProperty('--d', (i % 4) * 90 + 'ms');
+        el.classList.add('reveal');
+        revealObserver.observe(el);
+      });
+    });
+
+    // Safety net: never leave a card stuck invisible because an observer
+    // did not fire (odd viewports, restored scroll positions, older bugs).
+    setTimeout(function () {
+      [].forEach.call(document.querySelectorAll('.reveal:not(.is-shown)'), function (el) {
+        el.classList.add('is-shown');
+      });
+    }, 8000);
+  }
+
+  /* ---------- 5. NEWSLETTER ---------- */
   var form = document.querySelector('.news-form');
   var msg  = document.querySelector('.news-msg');
 

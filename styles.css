@@ -495,6 +495,25 @@ a{color:inherit}
 .legal a{text-decoration:none}
 .legal a:hover{color:var(--gold)}
 
+.credit a{color:var(--gold);text-decoration:none;font-weight:600}
+.credit a:hover,.credit a:focus-visible{text-decoration:underline}
+
+/* ============================================================
+   SCROLL REVEAL
+   Cards drop into place the first time their section is reached.
+   The collapsed start state is applied by JS (.reveal), and only
+   to things below the fold, so nothing is ever parked invisible.
+   ============================================================ */
+/* The collapsed state is scoped to :not(.is-shown) so that once a card
+   has landed it carries no transform of its own — otherwise this rule
+   would sit on top of the :hover lifts defined further down. */
+.reveal:not(.is-shown){opacity:0;transform:translateY(26px)}
+
+.reveal.is-shown{
+  transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1);
+  transition-delay:var(--d,0ms);
+}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
@@ -813,7 +832,7 @@ a{color:inherit}
 }
 
 .results-stats{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
   margin:clamp(28px,4vw,44px) 0 0;padding-top:34px;
   border-top:1px solid rgba(255,255,255,.16);text-align:center;
 }
@@ -862,9 +881,17 @@ a{color:inherit}
 
 .branch-addr{
   display:flex;align-items:flex-start;gap:6px;
-  font-size:.78rem;color:var(--ink-soft);margin-bottom:1em;
+  font-size:.78rem;color:var(--ink-soft);margin-bottom:.45em;
 }
 .branch-addr .i{margin-top:3px}
+
+.branch-tel{
+  display:flex;align-items:flex-start;gap:6px;
+  font-size:.78rem;color:var(--ink-soft);margin:0 0 1em;
+}
+.branch-tel .i{margin-top:3px}
+.branch-tel a{color:var(--green-800);font-weight:600;text-decoration:none}
+.branch-tel a:hover,.branch-tel a:focus-visible{text-decoration:underline}
 
 .branch-meta{
   display:grid;grid-template-columns:repeat(3,auto);justify-content:space-between;
@@ -948,7 +975,7 @@ a{color:inherit}
 
 @media (max-width:760px){
   .principal-cred{grid-template-columns:1fr;gap:16px}
-  .results-stats{grid-template-columns:repeat(2,1fr);gap:26px 16px}
+  .results-stats{grid-template-columns:repeat(3,1fr);gap:26px 12px}
   .pod-avatar{width:56px;height:56px;padding:2px;margin-bottom:8px}
   .pod-1 .pod-avatar{width:72px;height:72px;padding:3px;box-shadow:0 0 0 4px rgba(212,165,55,.16)}
   .pod-crown{width:24px;height:24px;top:-19px}
