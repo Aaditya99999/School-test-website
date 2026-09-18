@@ -276,15 +276,37 @@ a{color:inherit}
 }
 
 .feat{
-  display:flex;align-items:flex-start;gap:12px;
-  padding:26px 22px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:13px;
+  padding:30px 18px 28px;
   border-right:1px solid var(--line);
 }
 .feat:last-child{border-right:0}
 
-.feat-i{width:30px;height:30px;fill:var(--green-800);flex:0 0 auto;margin-top:2px}
-.feat strong{display:block;font-size:.88rem;font-weight:600;color:var(--green-800);margin-bottom:3px}
-.feat span{display:block;font-size:.78rem;color:var(--ink-soft);line-height:1.45}
+/* Each feature wears the school crest as an enamel badge: the same
+   pointed shield as the header mark, in the same green and gold. */
+.feat-badge{
+  position:relative;flex:0 0 auto;
+  width:50px;height:58px;
+  background:var(--gold);
+  clip-path:polygon(0 0,100% 0,100% 62%,50% 100%,0 62%);
+  display:grid;place-items:center;
+}
+.feat-badge::before{
+  content:"";position:absolute;inset:2px;
+  background:var(--green-800);
+  clip-path:polygon(0 0,100% 0,100% 62%,50% 100%,0 62%);
+}
+
+.feat-i{
+  position:relative;width:24px;height:24px;
+  fill:var(--gold);margin-top:-6px;
+}
+
+.feat strong{
+  display:block;font-family:var(--ff-display);
+  font-size:.95rem;font-weight:600;color:var(--green-800);margin-bottom:4px;
+}
+.feat span{display:block;font-size:.76rem;color:var(--ink-soft);line-height:1.5}
 
 /* ============================================================
    SECTIONS
@@ -836,11 +858,36 @@ a{color:inherit}
   to{transform:scaleY(1);opacity:1}
 }
 
-.results-stats{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+/* The three figures sit at the corners of an inverted triangle, with a
+   gold hairline drawn through them. The polygon is stretched to the
+   block and its stroke held at 1px, so the shape tracks the layout at
+   any width; each figure carries the band's own green, which breaks the
+   line behind it rather than letting it run through the type. */
+.results-tri{
+  position:relative;
   margin:clamp(28px,4vw,44px) 0 0;padding-top:34px;
-  border-top:1px solid rgba(255,255,255,.16);text-align:center;
+  border-top:1px solid rgba(255,255,255,.16);
 }
+
+.tri-line{
+  position:absolute;left:0;right:0;top:34px;bottom:0;
+  width:100%;height:calc(100% - 34px);
+  color:rgba(212,165,55,.5);
+  pointer-events:none;
+}
+
+.results-stats{
+  position:relative;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:26px 20px;margin:0;padding:0;text-align:center;
+}
+
+.results-stats > div{
+  background:var(--green-800);
+  padding:6px 12px;
+  justify-self:center;max-width:250px;
+}
+.results-stats > div:last-child{grid-column:1 / -1;max-width:220px}
 .results-stats dt{
   font-family:var(--ff-display);font-weight:700;
   font-size:clamp(1.5rem,3vw,2.1rem);color:var(--gold);
@@ -980,7 +1027,9 @@ a{color:inherit}
 
 @media (max-width:760px){
   .principal-cred{grid-template-columns:1fr;gap:16px}
-  .results-stats{grid-template-columns:repeat(3,1fr);gap:26px 14px}
+  .results-stats{gap:22px 12px}
+  .results-stats > div{max-width:190px;padding:6px 8px}
+  .results-stats > div:last-child{max-width:190px}
   .results-stats dd{font-size:.74rem}
   .pod-avatar{width:56px;height:56px;padding:2px;margin-bottom:8px}
   .pod-1 .pod-avatar{width:72px;height:72px;padding:3px;box-shadow:0 0 0 4px rgba(212,165,55,.16)}
@@ -1003,19 +1052,21 @@ a{color:inherit}
 @media (max-width:560px){
   .branch-grid,.blog-grid{grid-template-columns:1fr}
 
-  /* Two columns leave each feature about 150px for an icon plus two
-     lines of text. Stack them into full-width rows instead, divided
-     top to bottom rather than left to right. */
+  /* Five centred badges stacked would run very tall on a phone. Lay the
+     badge beside its text instead, one feature per row. */
   .feature-card{grid-template-columns:1fr}
   .feat,
   .feat:nth-child(1),.feat:nth-child(2),.feat:nth-child(3),
   .feat:nth-child(2n),.feat:last-child{
     grid-column:auto;
-    padding:16px 18px;
+    flex-direction:row;align-items:center;text-align:left;gap:14px;
+    padding:14px 18px;
     border-right:0;
     border-bottom:1px solid var(--line);
   }
   .feat:last-child{border-bottom:0}
+  .feat-badge{width:38px;height:44px}
+  .feat-i{width:18px;height:18px;margin-top:-5px}
 
   /* The band's four pieces wrap into a ragged left-aligned stack.
      Centre them and let the button span the width. */
@@ -1030,10 +1081,12 @@ a{color:inherit}
 
 /* Must stay after the 760px block above, which also sets results-stats. */
 @media (max-width:480px){
-  /* Three stats abreast leaves each label about 100px wide on a narrow
-     phone, breaking "Pass rate, Class X & XII" over three lines.
-     One per row reads cleanly instead. */
-  .results-stats{grid-template-columns:1fr;gap:18px;text-align:left}
+  /* Too little width to draw the triangle without squeezing the labels
+     into three lines each. Drop the shape and stack the figures. */
+  .tri-line{display:none}
+  .results-stats{grid-template-columns:1fr;gap:16px}
+  .results-stats > div,
+  .results-stats > div:last-child{max-width:none;padding:0}
   .results-stats dd{font-size:.8rem}
 
   /* Three nowrap columns get about 81px each on a 320px screen, which
