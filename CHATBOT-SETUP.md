@@ -140,9 +140,9 @@ and change `ENDPOINT` in `chatbot.js` back to `'chat-proxy.php'`.
 ```bash
 git init
 git add .
-git commit -m "Radha Krishna Gurukulam website"
+git commit -m "Radha Krishna Memorial Education Centre website"
 git branch -M main
-git remote add origin https://github.com/<you>/radha-krishna-gurukulam.git
+git remote add origin https://github.com/<you>/radha-krishna-memorial-education-centre.git
 git push -u origin main
 ```
 

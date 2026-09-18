@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------
-   Radha Krishna Gurukulam — chat assistant
+   Radha Krishna Memorial Education Centre — chat assistant
    ------------------------------------------------------------
    The browser never holds the API key. It posts to chat-proxy.php
    on this same domain, and that file talks to the AI provider.

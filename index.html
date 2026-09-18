@@ -3,12 +3,1518 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Radha Krishna Gurukulam, Kanpur</title>
-<meta name="description" content="Radha Krishna Gurukulam, Kanpur — ICSE schooling from kindergarten through class 12, with preparation for IIT-JEE, NEET and NDA, plus hostel and mess facilities. Branches in Ratanlal Nagar, Govind Nagar and Meharban Singh Purva.">
+<title>Radha Krishna Memorial Education Centre, Kanpur</title>
+<meta name="description" content="Radha Krishna Memorial Education Centre, Kanpur — ICSE, English-medium, co-educational schooling from kindergarten through class 12, with preparation for IIT-JEE, NEET and NDA, plus hostel and mess facilities. Branches in Ratanlal Nagar, Govind Nagar and Meharban Singh Purva.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Spectral:wght@500;600;700&display=swap">
-<link rel="stylesheet" href="styles.css">
+<style>
+/* ============================================================
+   Radha Krishna Memorial Education Centre
+   Palette: forest green + gold on warm off-white
+   ============================================================ */
+
+:root{
+  --green-900:#0b3c24;   /* footer, admission band */
+  --green-800:#0f4d2e;   /* headings, topbar, crest */
+  --green-700:#14603a;
+  --green-050:#eef4ef;
+  --gold:#d4a537;
+  --gold-600:#c1901f;
+  --ink:#1f2a26;
+  --ink-soft:#5d6b64;
+  --ground:#fdfcf9;
+  --panel:#ffffff;
+  --line:#e4e6e0;
+  --wrap:1200px;
+  --shadow-sm:0 2px 10px rgba(15,77,46,.06);
+  --shadow:0 16px 40px -22px rgba(15,77,46,.32);
+  --ff-display:"Spectral","Iowan Old Style",Georgia,serif;
+  --ff-body:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--ff-body);
+  font-size:15px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+img,svg{display:block;max-width:100%}
+
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:20px}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:200;
+  background:var(--gold);color:var(--green-900);
+  padding:.7em 1.2em;font-weight:600;border-radius:0 0 6px 0;
+}
+.skip:focus{left:0}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+h1,h2,h3,h4{font-family:var(--ff-display);font-weight:600;line-height:1.2;margin:0 0 .5em;text-wrap:balance}
+h2{font-size:clamp(1.55rem,2.8vw,2.1rem);color:var(--green-800)}
+h3{font-size:1.02rem}
+h4{font-family:var(--ff-body);font-size:.8rem;letter-spacing:.11em;text-transform:uppercase}
+
+p{margin:0 0 1em}
+a{color:inherit}
+
+.eyebrow{
+  font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-600);margin:0 0 .6em;
+}
+
+.serif{font-family:var(--ff-display)}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.6em;
+  padding:.8em 1.5em;border-radius:4px;
+  font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;border:1.5px solid transparent;
+  transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease;
+}
+.btn .arw{transition:transform .18s ease}
+.btn:hover .arw{transform:translateX(4px)}
+
+.btn-gold{background:var(--gold);color:var(--green-900);border-color:var(--gold)}
+.btn-gold:hover{background:var(--gold-600);border-color:var(--gold-600)}
+
+.btn-green{background:var(--green-800);color:#fff;border-color:var(--green-800)}
+.btn-green:hover{background:var(--green-700);border-color:var(--green-700)}
+
+.btn-ghost{border-color:rgba(255,255,255,.75);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.14);border-color:#fff}
+
+.btn-outline{border-color:var(--green-800);color:var(--green-800);background:transparent}
+.btn-outline:hover{background:var(--green-800);color:#fff}
+
+/* ============================================================
+   TOP UTILITY BAR
+   ============================================================ */
+.topbar{background:var(--green-800);color:rgba(255,255,255,.88);font-size:.78rem}
+
+.topbar-inner{
+  display:flex;align-items:stretch;justify-content:space-between;
+  gap:20px;min-height:38px;
+}
+
+.topbar-contact{
+  display:flex;align-items:center;gap:22px;
+  list-style:none;margin:0;padding:0;flex-wrap:wrap;
+}
+.topbar-contact li{display:flex;align-items:center;gap:7px}
+.topbar-contact a{text-decoration:none}
+.topbar-contact a:hover{color:var(--gold)}
+
+.i{width:13px;height:13px;fill:var(--gold);flex:0 0 auto}
+
+.topbar-links{display:flex;align-items:stretch;gap:0}
+.topbar-links a{
+  display:flex;align-items:center;padding:0 14px;
+  text-decoration:none;transition:color .16s ease;
+}
+.topbar-links a:hover{color:var(--gold)}
+
+.btn-admission{
+  background:var(--gold);color:var(--green-900)!important;
+  font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  padding:0 20px!important;
+}
+.btn-admission:hover{background:var(--gold-600)}
+
+/* ============================================================
+   MAIN HEADER
+   ============================================================ */
+.site-header{
+  position:sticky;top:0;z-index:70;
+  background:var(--panel);
+  border-bottom:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+}
+
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  min-height:80px;position:relative;
+}
+
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--green-800)}
+.crest{width:44px;height:51px;flex:0 0 auto}
+
+.brand-text{display:flex;flex-direction:column;line-height:1}
+.brand-text strong{
+  font-family:var(--ff-display);font-size:1.6rem;font-weight:700;
+  letter-spacing:.02em;color:var(--green-800);
+}
+/* "MEMORIAL EDUCATION CENTRE" is far longer than a one-word mark, so
+   the wide tracking and larger size a short word could take need
+   pulling in here -- both are tightened further at narrower widths
+   below, where the header has less room either side of the logo. */
+.brand-text small{
+  font-size:.62rem;font-weight:600;letter-spacing:.05em;
+  color:var(--green-700);margin-top:4px;line-height:1.3;
+  max-width:220px;
+}
+
+/* ---------- nav ---------- */
+.mainnav{display:flex;align-items:center;gap:2px}
+
+.mainnav > a,
+.has-sub > button{
+  display:flex;align-items:center;gap:4px;
+  padding:.7em .8em;
+  font-family:var(--ff-body);font-size:.8rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink);background:none;border:0;cursor:pointer;
+  text-decoration:none;position:relative;
+  transition:color .16s ease;
+}
+.mainnav > a:hover,.has-sub > button:hover{color:var(--green-800)}
+
+.mainnav > a.is-current{color:var(--green-800)}
+.has-sub.is-current > button{color:var(--green-800)}
+.mainnav > a.is-current::after{
+  content:"";position:absolute;left:.8em;right:.8em;bottom:.2em;
+  height:2px;background:var(--green-800);
+}
+
+.caret{width:14px;height:14px;fill:currentColor}
+
+.has-sub{position:relative}
+.submenu{
+  position:absolute;left:0;top:100%;z-index:20;
+  min-width:210px;padding:8px 0;
+  background:var(--panel);border:1px solid var(--line);
+  border-top:2px solid var(--gold);
+  box-shadow:var(--shadow);
+  display:none;
+}
+.has-sub:hover .submenu,
+.has-sub:focus-within .submenu{display:block}
+
+.submenu a{
+  display:block;padding:.6em 1.1em;
+  font-size:.85rem;color:var(--ink-soft);text-decoration:none;
+  transition:background .14s ease,color .14s ease;
+}
+.submenu a:hover{background:var(--green-050);color:var(--green-800)}
+
+.search-btn{
+  margin-left:10px;padding:.5em;
+  background:none;border:0;border-left:1px solid var(--line);
+  padding-left:16px;cursor:pointer;
+}
+.search-btn svg{width:18px;height:18px;fill:var(--ink)}
+.search-btn:hover svg{fill:var(--green-800)}
+
+.nav-toggle{
+  display:none;width:44px;height:40px;padding:10px 9px;
+  background:var(--green-800);border:0;border-radius:4px;cursor:pointer;
+}
+.nav-toggle span{display:block;height:2px;background:#fff;border-radius:2px;margin:3px 0}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  min-height:clamp(440px,60vh,600px);
+  display:flex;align-items:center;
+  overflow:hidden;color:#fff;
+}
+
+.slides{position:absolute;inset:0}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease}
+.slide.is-active{opacity:1}
+.slide-img{width:100%;height:100%;object-fit:cover}
+
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(100deg,rgba(11,40,26,.88) 0%,rgba(11,40,26,.6) 45%,rgba(11,40,26,.2) 100%);
+}
+
+.hero-content{position:relative;z-index:3;padding-block:60px}
+
+.hero-content h1{
+  font-size:clamp(2rem,4.6vw,3.3rem);
+  font-weight:700;margin-bottom:.45em;color:#fff;
+}
+.gold{color:var(--gold)}
+
+.hero-content p{
+  max-width:44ch;font-size:.98rem;
+  color:rgba(255,255,255,.88);margin-bottom:1.9em;
+}
+
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+
+.hero-arrow{
+  position:absolute;z-index:4;top:50%;transform:translateY(-50%);
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.55);
+  display:grid;place-items:center;cursor:pointer;
+  transition:background .18s ease;
+}
+.hero-arrow:hover{background:rgba(255,255,255,.3)}
+.hero-arrow svg{width:22px;height:22px;fill:#fff}
+.hero-prev{left:18px}
+.hero-next{right:18px}
+
+.hero-dots{
+  position:absolute;z-index:4;left:0;right:0;bottom:78px;
+  display:flex;justify-content:center;gap:9px;
+}
+.dot{
+  width:9px;height:9px;border-radius:50%;border:0;padding:0;cursor:pointer;
+  background:rgba(255,255,255,.45);transition:background .2s ease,transform .2s ease;
+}
+.dot.is-active{background:var(--gold);transform:scale(1.25)}
+
+/* ============================================================
+   FEATURE STRIP (overlaps the hero)
+   ============================================================ */
+.feature-strip{position:relative;z-index:5;margin-top:-58px}
+
+.feature-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  display:grid;grid-template-columns:repeat(5,1fr);
+}
+
+.feat{
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:13px;
+  padding:30px 18px 28px;
+  border-right:1px solid var(--line);
+}
+.feat:last-child{border-right:0}
+
+/* Each feature wears the school crest as an enamel badge: the same
+   pointed shield as the header mark, in the same green and gold. */
+.feat-badge{
+  position:relative;flex:0 0 auto;
+  width:50px;height:58px;
+  background:var(--gold);
+  clip-path:polygon(0 0,100% 0,100% 62%,50% 100%,0 62%);
+  display:grid;place-items:center;
+}
+.feat-badge::before{
+  content:"";position:absolute;inset:2px;
+  background:var(--green-800);
+  clip-path:polygon(0 0,100% 0,100% 62%,50% 100%,0 62%);
+}
+
+/* Pinned rather than grid-centred: the shield's point makes its
+   geometric middle sit visibly low, so the mark goes at 40% of the
+   height, the middle of the square part of the shield. */
+.feat-i{
+  position:absolute;left:50%;top:40%;
+  width:22px;height:22px;
+  transform:translate(-50%,-50%);
+  fill:var(--gold);
+}
+
+.feat strong{
+  display:block;font-family:var(--ff-display);
+  font-size:.95rem;font-weight:600;color:var(--green-800);margin-bottom:4px;
+}
+.feat span{display:block;font-size:.76rem;color:var(--ink-soft);line-height:1.5}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.section{padding-block:clamp(48px,6vw,72px)}
+
+/* ---------- welcome / about ---------- */
+.about-grid{
+  display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:clamp(28px,4.5vw,56px);align-items:center;
+}
+
+.about-img{margin:0;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+
+.about-body h2{font-size:clamp(1.7rem,3.2vw,2.35rem);margin-bottom:.6em}
+.about-body > p{color:var(--ink-soft);max-width:60ch}
+
+.about-stats{
+  display:grid;grid-template-columns:repeat(4,auto);
+  justify-content:start;gap:38px;
+  margin:28px 0;padding:0;
+}
+.about-stats div{text-align:left}
+.about-stats dt{
+  display:flex;align-items:center;gap:5px;
+  font-family:var(--ff-display);font-weight:700;
+  font-size:clamp(1.3rem,2.4vw,1.7rem);color:var(--green-800);
+  line-height:1;margin-bottom:6px;
+  font-variant-numeric:tabular-nums;
+}
+.about-stats dd{margin:0;font-size:.76rem;color:var(--ink-soft)}
+.ratio-i{width:18px;height:18px;fill:var(--green-800)}
+
+/* ---------- academics ---------- */
+.academics{background:var(--ground)}
+
+.academics-grid{
+  display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);
+  gap:clamp(28px,4vw,48px);align-items:center;
+}
+
+.acad-cards{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px;
+}
+
+.acad-card{
+  background:var(--panel);border:1px solid var(--line);
+  padding:24px 16px;text-align:center;
+  transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+.acad-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:var(--shadow)}
+
+.acad-i{width:30px;height:30px;fill:var(--green-800);margin:0 auto 14px}
+.acad-card h3{font-size:.92rem;color:var(--green-800);margin-bottom:.6em}
+.acad-card p{font-size:.78rem;color:var(--ink-soft);line-height:1.55;margin:0}
+
+/* holistic circle */
+.holistic{display:flex;flex-direction:column;align-items:center}
+
+.holistic-photo{
+  width:min(100%,290px);aspect-ratio:1;
+  border-radius:50%;overflow:hidden;
+  border:5px solid var(--gold);
+}
+
+.holistic-label{
+  background:var(--green-800);color:#fff;
+  width:min(100%,330px);
+  margin-top:-34px;padding:18px 24px;text-align:center;
+  position:relative;z-index:2;
+}
+.holistic-label strong{
+  display:block;font-family:var(--ff-display);font-style:italic;
+  font-size:1.35rem;font-weight:600;margin-bottom:2px;
+}
+.holistic-label span{font-size:.82rem;color:rgba(255,255,255,.8)}
+
+/* ---------- facilities ---------- */
+.fac-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:22px;
+}
+
+.fac-card{
+  background:var(--panel);border:1px solid var(--line);
+  display:flex;flex-direction:column;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.fac-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+
+.fac-img{position:relative}
+
+.fac-badge{
+  position:absolute;left:16px;bottom:-22px;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--green-800);border:3px solid var(--panel);
+  display:grid;place-items:center;
+}
+.fac-badge svg{width:20px;height:20px;fill:var(--gold)}
+
+.fac-body{padding:34px 18px 22px}
+.fac-body h3{font-size:.95rem;color:var(--green-800);margin-bottom:.5em}
+.fac-body p{font-size:.79rem;color:var(--ink-soft);line-height:1.55;margin:0}
+
+.center-btn{display:flex;justify-content:center;margin-top:34px}
+
+/* ---------- gallery ---------- */
+.gallery-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;
+}
+.gallery-head h2{margin-bottom:0}
+
+.gal-strip{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:24px;
+}
+.gal-strip figure{margin:0;overflow:hidden;border:1px solid var(--line)}
+
+/* ============================================================
+   ADMISSION BAND
+   ============================================================ */
+.adm-band{
+  background:var(--green-800);color:#fff;
+  margin-block:clamp(10px,3vw,26px);
+}
+.adm-band .wrap{padding-block:0}
+
+/* Compound with .adm-band so this beats .adm-band .wrap{padding-block:0}
+   on specificity -- a bare .adm-inner rule would lose to it regardless
+   of source order, silently zeroing this band's vertical padding. */
+.adm-band .adm-inner{
+  display:flex;align-items:center;gap:28px;flex-wrap:wrap;
+  padding-block:32px;
+}
+
+.adm-cap{width:46px;height:46px;fill:var(--gold);flex:0 0 auto}
+
+.adm-title{
+  font-family:var(--ff-display);font-size:clamp(1.3rem,2.6vw,1.9rem);
+  font-weight:700;color:var(--gold);margin:0;flex:0 1 auto;
+  padding-right:28px;border-right:1px solid rgba(255,255,255,.3);
+}
+
+.adm-copy{margin:0;color:rgba(255,255,255,.9);font-size:.95rem;flex:1 1 200px}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer{background:var(--green-900);color:rgba(255,255,255,.72);font-size:.82rem}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1.3fr;
+  gap:34px;padding-block:52px;
+}
+
+.site-footer h4{color:#fff;margin-bottom:1.3em}
+
+.brand-footer{margin-bottom:16px}
+.brand-footer .brand-text strong{color:#fff;font-size:1.3rem}
+.brand-footer .brand-text small{color:rgba(255,255,255,.7);font-size:.64rem}
+.brand-footer .crest{width:36px;height:42px}
+
+.f-brand p{line-height:1.65;margin-bottom:16px}
+
+.socials{display:flex;gap:9px}
+.socials a{
+  width:30px;height:30px;border-radius:50%;
+  background:rgba(255,255,255,.1);
+  display:grid;place-items:center;
+  transition:background .18s ease;
+}
+.socials a:hover{background:var(--gold)}
+.socials svg{width:14px;height:14px;fill:#fff}
+.socials a:hover svg{fill:var(--green-900)}
+
+.site-footer nav{display:flex;flex-direction:column;gap:.55em}
+.site-footer nav a{
+  text-decoration:none;color:rgba(255,255,255,.72);
+  width:fit-content;transition:color .16s ease;
+}
+.site-footer nav a:hover{color:var(--gold)}
+
+.f-contact ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.85em}
+.f-contact li{display:flex;align-items:flex-start;gap:9px;line-height:1.55}
+.f-contact a{text-decoration:none}
+.f-contact a:hover{color:var(--gold)}
+
+.f-news p{line-height:1.6;margin-bottom:14px}
+
+.news-form{display:flex;background:#fff;border-radius:3px;overflow:hidden;max-width:290px}
+.news-form input{
+  flex:1;min-width:0;border:0;padding:.75em .9em;
+  font-family:inherit;font-size:.82rem;color:var(--ink);
+}
+.news-form input:focus{outline:2px solid var(--gold);outline-offset:-2px}
+.news-form button{
+  border:0;background:var(--gold);padding:0 .95em;cursor:pointer;
+  transition:background .18s ease;
+}
+.news-form button:hover{background:var(--gold-600)}
+.news-form svg{width:16px;height:16px;fill:var(--green-900)}
+
+.news-msg{margin:.7em 0 0;font-size:.78rem;color:var(--gold);min-height:1.2em}
+
+.footer-base{border-top:1px solid rgba(255,255,255,.12)}
+.footer-base-inner{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:16px;flex-wrap:wrap;padding-block:16px;
+  font-size:.76rem;color:rgba(255,255,255,.55);
+}
+.legal a{text-decoration:none}
+.legal a:hover{color:var(--gold)}
+
+.credit a{color:var(--gold);text-decoration:none;font-weight:600}
+.credit a:hover,.credit a:focus-visible{text-decoration:underline}
+
+/* ============================================================
+   SCROLL REVEAL
+   Cards drop into place the first time their section is reached.
+   The collapsed start state is applied by JS (.reveal), and only
+   to things below the fold, so nothing is ever parked invisible.
+   ============================================================ */
+/* The collapsed state is scoped to :not(.is-shown) so that once a card
+   has landed it carries no transform of its own — otherwise this rule
+   would sit on top of the :hover lifts defined further down. */
+.reveal:not(.is-shown){opacity:0;transform:translateY(26px)}
+
+/* Two-column blocks come in from their own side instead, so the
+   picture and the text meet in the middle. */
+.reveal.reveal-l:not(.is-shown){transform:translateX(-30px)}
+.reveal.reveal-r:not(.is-shown){transform:translateX(30px)}
+
+.reveal.is-shown{
+  transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1);
+  transition-delay:var(--d,0ms);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1100px){
+  .feature-card{grid-template-columns:repeat(3,1fr)}
+  .feat:nth-child(3){border-right:0}
+  .feat:nth-child(1),.feat:nth-child(2),.feat:nth-child(3){border-bottom:1px solid var(--line)}
+  .fac-grid{grid-template-columns:repeat(2,1fr)}
+  .acad-cards{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:28px}
+}
+
+@media (max-width:980px){
+  .nav-toggle{display:block}
+
+  /* Less room either side of the logo once the hamburger takes over. */
+  .brand-text strong{font-size:1.25rem}
+  .brand-text small{font-size:.56rem;max-width:170px}
+
+  .mainnav{
+    position:absolute;left:0;right:0;top:100%;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--panel);border-bottom:1px solid var(--line);
+    box-shadow:var(--shadow);
+    padding:8px 20px 18px;display:none;
+    max-height:70vh;overflow-y:auto;
+  }
+  .mainnav.is-open{display:flex}
+
+  .mainnav > a,.has-sub > button{
+    width:100%;padding:.85em .2em;border-bottom:1px solid var(--line);
+  }
+  .has-sub > button{justify-content:space-between}
+  .mainnav > a.is-current::after{display:none}
+
+  .submenu{
+    position:static;display:none;box-shadow:none;border:0;border-top:0;
+    padding:0 0 8px .9em;min-width:0;
+  }
+  .has-sub:hover .submenu{display:none}
+  .has-sub.is-open .submenu{display:block}
+
+  .search-btn{border-left:0;padding-left:.2em;margin-left:0;align-self:flex-start;margin-top:10px}
+
+  .about-grid,.academics-grid{grid-template-columns:1fr}
+  .holistic{margin-top:8px}
+  .gal-strip{grid-template-columns:repeat(3,1fr)}
+  .adm-title{border-right:0;padding-right:0}
+}
+
+@media (max-width:760px){
+  .topbar-inner{flex-direction:column;align-items:stretch;gap:0}
+  .topbar-contact{justify-content:center;padding-block:8px;gap:16px;font-size:.74rem}
+  .topbar-links{justify-content:center;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12)}
+  .topbar-links a{padding:.6em 12px}
+  .hide-sm{display:none}
+
+  .hero-arrow{display:none}
+  .hero-dots{bottom:22px}
+  .feature-strip{margin-top:0}
+  .feature-card{grid-template-columns:1fr 1fr}
+  .feat{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .feat:nth-child(2n){border-right:0}
+  .feat:last-child{border-bottom:0;grid-column:1 / -1}
+
+  .about-stats{grid-template-columns:repeat(2,1fr);gap:22px}
+  .gal-strip{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .f-brand{grid-column:1 / -1}
+}
+
+@media (max-width:480px){
+  .acad-cards,.fac-grid{grid-template-columns:1fr}
+  .gal-strip{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .hero-actions .btn{flex:1 1 100%;justify-content:center}
+  .gallery-head{align-items:flex-start}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+}
+
+/* ============================================================
+   PHOTO HANDLING — real images replace the placeholder SVGs
+   ============================================================ */
+.slide-img{width:100%;height:100%;object-fit:cover}
+
+.about-img img{aspect-ratio:20/15;width:100%;height:auto;object-fit:cover}
+.holistic-photo img{width:100%;height:100%;object-fit:cover}
+.fac-img img{aspect-ratio:10/7;width:100%;height:auto;object-fit:cover}
+.gal-strip img{aspect-ratio:4/3;width:100%;height:auto;object-fit:cover;transition:transform .35s ease}
+.gal-strip figure:hover img{transform:scale(1.06)}
+
+/* ============================================================
+   PRINCIPAL MESSAGE
+   ============================================================ */
+.principal{background:var(--green-050)}
+
+.principal-grid{
+  display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);
+  gap:clamp(28px,4.5vw,60px);align-items:center;
+}
+
+.principal-figure{
+  position:relative;margin:0;
+  border:1px solid var(--line);box-shadow:var(--shadow);
+  background:var(--panel);
+}
+.principal-figure img{aspect-ratio:4/5;width:100%;height:auto;object-fit:cover}
+
+.principal-figure figcaption{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:18px 20px;
+  background:linear-gradient(to top,rgba(11,60,36,.96),rgba(11,60,36,0));
+  color:#fff;display:flex;flex-direction:column;
+}
+.principal-figure figcaption strong{font-family:var(--ff-display);font-size:1.12rem;font-weight:600}
+.principal-figure figcaption span{font-size:.78rem;color:var(--gold);letter-spacing:.09em;text-transform:uppercase;margin-top:2px}
+
+.principal-body h2{font-size:clamp(1.5rem,2.9vw,2.1rem);margin-bottom:.7em;max-width:22ch}
+.principal-body > p{color:var(--ink-soft);max-width:64ch}
+
+/* pull quote */
+.pq{
+  position:relative;margin:0 0 1.4em;padding:0 0 0 26px;
+  border-left:3px solid var(--gold);
+}
+.pq p{
+  font-family:var(--ff-display);font-style:italic;
+  font-size:clamp(1.02rem,1.7vw,1.2rem);line-height:1.55;
+  color:var(--green-800);margin:0;
+}
+.quote-mark{width:20px;height:20px;fill:var(--gold);opacity:.5;margin-bottom:8px}
+
+/* credentials row */
+.principal-cred{
+  display:grid;grid-template-columns:repeat(3,auto);justify-content:start;
+  gap:30px;margin:26px 0;padding-top:20px;
+  border-top:1px solid var(--line);
+}
+.principal-cred dt{
+  font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:5px;
+}
+.principal-cred dd{
+  margin:0;font-size:.86rem;font-weight:600;color:var(--green-800);line-height:1.4;
+}
+
+/* ============================================================
+   RESULTS / PODIUM
+   ============================================================ */
+.results{background:var(--green-800);color:#fff}
+.eyebrow-light{color:var(--gold)}
+.on-dark{color:#fff}
+
+.results-head{
+  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+  gap:28px;align-items:end;margin-bottom:clamp(34px,5vw,56px);
+}
+.results-head h2{font-size:clamp(1.5rem,2.9vw,2.1rem);margin-bottom:0;max-width:20ch}
+.results-lede{color:rgba(255,255,255,.8);margin:0;max-width:52ch}
+
+.podium{
+  list-style:none;margin:0 auto;padding:0;
+  display:grid;grid-template-columns:1fr 1.16fr 1fr;
+  gap:clamp(6px,1.4vw,16px);align-items:end;
+  max-width:720px;
+  /* the floor the blocks stand on */
+  position:relative;
+}
+.podium::after{
+  content:"";position:absolute;left:-4%;right:-4%;bottom:0;height:1px;
+  background:linear-gradient(90deg,
+    transparent,
+    rgba(212,165,55,.55) 18%,
+    rgba(212,165,55,.55) 82%,
+    transparent);
+}
+
+.pod{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;position:relative;
+}
+
+/* ---------- the person above the block ---------- */
+.pod-person{
+  display:flex;flex-direction:column;align-items:center;
+  padding-bottom:14px;position:relative;
+}
+
+.pod-avatar{
+  position:relative;
+  width:76px;height:76px;border-radius:50%;
+  padding:3px;margin-bottom:11px;
+  background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(255,255,255,.12));
+}
+.pod-face{
+  width:100%;height:100%;border-radius:50%;object-fit:cover;
+  background:var(--green-700);display:block;
+}
+
+/* Generic silhouette used instead of a photo -- see the comment in
+   index.html for why. */
+.pod-icon{
+  width:100%;height:100%;border-radius:50%;
+  background:var(--green-700);display:block;
+  padding:16%;box-sizing:border-box;
+  fill:rgba(255,255,255,.85);
+}
+
+/* rank ring: gold / silver / bronze */
+.pod-1 .pod-avatar{
+  width:104px;height:104px;padding:4px;
+  background:linear-gradient(160deg,#f0cc6e,var(--gold) 45%,#a87c1a);
+  box-shadow:0 0 0 6px rgba(212,165,55,.16), 0 14px 26px -12px rgba(0,0,0,.55);
+}
+.pod-2 .pod-avatar{background:linear-gradient(160deg,#eef2f4,#b7c3c9 55%,#8a979e)}
+.pod-3 .pod-avatar{background:linear-gradient(160deg,#e8bd93,#c98a4b 55%,#8f5c2b)}
+
+.pod-crown{
+  position:absolute;top:-25px;left:50%;transform:translateX(-50%);
+  width:32px;height:32px;
+}
+.pod-crown svg{
+  width:100%;height:100%;fill:var(--gold);
+  filter:drop-shadow(0 2px 5px rgba(0,0,0,.4));
+}
+
+.pod-name{
+  font-size:.86rem;font-weight:600;color:#fff;line-height:1.3;
+  text-wrap:balance;
+}
+.pod-1 .pod-name{font-size:1rem}
+
+.pod-stream{
+  font-size:.7rem;color:rgba(255,255,255,.55);margin-top:3px;
+  letter-spacing:.03em;
+}
+
+/* score as a pill, so it reads as a badge not body text */
+.pod-score{
+  display:inline-flex;align-items:baseline;gap:1px;
+  margin-top:10px;padding:.3em .7em;border-radius:999px;
+  font-family:var(--ff-display);font-weight:700;
+  font-size:1.05rem;line-height:1;
+  color:var(--gold);
+  background:rgba(212,165,55,.12);
+  border:1px solid rgba(212,165,55,.35);
+  font-variant-numeric:tabular-nums;
+}
+.pod-score i{font-style:normal;font-size:.72em;opacity:.8}
+
+.pod-1 .pod-score{
+  font-size:1.3rem;color:var(--green-900);
+  background:var(--gold);border-color:var(--gold);
+  box-shadow:0 8px 18px -8px rgba(212,165,55,.9);
+}
+
+/* ---------- the block ---------- */
+.pod-block{
+  width:100%;position:relative;
+  display:flex;flex-direction:column;
+  transform-origin:bottom center;
+}
+
+/* thin lighter strip along the top = a lit upper face */
+.pod-block-top{
+  height:9px;flex:0 0 auto;
+  border-radius:4px 4px 0 0;
+  background:rgba(255,255,255,.22);
+  border:1px solid rgba(255,255,255,.28);
+  border-bottom:0;
+}
+
+.pod-block-face{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:2px;
+  background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.05));
+  border:1px solid rgba(255,255,255,.2);border-bottom:0;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+.pod-block b{
+  font-family:var(--ff-display);font-weight:700;
+  font-size:1.9rem;color:#fff;line-height:1;
+}
+.pod-block small{
+  font-family:var(--ff-body);font-size:.6rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);
+}
+
+/* heights — first tallest, centred */
+.pod-1 .pod-block{height:158px}
+.pod-2 .pod-block{height:116px}
+.pod-3 .pod-block{height:88px}
+
+/* the winner's block is solid gold */
+.pod-1 .pod-block-top{
+  background:#f0cc6e;border-color:#f0cc6e;height:11px;
+}
+.pod-1 .pod-block-face{
+  background:linear-gradient(180deg,var(--gold),#b8901f);
+  border-color:var(--gold);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45);
+}
+.pod-1 .pod-block b{color:var(--green-900);font-size:2.4rem}
+.pod-1 .pod-block small{color:rgba(11,60,36,.7)}
+
+/* silver + bronze hints on the runner-up blocks */
+.pod-2 .pod-block-top{background:rgba(212,226,232,.5);border-color:rgba(212,226,232,.5)}
+.pod-3 .pod-block-top{background:rgba(224,170,122,.45);border-color:rgba(224,170,122,.45)}
+
+/* Blocks grow up from the floor when scrolled into view.
+   The collapsed start state is applied by JS (.will-rise) only when the
+   podium is below the fold, so it is never parked invisible on load. */
+.podium.will-rise .pod-block{transform:scaleY(.18);opacity:0}
+
+.podium.will-rise.is-in .pod-block{animation:rise .7s cubic-bezier(.22,1,.36,1) forwards}
+.podium.will-rise.is-in .pod-2 .pod-block{animation-delay:.05s}
+.podium.will-rise.is-in .pod-1 .pod-block{animation-delay:.18s}
+.podium.will-rise.is-in .pod-3 .pod-block{animation-delay:.1s}
+
+@keyframes rise{
+  from{transform:scaleY(.18);opacity:0}
+  to{transform:scaleY(1);opacity:1}
+}
+
+/* The three figures sit at the corners of an inverted triangle, with a
+   gold hairline drawn through them. The polygon is stretched to the
+   block and its stroke held at 1px, so the shape tracks the layout at
+   any width; each figure carries the band's own green, which breaks the
+   line behind it rather than letting it run through the type. */
+.results-tri{
+  position:relative;
+  margin:clamp(28px,4vw,44px) 0 0;padding-top:34px;
+  border-top:1px solid rgba(255,255,255,.16);
+}
+
+.tri-line{
+  position:absolute;left:0;right:0;top:34px;bottom:0;
+  width:100%;height:calc(100% - 34px);
+  color:rgba(212,165,55,.5);
+  pointer-events:none;
+}
+
+.results-stats{
+  position:relative;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:26px 20px;margin:0;padding:0;text-align:center;
+}
+
+.results-stats > div{
+  background:var(--green-800);
+  padding:6px 12px;
+  justify-self:center;max-width:250px;
+}
+.results-stats > div:last-child{grid-column:1 / -1;max-width:220px}
+.results-stats dt{
+  font-family:var(--ff-display);font-weight:700;
+  font-size:clamp(1.5rem,3vw,2.1rem);color:var(--gold);
+  line-height:1;margin-bottom:7px;font-variant-numeric:tabular-nums;
+}
+.results-stats dd{margin:0;font-size:.78rem;color:rgba(255,255,255,.72)}
+
+.results .center-btn{margin-top:36px}
+
+/* ============================================================
+   BRANCHES
+   ============================================================ */
+.branches{background:var(--panel)}
+
+.branches-head{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:28px;align-items:end;margin-bottom:28px;
+}
+.branches-head h2{margin-bottom:0}
+.branches-lede{color:var(--ink-soft);margin:0;max-width:48ch}
+
+.branch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+.branch-card{
+  border:1px solid var(--line);background:var(--panel);
+  display:flex;flex-direction:column;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.branch-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--gold)}
+
+.branch-img{position:relative;overflow:hidden}
+.branch-img img{aspect-ratio:3/2;width:100%;height:auto;object-fit:cover}
+
+.branch-tag{
+  position:absolute;left:0;top:14px;
+  background:var(--green-800);color:var(--gold);
+  font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  padding:.45em .85em;
+}
+
+.branch-body{padding:20px 18px 22px;display:flex;flex-direction:column;flex:1}
+.branch-body h3{font-size:1.02rem;color:var(--green-800);margin-bottom:.45em}
+
+.branch-addr{
+  display:flex;align-items:flex-start;gap:6px;
+  font-size:.78rem;color:var(--ink-soft);margin-bottom:.45em;
+}
+.branch-addr .i{margin-top:3px}
+
+.branch-tel{
+  display:flex;align-items:flex-start;gap:6px;
+  font-size:.78rem;color:var(--ink-soft);margin:0 0 1em;
+}
+.branch-tel .i{margin-top:3px}
+.branch-tel a{color:var(--green-800);font-weight:600;text-decoration:none}
+.branch-tel a:hover,.branch-tel a:focus-visible{text-decoration:underline}
+
+.branch-meta{
+  display:grid;grid-template-columns:repeat(3,auto);justify-content:space-between;
+  gap:10px;margin:0 0 1.2em;padding-top:14px;
+  border-top:1px solid var(--line);
+}
+.branch-meta dt{
+  font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:3px;
+}
+.branch-meta dd{
+  margin:0;font-family:var(--ff-display);font-size:.95rem;font-weight:600;
+  color:var(--green-800);white-space:nowrap;
+}
+
+.branch-link{
+  margin-top:auto;align-self:flex-start;
+  display:inline-flex;align-items:center;gap:.5em;
+  font-size:.76rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--green-800);text-decoration:none;
+  border-bottom:1.5px solid var(--gold);padding-bottom:3px;
+  transition:gap .18s ease,color .18s ease;
+}
+.branch-link:hover{gap:.85em;color:var(--gold-600)}
+.branch-link .arw{transition:transform .18s ease}
+
+/* ============================================================
+   BLOG
+   ============================================================ */
+.blog{background:var(--green-050)}
+
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
+
+.blog-card{
+  background:var(--panel);border:1px solid var(--line);
+  display:flex;flex-direction:column;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.blog-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+
+.blog-img{position:relative;display:block;overflow:hidden}
+.blog-img img{
+  aspect-ratio:20/13;width:100%;height:auto;object-fit:cover;
+  transition:transform .35s ease;
+}
+.blog-card:hover .blog-img img{transform:scale(1.05)}
+
+.blog-cat{
+  position:absolute;left:14px;bottom:14px;
+  background:var(--gold);color:var(--green-900);
+  font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.42em .8em;
+}
+
+.blog-body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
+
+.blog-meta{
+  display:flex;align-items:center;gap:8px;
+  font-size:.72rem;color:var(--ink-soft);margin-bottom:.8em;
+}
+
+.blog-body h3{font-size:1.02rem;line-height:1.35;margin-bottom:.6em}
+.blog-body h3 a{text-decoration:none;color:var(--green-800);transition:color .16s ease}
+.blog-body h3 a:hover{color:var(--gold-600)}
+
+.blog-body > p{font-size:.82rem;color:var(--ink-soft);line-height:1.6;margin-bottom:1.2em}
+
+/* ============================================================
+   RESPONSIVE — new sections
+   ============================================================ */
+@media (max-width:1100px){
+  .branch-grid{grid-template-columns:repeat(2,1fr)}
+  .blog-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (max-width:980px){
+  .principal-grid{grid-template-columns:1fr}
+  .principal-figure{max-width:380px}
+  .results-head,.branches-head{grid-template-columns:1fr;align-items:start;gap:14px}
+}
+
+@media (max-width:760px){
+  .principal-cred{grid-template-columns:1fr;gap:16px}
+  .results-stats{gap:22px 12px}
+  .results-stats > div{max-width:190px;padding:6px 8px}
+  .results-stats > div:last-child{max-width:190px}
+  .results-stats dd{font-size:.74rem}
+  .pod-avatar{width:56px;height:56px;padding:2px;margin-bottom:8px}
+  .pod-1 .pod-avatar{width:72px;height:72px;padding:3px;box-shadow:0 0 0 4px rgba(212,165,55,.16)}
+  .pod-crown{width:24px;height:24px;top:-19px}
+  .pod-name{font-size:.76rem}
+  .pod-1 .pod-name{font-size:.85rem}
+  .pod-stream{display:none}
+  .pod-score{font-size:.9rem;margin-top:7px;padding:.28em .6em}
+  .pod-1 .pod-score{font-size:1.02rem}
+  .pod-person{padding-bottom:10px}
+  .pod-block b{font-size:1.45rem}
+  .pod-1 .pod-block b{font-size:1.8rem}
+  .pod-block small{font-size:.54rem;letter-spacing:.12em}
+  .pod-1 .pod-block{height:118px}
+  .pod-2 .pod-block{height:88px}
+  .pod-3 .pod-block{height:66px}
+  .branch-meta{grid-template-columns:repeat(3,1fr)}
+}
+
+@media (max-width:560px){
+  .branch-grid,.blog-grid{grid-template-columns:1fr}
+
+  /* Five centred badges stacked would run very tall on a phone. Lay the
+     badge beside its text instead, one feature per row. */
+  .feature-card{grid-template-columns:1fr}
+  .feat,
+  .feat:nth-child(1),.feat:nth-child(2),.feat:nth-child(3),
+  .feat:nth-child(2n),.feat:last-child{
+    grid-column:auto;
+    flex-direction:row;align-items:center;text-align:left;gap:14px;
+    padding:14px 18px;
+    border-right:0;
+    border-bottom:1px solid var(--line);
+  }
+  .feat:last-child{border-bottom:0}
+  .feat-badge{width:38px;height:44px}
+  .feat-i{width:17px;height:17px}
+
+  /* The band's four pieces wrap into a ragged left-aligned stack.
+     Centre them and let the button span the width. Compound selector
+     for the same reason as the base .adm-inner rule above. */
+  .adm-band .adm-inner{
+    flex-direction:column;align-items:center;text-align:center;
+    gap:14px;padding-block:30px;
+  }
+  .adm-title{padding-right:0;border-right:0}
+  .adm-copy{flex:0 1 auto}
+  .adm-inner .btn{width:100%;max-width:320px;justify-content:center}
+}
+
+/* Must stay after the 760px block above, which also sets results-stats. */
+@media (max-width:480px){
+  /* Too little width to draw the triangle without squeezing the labels
+     into three lines each. Drop the shape and stack the figures. */
+  .tri-line{display:none}
+  .results-stats{grid-template-columns:1fr;gap:16px}
+  .results-stats > div,
+  .results-stats > div:last-child{max-width:none;padding:0}
+  .results-stats dd{font-size:.8rem}
+
+  /* Three nowrap columns get about 81px each on a 320px screen, which
+     is narrower than "Nursery-XII" renders. Let it wrap instead. */
+  .branch-meta dd{white-space:normal;font-size:.88rem}
+
+  /* A .78rem link is a small thing to hit with a thumb. */
+  .branch-tel{font-size:.85rem}
+  .branch-tel a{padding:.35em 0;display:inline-block}
+}
+
+/* ============================================================
+   CHAT ASSISTANT
+   ============================================================ */
+
+/* ---------- floating button ---------- */
+.chat-fab{
+  position:fixed;right:20px;bottom:20px;z-index:90;
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 18px;border:0;border-radius:999px;cursor:pointer;
+  background:var(--green-800);color:#fff;
+  font-family:var(--ff-body);font-size:.84rem;font-weight:600;
+  letter-spacing:.04em;
+  box-shadow:0 12px 28px -10px rgba(11,60,36,.6);
+  transition:background .18s ease,transform .18s ease;
+}
+.chat-fab:hover{background:var(--green-700);transform:translateY(-2px)}
+.chat-fab svg{width:21px;height:21px;fill:var(--gold);flex:0 0 auto}
+.chat-fab-close{display:none}
+
+.chat-fab[aria-expanded="true"] .chat-fab-open{display:none}
+.chat-fab[aria-expanded="true"] .chat-fab-close{display:block}
+.chat-fab[aria-expanded="true"] .chat-fab-label{display:none}
+.chat-fab[aria-expanded="true"]{padding:14px;border-radius:50%}
+
+/* ---------- panel ---------- */
+.chat-panel{
+  position:fixed;right:20px;bottom:86px;z-index:95;
+  width:min(380px,calc(100vw - 40px));
+  height:min(560px,calc(100vh - 130px));
+  display:flex;flex-direction:column;
+  background:var(--panel);
+  border:1px solid var(--line);border-radius:12px;
+  box-shadow:0 26px 60px -20px rgba(11,60,36,.45);
+  overflow:hidden;
+}
+.chat-panel[hidden]{display:none}
+
+/* ---------- header ---------- */
+.chat-head{
+  display:flex;align-items:center;gap:11px;
+  padding:14px 14px 14px 16px;
+  background:var(--green-800);color:#fff;flex:0 0 auto;
+}
+.chat-crest{width:30px;height:35px;flex:0 0 auto}
+.chat-head-text{display:flex;flex-direction:column;line-height:1.3;flex:1;min-width:0}
+.chat-head-text strong{font-family:var(--ff-display);font-size:1rem;font-weight:600}
+.chat-head-text span{font-size:.72rem;color:rgba(255,255,255,.7)}
+
+.chat-close{
+  width:30px;height:30px;border:0;border-radius:50%;cursor:pointer;
+  background:rgba(255,255,255,.12);display:grid;place-items:center;flex:0 0 auto;
+  transition:background .16s ease;
+}
+.chat-close:hover{background:rgba(255,255,255,.26)}
+.chat-close svg{width:16px;height:16px;fill:#fff}
+
+/* ---------- message log ---------- */
+.chat-log{
+  flex:1;min-height:0;overflow-y:auto;
+  padding:16px 14px;
+  display:flex;flex-direction:column;gap:10px;
+  background:var(--green-050);
+  overscroll-behavior:contain;
+}
+
+.msg{
+  max-width:84%;padding:10px 13px;border-radius:12px;
+  font-size:.86rem;line-height:1.55;
+  white-space:pre-wrap;overflow-wrap:anywhere;
+}
+.msg-bot{
+  align-self:flex-start;
+  background:var(--panel);color:var(--ink);
+  border:1px solid var(--line);border-bottom-left-radius:3px;
+}
+.msg-user{
+  align-self:flex-end;
+  background:var(--green-800);color:#fff;
+  border-bottom-right-radius:3px;
+}
+.msg-error{
+  align-self:flex-start;
+  background:#fdf3e3;color:#7a4a08;
+  border:1px solid #e9d4a8;border-bottom-left-radius:3px;
+}
+.msg a{color:inherit;text-decoration:underline}
+
+/* typing indicator */
+.msg-typing{display:flex;gap:4px;align-items:center;padding:13px}
+.msg-typing i{
+  width:6px;height:6px;border-radius:50%;background:var(--ink-soft);
+  animation:blink 1.2s infinite ease-in-out;
+}
+.msg-typing i:nth-child(2){animation-delay:.18s}
+.msg-typing i:nth-child(3){animation-delay:.36s}
+@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+
+/* ---------- quick reply chips ---------- */
+.chat-chips{
+  display:flex;gap:7px;flex:0 0 auto;
+  padding:10px 14px;background:var(--panel);
+  border-top:1px solid var(--line);
+  overflow-x:auto;scrollbar-width:none;
+}
+.chat-chips::-webkit-scrollbar{display:none}
+.chat-chips[hidden]{display:none}
+
+.chat-chips button{
+  flex:0 0 auto;cursor:pointer;
+  padding:.5em .9em;border-radius:999px;
+  border:1px solid var(--line);background:var(--ground);
+  font-family:inherit;font-size:.75rem;font-weight:500;color:var(--green-800);
+  white-space:nowrap;
+  transition:background .16s ease,border-color .16s ease;
+}
+.chat-chips button:hover{background:var(--green-050);border-color:var(--gold)}
+
+/* ---------- composer ---------- */
+.chat-form{
+  display:flex;align-items:flex-end;gap:8px;flex:0 0 auto;
+  padding:10px 12px;background:var(--panel);
+  border-top:1px solid var(--line);
+}
+
+.chat-form textarea{
+  flex:1;min-width:0;resize:none;
+  max-height:110px;
+  padding:9px 12px;border:1px solid var(--line);border-radius:18px;
+  font-family:inherit;font-size:.85rem;line-height:1.45;color:var(--ink);
+  background:var(--ground);
+}
+.chat-form textarea:focus{outline:2px solid var(--gold);outline-offset:-1px}
+
+.chat-form button{
+  width:36px;height:36px;flex:0 0 auto;
+  border:0;border-radius:50%;cursor:pointer;
+  background:var(--gold);display:grid;place-items:center;
+  transition:background .16s ease,opacity .16s ease;
+}
+.chat-form button:hover{background:var(--gold-600)}
+.chat-form button:disabled{opacity:.45;cursor:not-allowed}
+.chat-form button svg{width:16px;height:16px;fill:var(--green-900)}
+
+/* ---------- footer note ---------- */
+.chat-foot{
+  flex:0 0 auto;margin:0;
+  padding:8px 14px 11px;background:var(--panel);
+  font-size:.68rem;line-height:1.45;color:var(--ink-soft);
+  border-top:1px solid var(--line);
+}
+.chat-foot a{color:var(--green-800);font-weight:600}
+
+/* ---------- mobile: full screen ---------- */
+@media (max-width:560px){
+  .chat-fab{right:14px;bottom:14px;padding:12px 15px}
+  .chat-panel{
+    right:0;left:0;bottom:0;top:0;
+    width:100%;height:100%;
+    border:0;border-radius:0;
+  }
+  .msg{max-width:88%}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .msg-typing i{animation:none;opacity:.6}
+}
+
+/* ---------- programmes: six cards ----------
+   Three across, so six cards land as two even rows of three. Kept at
+   the end with its own breakpoints: placed earlier, the base rule here
+   would lose to .acad-cards, and placed here without them it would beat
+   the phone rules above. */
+.acad-cards-6{grid-template-columns:repeat(3,1fr)}
+
+@media (max-width:760px){
+  .acad-cards-6{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (max-width:480px){
+  .acad-cards-6{grid-template-columns:1fr}
+}
+
+/* ---------- MAIN images ----------
+   The logo is a JPEG on white. Sized by width so it keeps its
+   proportions; on the dark footer and chat header it gets a white tile,
+   so its white ground reads as deliberate rather than a stray box. */
+.logo{width:56px;height:auto;flex:0 0 auto;display:block}
+.brand-footer .logo{width:50px;background:#fff;border-radius:8px;padding:3px}
+.chat-logo{width:34px;height:auto;background:#fff;border-radius:6px;padding:2px}
+
+/* The building-front photo is nearly square: keep its own proportions
+   rather than cropping the name sign off to fit a 4:3 frame. */
+.about-img-tall img{aspect-ratio:624/640;object-position:top}
+
+@media (max-width:560px){
+  .logo{width:46px}
+  .brand-text strong{font-size:1.05rem}
+  .brand-text small{font-size:.5rem;letter-spacing:.02em;max-width:130px}
+}
+
+/* ---------- hero: framed photo on a blurred backdrop ----------
+   The campus photos are small (880px and 624px wide) and neither is the
+   banner's shape, so cropping them to fill blew them up two to three
+   times and, on a phone, cut the wide one down to a sliver. Instead,
+   each slide shows the whole photo at a size it can hold sharply, in a
+   gold frame, over a blurred copy of itself; the blur hides how far
+   that copy has been stretched. */
+.slide{z-index:1}
+
+.slide-bg{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;
+  filter:blur(22px) brightness(.5) saturate(1.1);
+  transform:scale(1.15);           /* pushes the blur's soft edges out of view */
+}
+
+/* Keeps the headline readable where it sits over the backdrop. */
+.slide::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,rgba(11,40,26,.82) 0%,rgba(11,40,26,.45) 48%,rgba(11,40,26,.1) 100%);
+}
+
+.slide-img{
+  position:absolute;z-index:2;
+  top:46%;right:max(24px,calc(50% - 580px));
+  width:auto;height:auto;
+  max-width:min(46%,620px);max-height:68%;
+  object-fit:contain;
+  transform:translateY(-50%);
+  border:3px solid var(--gold);
+  box-shadow:0 22px 50px -18px rgba(0,0,0,.6);
+}
+
+/* Leave the right half to the photo. */
+.hero-content > *{max-width:50%}
+
+@media (max-width:760px){
+  /* Photo on top, words underneath: side by side, neither would fit. */
+  .hero{min-height:660px;align-items:flex-end}
+
+  .slide::after{
+    background:linear-gradient(to top,rgba(11,40,26,.9) 0%,rgba(11,40,26,.75) 42%,rgba(11,40,26,.15) 78%);
+  }
+
+  .slide-img{
+    top:22px;right:auto;left:50%;
+    max-width:calc(100% - 40px);max-height:250px;
+    transform:translateX(-50%);
+  }
+
+  .hero-content{padding-block:0 70px}
+  .hero-content > *{max-width:none}
+}
+
+/* ---------- admission enquiry form ----------
+   Sits inside the green .adm-band as its own white card, since the
+   band's text is set white-on-green and form inputs need real contrast
+   to be legible and to not look disabled. */
+/* .adm-band .wrap{padding-block:0} outranks a bare .adm-form-wrap rule
+   on specificity regardless of source order, so it must be beaten with
+   an equally compound selector here. */
+.adm-band .adm-form-wrap{padding-block:0 clamp(28px,4vw,44px)}
+
+/* Map on the left, form on the right. */
+.adm-columns{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;
+}
+
+.adm-map{
+  border-radius:10px;overflow:hidden;min-height:320px;
+  border:1px solid rgba(255,255,255,.18);
+}
+.adm-map iframe{width:100%;height:100%;min-height:320px;border:0;display:block}
+
+@media (max-width:760px){
+  .adm-columns{grid-template-columns:1fr}
+  .adm-map{order:2}
+  .enquiry-form{order:1}
+}
+
+.enquiry-form{
+  background:var(--panel);border-radius:10px;
+  padding:clamp(20px,3vw,30px);
+  max-width:640px;
+  box-shadow:0 20px 44px -20px rgba(0,0,0,.35);
+}
+
+.enquiry-title{
+  margin:0 0 1.1em;font-family:var(--ff-display);font-weight:600;
+  font-size:1.05rem;color:var(--green-800);
+}
+
+.enquiry-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+.enquiry-field{margin-bottom:14px}
+.enquiry-field label{
+  display:block;margin-bottom:.4em;
+  font-size:.76rem;font-weight:600;letter-spacing:.03em;
+  color:var(--ink-soft);
+}
+.enquiry-optional{font-weight:400;text-transform:none;letter-spacing:0}
+
+.enquiry-field input,
+.enquiry-field select,
+.enquiry-field textarea{
+  width:100%;padding:.65em .8em;
+  border:1px solid var(--line);border-radius:6px;
+  font-family:inherit;font-size:.88rem;color:var(--ink);
+  background:var(--ground);
+  box-sizing:border-box;
+}
+.enquiry-field textarea{resize:vertical;min-height:70px}
+.enquiry-field input:focus,
+.enquiry-field select:focus,
+.enquiry-field textarea:focus{
+  outline:2px solid var(--gold);outline-offset:-1px;
+  border-color:var(--gold);
+}
+.enquiry-field input:invalid:not(:placeholder-shown){border-color:var(--gold-600)}
+
+.enquiry-form .btn{width:100%;justify-content:center;margin-top:4px}
+
+.enquiry-msg{
+  margin:.9em 0 0;font-size:.82rem;min-height:1.3em;
+  color:var(--green-700);
+}
+.enquiry-msg.is-error{color:#a33}
+
+@media (max-width:560px){
+  .enquiry-row{grid-template-columns:1fr}
+}
+
+/* ---------- facilities: five cards ----------
+   Three across, so five cards land as 3 + 2 rather than 4 + 1. Kept at
+   the end with its own breakpoints for the same reason as the other
+   *-N grids: a base rule here would lose to .fac-grid on specificity
+   ties broken by source order, and win over the phone rules above it
+   if placed earlier. */
+.fac-grid-5{grid-template-columns:repeat(3,1fr)}
+
+@media (max-width:760px){
+  .fac-grid-5{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ============================================================
+   PAGE HERO — title band for standalone pages (About, Contact,
+   Album, Blog, Events, News). Static, no slider.
+   ============================================================ */
+.page-hero{
+  background:var(--green-800);color:#fff;
+  padding-block:clamp(44px,7vw,64px);
+  text-align:center;
+}
+.page-hero .eyebrow{color:var(--gold)}
+.page-hero h1{margin:0 auto;max-width:26ch;font-size:clamp(1.8rem,3.6vw,2.6rem)}
+.page-hero p{margin:.8em auto 0;max-width:56ch;color:rgba(255,255,255,.82)}
+
+/* ---------- album page: bigger photo grid, reuses .gal-strip's
+   look at a larger scale for a full page rather than a homepage strip ---------- */
+.album-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px;
+}
+.album-grid figure{margin:0;overflow:hidden;border:1px solid var(--line)}
+.album-grid img{aspect-ratio:4/3;width:100%;height:auto;object-fit:cover;transition:transform .35s ease}
+.album-grid figure:hover img{transform:scale(1.06)}
+
+@media (max-width:980px){
+  .album-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:600px){
+  .album-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (max-width:480px){
+  .fac-grid-5{grid-template-columns:1fr}
+}
+
+</style>
 </head>
 <body>
 
@@ -25,7 +1531,7 @@
       </li>
       <li>
         <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>
-        <a href="mailto:radhakrishnagurukulam@gmail.com">radhakrishnagurukulam@gmail.com</a>
+        <a href="mailto:rkmec_knp@rediffmail.com">rkmec_knp@rediffmail.com</a>
       </li>
       <li class="hide-sm">
         <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
@@ -36,7 +1542,7 @@
     <div class="topbar-links">
       <a href="#">Career</a>
       <a href="#">Alumni</a>
-      <a href="#blog">News &amp; Events</a>
+      <a href="news.html">News &amp; Events</a>
       <a href="https://wa.me/919582305719?text=Hello%2C%20I%27d%20like%20to%20know%20about%20admissions." target="_blank" rel="noopener">WhatsApp</a>
       <a href="#enquire" class="btn-admission">Admission Open</a>
     </div>
@@ -49,10 +1555,10 @@
   <div class="wrap header-inner">
 
     <a class="brand" href="#top">
-      <img class="logo" src="images/MAIN%20LOGO.jpeg" alt="Radha Krishna Gurukulam logo" width="620" height="645">
+      <img class="logo" src="images/MAIN%20LOGO.jpeg" alt="Radha Krishna Memorial Education Centre logo" width="620" height="645">
       <span class="brand-text">
         <strong>RADHA KRISHNA</strong>
-        <small>GURUKULAM</small>
+        <small>MEMORIAL EDUCATION CENTRE</small>
       </span>
     </a>
 
@@ -67,10 +1573,10 @@
       <div class="has-sub">
         <button aria-expanded="false">About Us <svg class="caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg></button>
         <div class="submenu">
-          <a href="#about">Our School</a>
-          <a href="#principal">MD's Message</a>
-          <a href="#results">Our Students</a>
-          <a href="#branches">Our Branches</a>
+          <a href="about.html#about">Our School</a>
+          <a href="about.html#principal">MD's Message</a>
+          <a href="about.html#results">Our Students</a>
+          <a href="about.html#branches">Our Branches</a>
         </div>
       </div>
 
@@ -89,23 +1595,28 @@
       <div class="has-sub">
         <button aria-expanded="false">Facilities <svg class="caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg></button>
         <div class="submenu">
-          <a href="#facilities">Smart Classrooms</a>
-          <a href="#facilities">Laboratories</a>
           <a href="#facilities">Library</a>
-          <a href="#facilities">Transport</a>
+          <a href="#facilities">Playground</a>
+          <a href="#facilities">Computer Access</a>
+          <a href="#facilities">Science Labs</a>
+          <a href="#facilities">First Aid</a>
         </div>
-      </div>      <div class="has-sub">
+      </div>
+
+      <div class="has-sub">
         <button aria-expanded="false">Admissions <svg class="caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg></button>
         <div class="submenu">
-          <a href="#enquire">Admission Process</a>
+          <a href="contact.html#enquire">Admission Process</a>
           <a href="#">Fee Structure</a>
           <a href="#">Download Prospectus</a>
         </div>
       </div>
 
-      <a href="#gallery">Gallery</a>
-      <a href="#blog">Blog</a>
-      <a href="#contact">Contact Us</a>
+      <a href="album.html">Album</a>
+      <a href="blog.html">Blog</a>
+      <a href="events.html">Events</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact Us</a>
 
       <button class="search-btn" aria-label="Search this site">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16a6.47 6.47 0 0 0 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0A4.5 4.5 0 1 1 14 9.5 4.49 4.49 0 0 1 9.5 14z"/></svg>
@@ -203,12 +1714,13 @@
 
     <div class="about-body">
       <p class="eyebrow">Welcome to</p>
-      <h2>Radha Krishna Gurukulam</h2>
+      <h2>Radha Krishna Memorial Education Centre</h2>
       <p>
-        An ICSE school in Kanpur, from a kindergarten section through
-        classes 9 to 12, with dedicated preparation for IIT-JEE, NEET
-        and NDA running alongside the school years. Students who live
-        away from home can stay in our hostel, with meals from the mess.
+        An ICSE, English-medium, co-educational school in Kanpur, from a
+        kindergarten section through Classes 1 to 12, with dedicated
+        preparation for IIT-JEE, NEET and NDA for our senior students.
+        Students who live away from home can stay in our hostel, with
+        meals from the mess.
       </p>
       <p>
         We teach with experienced faculty, keep a close eye on progress
@@ -229,6 +1741,10 @@
           <dt class="stat-big">6</dt>
           <dd>Programmes offered</dd>
         </div>
+        <div>
+          <dt class="stat-big">1&ndash;12</dt>
+          <dd>Classes taught</dd>
+        </div>
       </dl>
 
       <a href="#academics" class="btn btn-green">See Our Programmes <span class="arw" aria-hidden="true">&rarr;</span></a>
@@ -242,7 +1758,7 @@
   <div class="wrap principal-grid">
 
     <figure class="principal-figure">
-      <img src="images/MAIN%20BUILDING.jpeg" alt="Radha Krishna Gurukulam" loading="lazy" width="624" height="640">
+      <img src="images/MAIN%20BUILDING.jpeg" alt="Radha Krishna Memorial Education Centre" loading="lazy" width="624" height="640">
     </figure>
 
     <div class="principal-body">
@@ -263,7 +1779,7 @@
         values as part of the day, not an afterthought.
       </p>
 
-      <a href="#" class="btn btn-green">Read Full Message <span class="arw" aria-hidden="true">&rarr;</span></a>
+      <a href="about.html#principal" class="btn btn-green">Read Full Message <span class="arw" aria-hidden="true">&rarr;</span></a>
     </div>
 
   </div>
@@ -410,35 +1926,9 @@
 <section class="section facilities" id="facilities">
   <div class="wrap">
     <p class="eyebrow">Facilities</p>
-    <h2>World-Class Infrastructure</h2>
+    <h2>What the Campus Offers</h2>
 
-    <div class="fac-grid">
-
-      <article class="fac-card">
-        <div class="fac-img">
-          <img src="images/fac-classroom.jpg" alt="A classroom with students at their desks" loading="lazy" width="800" height="560">
-          <span class="fac-badge">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3H3a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h7v2H7v2h10v-2h-3v-2h7a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 11H4V5h16z"/></svg>
-          </span>
-        </div>
-        <div class="fac-body">
-          <h3>Smart Classrooms</h3>
-          <p>Digital classrooms with smart boards and audio-visual aids.</p>
-        </div>
-      </article>
-
-      <article class="fac-card">
-        <div class="fac-img">
-          <img src="images/fac-lab.jpg" alt="Students working in the science laboratory" loading="lazy" width="800" height="560">
-          <span class="fac-badge">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2h-2v7.2l-5.6 9A2 2 0 0 0 7.1 21h9.8a2 2 0 0 0 1.7-2.8L13 9.2z"/></svg>
-          </span>
-        </div>
-        <div class="fac-body">
-          <h3>Science Laboratories</h3>
-          <p>Well-equipped labs to encourage curiosity and innovation.</p>
-        </div>
-      </article>
+    <div class="fac-grid fac-grid-5">
 
       <article class="fac-card">
         <div class="fac-img">
@@ -449,20 +1939,59 @@
         </div>
         <div class="fac-body">
           <h3>Library</h3>
-          <p>A rich collection of books to nurture reading and research.</p>
+          <p>A collection of books to nurture reading and research.</p>
         </div>
       </article>
 
       <article class="fac-card">
         <div class="fac-img">
-          <img src="images/fac-transport.jpg" alt="A school bus waiting at the gate" loading="lazy" width="800" height="560">
+          <img src="images/gal-1.jpg" alt="Students on the school field" loading="lazy" width="800" height="560">
           <span class="fac-badge">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16c0 .9.4 1.7 1 2.2V20a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h8v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1.8c.6-.5 1-1.3 1-2.2V6c0-3.5-3.6-4-8-4s-8 .5-8 4z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h2L12 3 5 12h2l-3 5h5v4h6v-4h5z"/></svg>
           </span>
         </div>
         <div class="fac-body">
-          <h3>Transport</h3>
-          <p>Safe, reliable and GPS-enabled transport across routes.</p>
+          <h3>Playground</h3>
+          <p>Outdoor space for sports and play between classes.</p>
+        </div>
+      </article>
+
+      <article class="fac-card">
+        <div class="fac-img">
+          <img src="images/gal-2.jpg" alt="Children at work in the classroom" loading="lazy" width="800" height="560">
+          <span class="fac-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3H3a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h7v2H7v2h10v-2h-3v-2h7a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 11H4V5h16z"/></svg>
+          </span>
+        </div>
+        <div class="fac-body">
+          <h3>Computer Access</h3>
+          <p>Computers available for students' academic use.</p>
+        </div>
+      </article>
+
+      <article class="fac-card">
+        <div class="fac-img">
+          <img src="images/fac-lab.jpg" alt="Students working in a science laboratory" loading="lazy" width="800" height="560">
+          <span class="fac-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2h-2v7.2l-5.6 9A2 2 0 0 0 7.1 21h9.8a2 2 0 0 0 1.7-2.8L13 9.2z"/></svg>
+          </span>
+        </div>
+        <div class="fac-body">
+          <h3>Science Labs</h3>
+          <p>Physics, Chemistry and Biology laboratories.</p>
+        </div>
+      </article>
+
+      <article class="fac-card">
+        <div class="fac-img">
+          <img src="images/fac-classroom.jpg" alt="A classroom at the school" loading="lazy" width="800" height="560">
+          <span class="fac-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4z"/></svg>
+          </span>
+        </div>
+        <div class="fac-body">
+          <h3>First Aid</h3>
+          <p>First aid available on campus.</p>
         </div>
       </article>
 
@@ -473,6 +2002,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- ================= BRANCHES ================= -->
 <section class="section branches" id="branches">
@@ -503,7 +2033,7 @@
           </p>
           <p class="branch-tel">
             <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z"/></svg>
-            <a href="tel:+919582305719">+91 95823 05719</a>
+            <a href="tel:+919151315203">+91 91513 15203</a>
           </p>
           <a class="branch-link" href="https://www.google.com/maps/search/?api=1&amp;query=540-A%2C%20Ratanlal%20Nagar%20Main%20Road%2C%20Neemeshwar%20MahaMandir%20Society%2C%20Ratan%20Lal%20Nagar%2C%20Kanpur%2C%20Uttar%20Pradesh%20208022" target="_blank" rel="noopener">Get directions <span class="arw" aria-hidden="true">&rarr;</span></a>
         </div>
@@ -522,7 +2052,7 @@
           </p>
           <p class="branch-tel">
             <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z"/></svg>
-            <a href="tel:+919582305719">+91 95823 05719</a>
+            <a href="tel:+915123271365">0512-3271365</a>
           </p>
           <a class="branch-link" href="https://www.google.com/maps/search/?api=1&amp;query=98%2F4%2C%20Block-10%2C%20Near%20Nandlal%20Chauraha%2C%20Govind%20Nagar%2C%20Kanpur%2C%20Uttar%20Pradesh%20208006" target="_blank" rel="noopener">Get directions <span class="arw" aria-hidden="true">&rarr;</span></a>
         </div>
@@ -541,7 +2071,7 @@
           </p>
           <p class="branch-tel">
             <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z"/></svg>
-            <a href="tel:+919582305719">+91 95823 05719</a>
+            <a href="tel:+919151315203">+91 91513 15203</a>
           </p>
           <a class="branch-link" href="https://www.google.com/maps/search/?api=1&amp;query=C7GM%2B9C%20Durjanpur%2C%20Uttar%20Pradesh%20209305" target="_blank" rel="noopener">Get directions <span class="arw" aria-hidden="true">&rarr;</span></a>
         </div>
@@ -559,7 +2089,7 @@
         <p class="eyebrow">Student Life</p>
         <h2>Learning Beyond Classrooms</h2>
       </div>
-      <a href="#" class="btn btn-outline">View Gallery <span class="arw" aria-hidden="true">&rarr;</span></a>
+      <a href="album.html" class="btn btn-outline">View Gallery <span class="arw" aria-hidden="true">&rarr;</span></a>
     </div>
 
     <div class="gal-strip">
@@ -583,44 +2113,44 @@
         <p class="eyebrow">From the School</p>
         <h2>News, Events &amp; Blog</h2>
       </div>
-      <a href="#" class="btn btn-outline">View All Posts <span class="arw" aria-hidden="true">&rarr;</span></a>
+      <a href="blog.html" class="btn btn-outline">View All Posts <span class="arw" aria-hidden="true">&rarr;</span></a>
     </div>
 
     <div class="blog-grid">
 
       <article class="blog-card">
-        <a class="blog-img" href="#">
+        <a class="blog-img" href="blog.html">
           <img src="images/blog-1.jpg" alt="Students presenting a project in class" loading="lazy" width="800" height="520">
           <span class="blog-cat">Academics</span>
         </a>
         <div class="blog-body">
-          <h3><a href="#">Post coming soon</a></h3>
-          <p>This space is ready for a real post about academics at Radha Krishna Gurukulam.</p>
-          <a class="branch-link" href="#">Read article <span class="arw" aria-hidden="true">&rarr;</span></a>
+          <h3><a href="blog.html">Post coming soon</a></h3>
+          <p>This space is ready for a real post about academics at Radha Krishna Memorial Education Centre.</p>
+          <a class="branch-link" href="blog.html">Read article <span class="arw" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
 
       <article class="blog-card">
-        <a class="blog-img" href="#">
+        <a class="blog-img" href="events.html">
           <img src="images/blog-2.jpg" alt="Students at a school event" loading="lazy" width="800" height="520">
           <span class="blog-cat">Events</span>
         </a>
         <div class="blog-body">
-          <h3><a href="#">Post coming soon</a></h3>
-          <p>This space is ready for a real post about an event at Radha Krishna Gurukulam.</p>
-          <a class="branch-link" href="#">Read article <span class="arw" aria-hidden="true">&rarr;</span></a>
+          <h3><a href="events.html">Post coming soon</a></h3>
+          <p>This space is ready for a real post about an event at Radha Krishna Memorial Education Centre.</p>
+          <a class="branch-link" href="events.html">Read article <span class="arw" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
 
       <article class="blog-card">
-        <a class="blog-img" href="#">
+        <a class="blog-img" href="blog.html">
           <img src="images/blog-3.jpg" alt="A teacher working with students" loading="lazy" width="800" height="520">
           <span class="blog-cat">For Parents</span>
         </a>
         <div class="blog-body">
-          <h3><a href="#">Post coming soon</a></h3>
+          <h3><a href="blog.html">Post coming soon</a></h3>
           <p>This space is ready for a real post written for parents.</p>
-          <a class="branch-link" href="#">Read article <span class="arw" aria-hidden="true">&rarr;</span></a>
+          <a class="branch-link" href="blog.html">Read article <span class="arw" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
 
@@ -643,42 +2173,55 @@
   </div>
 
   <div class="wrap adm-form-wrap">
-    <form class="enquiry-form" id="enquiryForm" novalidate>
-      <p class="enquiry-title">Or send us your details and we&rsquo;ll call you back</p>
+    <div class="adm-columns">
 
-      <div class="enquiry-row">
-        <div class="enquiry-field">
-          <label for="enqName">Name</label>
-          <input id="enqName" name="name" type="text" autocomplete="name" required>
+      <div class="adm-map">
+        <iframe
+          src="https://www.google.com/maps?q=540-A%2C%20Ratanlal%20Nagar%20Main%20Road%2C%20Neemeshwar%20MahaMandir%20Society%2C%20Ratan%20Lal%20Nagar%2C%20Kanpur%2C%20Uttar%20Pradesh%20208022&output=embed"
+          title="Radha Krishna Memorial Education Centre, Ratanlal Nagar branch location"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+
+      <form class="enquiry-form" id="enquiryForm" novalidate>
+        <p class="enquiry-title">Or send us your details and we&rsquo;ll call you back</p>
+
+        <div class="enquiry-row">
+          <div class="enquiry-field">
+            <label for="enqName">Name</label>
+            <input id="enqName" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="enquiry-field">
+            <label for="enqPhone">Phone</label>
+            <input id="enqPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+          </div>
         </div>
+
         <div class="enquiry-field">
-          <label for="enqPhone">Phone</label>
-          <input id="enqPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+          <label for="enqClass">Class or programme</label>
+          <select id="enqClass" name="class">
+            <option value="">Select one</option>
+            <option>Kindergarten (Nursery, LKG, UKG)</option>
+            <option>Classes 9th&ndash;12th</option>
+            <option>Foundation Courses</option>
+            <option>IIT-JEE</option>
+            <option>NEET</option>
+            <option>NDA</option>
+          </select>
         </div>
-      </div>
 
-      <div class="enquiry-field">
-        <label for="enqClass">Class or programme</label>
-        <select id="enqClass" name="class">
-          <option value="">Select one</option>
-          <option>Kindergarten (Nursery, LKG, UKG)</option>
-          <option>Classes 9th&ndash;12th</option>
-          <option>Foundation Courses</option>
-          <option>IIT-JEE</option>
-          <option>NEET</option>
-          <option>NDA</option>
-        </select>
-      </div>
+        <div class="enquiry-field">
+          <label for="enqMessage">Message <span class="enquiry-optional">(optional)</span></label>
+          <textarea id="enqMessage" name="message" rows="3"></textarea>
+        </div>
 
-      <div class="enquiry-field">
-        <label for="enqMessage">Message <span class="enquiry-optional">(optional)</span></label>
-        <textarea id="enqMessage" name="message" rows="3"></textarea>
-      </div>
+        <button type="submit" class="btn btn-gold">Send Enquiry <span class="arw" aria-hidden="true">&rarr;</span></button>
 
-      <button type="submit" class="btn btn-gold">Send Enquiry <span class="arw" aria-hidden="true">&rarr;</span></button>
+        <p class="enquiry-msg" role="status" aria-live="polite"></p>
+      </form>
 
-      <p class="enquiry-msg" role="status" aria-live="polite"></p>
-    </form>
+    </div>
   </div>
 
 </section>
@@ -691,8 +2234,8 @@
 
     <div class="f-brand">
       <a class="brand brand-footer" href="#top">
-        <img class="logo" src="images/MAIN%20LOGO.jpeg" alt="Radha Krishna Gurukulam logo" width="620" height="645" loading="lazy">
-        <span class="brand-text"><strong>RADHA KRISHNA</strong><small>GURUKULAM</small></span>
+        <img class="logo" src="images/MAIN%20LOGO.jpeg" alt="Radha Krishna Memorial Education Centre logo" width="620" height="645" loading="lazy">
+        <span class="brand-text"><strong>RADHA KRISHNA</strong><small>MEMORIAL EDUCATION CENTRE</small></span>
       </a>
       <p>Knowledge is Power. ICSE schooling with IIT-JEE, NEET and NDA preparation, and hostel and mess facilities, across three branches in Kanpur.</p>
       <div class="socials">
@@ -706,21 +2249,23 @@
     <nav aria-label="Quick links">
       <h4>Quick Links</h4>
       <a href="#top">Home</a>
-      <a href="#about">About Us</a>
-      <a href="#principal">MD's Message</a>
-      <a href="#results">Our Students</a>
-      <a href="#branches">Our Branches</a>
+      <a href="about.html#about">About Us</a>
+      <a href="about.html#principal">MD's Message</a>
+      <a href="about.html#results">Our Students</a>
+      <a href="about.html#branches">Our Branches</a>
       <a href="#academics">Programmes</a>
       <a href="#facilities">Facilities</a>
-      <a href="#blog">Blog</a>
+      <a href="album.html">Album</a>
+      <a href="blog.html">Blog</a>
     </nav>
 
     <nav aria-label="Information">
       <h4>Information</h4>
       <a href="#">Fee Structure</a>
-      <a href="#">Admission Process</a>
+      <a href="contact.html#enquire">Admission Process</a>
       <a href="#">School Calendar</a>
-      <a href="#blog">News &amp; Events</a>
+      <a href="events.html">Events</a>
+      <a href="news.html">News &amp; Events</a>
       <a href="#">Career</a>
       <a href="#">Alumni</a>
     </nav>
@@ -746,7 +2291,7 @@
         </li>
         <li>
           <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>
-          <a href="mailto:radhakrishnagurukulam@gmail.com">radhakrishnagurukulam@gmail.com</a>
+          <a href="mailto:rkmec_knp@rediffmail.com">rkmec_knp@rediffmail.com</a>
         </li>
       </ul>
     </div>
@@ -755,7 +2300,7 @@
 
   <div class="footer-base">
     <div class="wrap footer-base-inner">
-      <small>&copy; 2026 Radha Krishna Gurukulam. All Rights Reserved.</small>
+      <small>&copy; 2026 Radha Krishna Memorial Education Centre. All Rights Reserved.</small>
       <small class="credit">Designed &amp; developed by <a href="https://aadityabhatnagar.online/" target="_blank" rel="noopener">Aaditya Bhatnagar</a></small>
       <small class="legal"><a href="#">Privacy Policy</a> <span aria-hidden="true">|</span> <a href="#">Terms &amp; Conditions</a></small>
     </div>
@@ -774,7 +2319,7 @@
   <header class="chat-head">
     <img class="chat-crest chat-logo" src="images/MAIN%20LOGO.jpeg" alt="" width="620" height="645">
     <div class="chat-head-text">
-      <strong id="chatTitle">Gurukulam Assistant</strong>
+      <strong id="chatTitle">RKMEC Assistant</strong>
       <span>Admissions &amp; school information</span>
     </div>
     <button class="chat-close" id="chatClose" aria-label="Close chat">

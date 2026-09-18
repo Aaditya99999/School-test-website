@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------
-   Radha Krishna Gurukulam — interactions
+   Radha Krishna Memorial Education Centre — interactions
    1. Hero slider (auto-advance, arrows, dots)
    2. Mobile nav + accordion submenus
    3. Podium rise + scroll reveal
