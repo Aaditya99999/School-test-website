@@ -980,7 +980,8 @@ a{color:inherit}
 
 @media (max-width:760px){
   .principal-cred{grid-template-columns:1fr;gap:16px}
-  .results-stats{grid-template-columns:repeat(3,1fr);gap:26px 12px}
+  .results-stats{grid-template-columns:repeat(3,1fr);gap:26px 14px}
+  .results-stats dd{font-size:.74rem}
   .pod-avatar{width:56px;height:56px;padding:2px;margin-bottom:8px}
   .pod-1 .pod-avatar{width:72px;height:72px;padding:3px;box-shadow:0 0 0 4px rgba(212,165,55,.16)}
   .pod-crown{width:24px;height:24px;top:-19px}
@@ -1001,6 +1002,47 @@ a{color:inherit}
 
 @media (max-width:560px){
   .branch-grid,.blog-grid{grid-template-columns:1fr}
+
+  /* Two columns leave each feature about 150px for an icon plus two
+     lines of text. Stack them into full-width rows instead, divided
+     top to bottom rather than left to right. */
+  .feature-card{grid-template-columns:1fr}
+  .feat,
+  .feat:nth-child(1),.feat:nth-child(2),.feat:nth-child(3),
+  .feat:nth-child(2n),.feat:last-child{
+    grid-column:auto;
+    padding:16px 18px;
+    border-right:0;
+    border-bottom:1px solid var(--line);
+  }
+  .feat:last-child{border-bottom:0}
+
+  /* The band's four pieces wrap into a ragged left-aligned stack.
+     Centre them and let the button span the width. */
+  .adm-inner{
+    flex-direction:column;align-items:center;text-align:center;
+    gap:14px;padding-block:30px;
+  }
+  .adm-title{padding-right:0;border-right:0}
+  .adm-copy{flex:0 1 auto}
+  .adm-inner .btn{width:100%;max-width:320px;justify-content:center}
+}
+
+/* Must stay after the 760px block above, which also sets results-stats. */
+@media (max-width:480px){
+  /* Three stats abreast leaves each label about 100px wide on a narrow
+     phone, breaking "Pass rate, Class X & XII" over three lines.
+     One per row reads cleanly instead. */
+  .results-stats{grid-template-columns:1fr;gap:18px;text-align:left}
+  .results-stats dd{font-size:.8rem}
+
+  /* Three nowrap columns get about 81px each on a 320px screen, which
+     is narrower than "Nursery-XII" renders. Let it wrap instead. */
+  .branch-meta dd{white-space:normal;font-size:.88rem}
+
+  /* A .78rem link is a small thing to hit with a thumb. */
+  .branch-tel{font-size:.85rem}
+  .branch-tel a{padding:.35em 0;display:inline-block}
 }
 
 /* ============================================================
