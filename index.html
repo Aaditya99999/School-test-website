@@ -228,7 +228,7 @@ a{color:inherit}
    ============================================================ */
 .hero{
   position:relative;
-  min-height:clamp(440px,60vh,600px);
+  min-height:100vh;
   display:flex;align-items:center;
   overflow:hidden;color:#fff;
 }
@@ -236,7 +236,7 @@ a{color:inherit}
 .slides{position:absolute;inset:0}
 .slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease}
 .slide.is-active{opacity:1}
-.slide-img{width:100%;height:100%;object-fit:cover}
+.slide-img{width:100%;height:100%;object-fit:cover;display:block}
 
 .hero-overlay{
   position:absolute;inset:0;
@@ -1323,56 +1323,15 @@ a{color:inherit}
   .brand-text small{font-size:.5rem;letter-spacing:.02em;max-width:130px}
 }
 
-/* ---------- hero: framed photo on a blurred backdrop ----------
-   The campus photos are small (880px and 624px wide) and neither is the
-   banner's shape, so cropping them to fill blew them up two to three
-   times and, on a phone, cut the wide one down to a sliver. Instead,
-   each slide shows the whole photo at a size it can hold sharply, in a
-   gold frame, over a blurred copy of itself; the blur hides how far
-   that copy has been stretched. */
+/* ---------- hero: full-bleed cover photo ----------
+   The photo fills the whole banner; .hero-overlay (above) darkens its
+   left side so the headline stays readable over it. */
 .slide{z-index:1}
-
-.slide-bg{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;
-  filter:blur(22px) brightness(.5) saturate(1.1);
-  transform:scale(1.15);           /* pushes the blur's soft edges out of view */
-}
-
-/* Keeps the headline readable where it sits over the backdrop. */
-.slide::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(100deg,rgba(11,40,26,.82) 0%,rgba(11,40,26,.45) 48%,rgba(11,40,26,.1) 100%);
-}
-
-.slide-img{
-  position:absolute;z-index:2;
-  top:46%;right:max(24px,calc(50% - 580px));
-  width:auto;height:auto;
-  max-width:min(46%,620px);max-height:68%;
-  object-fit:contain;
-  transform:translateY(-50%);
-  border:3px solid var(--gold);
-  box-shadow:0 22px 50px -18px rgba(0,0,0,.6);
-}
 
 /* Leave the right half to the photo. */
 .hero-content > *{max-width:50%}
 
 @media (max-width:760px){
-  /* Photo on top, words underneath: side by side, neither would fit. */
-  .hero{min-height:660px;align-items:flex-end}
-
-  .slide::after{
-    background:linear-gradient(to top,rgba(11,40,26,.9) 0%,rgba(11,40,26,.75) 42%,rgba(11,40,26,.15) 78%);
-  }
-
-  .slide-img{
-    top:22px;right:auto;left:50%;
-    max-width:calc(100% - 40px);max-height:250px;
-    transform:translateX(-50%);
-  }
-
   .hero-content{padding-block:0 70px}
   .hero-content > *{max-width:none}
 }
@@ -1619,11 +1578,9 @@ a{color:inherit}
 
   <div class="slides">
     <div class="slide is-active">
-      <img class="slide-bg" src="images/MAIN%20BUILDING%202.jpeg" alt="" aria-hidden="true" width="880" height="353">
       <img class="slide-img" src="images/MAIN%20BUILDING%202.jpeg" alt="The campus building" fetchpriority="high" width="880" height="353">
     </div>
     <div class="slide">
-      <img class="slide-bg" src="images/MAIN%20BUILDING.jpeg" alt="" aria-hidden="true" loading="lazy" width="624" height="640">
       <img class="slide-img" src="images/MAIN%20BUILDING.jpeg" alt="The building front with its name sign" loading="lazy" width="624" height="640">
     </div>
   </div>
