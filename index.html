@@ -44,6 +44,10 @@ body{
   font-size:15px;
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
+  /* html{overflow-x:hidden} alone doesn't stop phones widening the page for
+     blocks parked off to the side (the .reveal slide-in start state), which
+     shrinks the whole site and leaves blank strips beside the hero. */
+  overflow-x:clip;
 }
 
 img,svg{display:block;max-width:100%}
@@ -1327,32 +1331,22 @@ a{color:inherit}
    The photo fills the whole banner; .hero-overlay (above) darkens its
    left side so the headline stays readable over it. */
 .slide{z-index:1}
+/* Above the slides (z-index:1, which stacks them over an auto-index
+   overlay) but under the headline (3). */
+.hero-overlay{z-index:2}
 
 /* Leave the right half to the photo. */
 .hero-content > *{max-width:50%}
 
-/* Both campus photos carry signage that runs across their full width
-   (see images/MAIN BUILDING*.jpeg), so cropping them to cover a narrow
-   phone screen slices straight through the lettering. Below 760px the
-   photo is shown whole (contain) in a fixed band above the text
-   instead of stretched full-bleed behind it. */
+/* Phones get the same full-screen cover photo as desktop, with the
+   headline over it. The text now spans the whole width rather than the
+   left half, so the overlay is darkened evenly to keep it readable. */
 @media (max-width:760px){
-  .hero{
-    min-height:auto;
-    flex-direction:column;align-items:stretch;
-  }
-
-  .slides{
-    position:relative;height:230px;flex:0 0 auto;
-    background:linear-gradient(160deg,var(--green-800),var(--green-700));
-  }
-  .slide-img{object-fit:contain}
-  .hero-overlay{display:none}
-  .hero-dots{top:196px;bottom:auto}
-
-  .hero-content{
-    position:relative;background:var(--green-800);
-    padding:28px 0 70px;
+  /* The top bar and header sit above the hero (about 207px), so subtract
+     them: the hero then fits the screen with its text and buttons in view. */
+  .hero{min-height:max(540px,calc(100vh - 207px));min-height:max(540px,calc(100svh - 207px))}
+  .hero-overlay{
+    background:linear-gradient(180deg,rgba(11,40,26,.72) 0%,rgba(11,40,26,.6) 50%,rgba(11,40,26,.82) 100%);
   }
   .hero-content > *{max-width:none}
 }
