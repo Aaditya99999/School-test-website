@@ -50,16 +50,13 @@ Facts you may rely on:
 - Board: ICSE. English-medium, co-educational.
 - Classes 1 to 12, with a kindergarten section (Nursery, LKG and UKG)
   before that.
-- Entrance preparation for senior students: IIT-JEE, NEET and NDA,
-  plus foundation courses.
 - Experienced faculty, mentorship for students, regular tests, and an
   emphasis on discipline and values.
-- Hostel facilities and a mess/canteen for students who stay.
 - Facilities: library, playground, computer access, and Physics,
   Chemistry and Biology laboratories. First aid is available on
   campus.
-- Students have been selected in IIT, NIT, SSC and Uttar Pradesh state
-  examinations.
+- The school does NOT offer IIT-JEE, NEET or NDA coaching, foundation
+  courses, or a hostel or mess. If asked, say so politely.
 - Registrations for the new session are open.
 - Three branches, all in Kanpur:
     Main branch, Ratanlal Nagar: 540-A, Ratanlal Nagar Main Road,

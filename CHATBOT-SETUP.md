@@ -102,8 +102,7 @@ hosting) and `api/chat.js` (Vercel). Whichever one you deploy is the one
 that runs, but keep both in sync: if you only edit one, the other becomes
 wrong and silently ships stale facts the day you switch hosting.
 
-It currently holds the board (ICSE), the programmes offered (IIT-JEE, NEET,
-NDA, foundation courses, classes 9th-12th, kindergarten), hostel and mess,
+It currently holds the board (ICSE), the classes offered (Kindergarten and Classes 1 to 12),
 the three branch addresses, and the contact numbers, WhatsApp and email.
 It is explicitly told it does NOT know per-branch class lists, student or
 teacher counts, founding years, office hours, exam results, or fees — do

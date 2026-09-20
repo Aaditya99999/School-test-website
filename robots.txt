@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /crm.html
+
+Sitemap: https://www.example.com/sitemap.xml

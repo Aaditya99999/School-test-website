@@ -4,7 +4,53 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Radha Krishna Memorial Education Centre, Kanpur</title>
-<meta name="description" content="Radha Krishna Memorial Education Centre, Kanpur — ICSE, English-medium, co-educational schooling from kindergarten through class 12, with preparation for IIT-JEE, NEET and NDA, plus hostel and mess facilities. Branches in Ratanlal Nagar, Govind Nagar and Meharban Singh Purva.">
+<meta name="description" content="Radha Krishna Memorial Education Centre, Kanpur — ICSE, English-medium, co-educational schooling from kindergarten through class 12. Branches in Ratanlal Nagar, Govind Nagar and Meharban Singh Purva.">
+<link rel="canonical" href="https://www.example.com/index.html">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Radha Krishna Memorial Education Centre">
+<meta name="geo.region" content="IN-UP">
+<meta name="geo.placename" content="Kanpur">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Radha Krishna Memorial Education Centre">
+<meta property="og:locale" content="en_IN">
+<meta property="og:title" content="Radha Krishna Memorial Education Centre, Kanpur">
+<meta property="og:description" content="Radha Krishna Memorial Education Centre, Kanpur — ICSE, English-medium, co-educational schooling from kindergarten through class 12. Branches in Ratanlal Nagar, Govind Nagar and Meharban Singh Purva.">
+<meta property="og:url" content="https://www.example.com/index.html">
+<meta property="og:image" content="https://www.example.com/images/MAIN%20BUILDING.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Radha Krishna Memorial Education Centre, Kanpur">
+<meta name="twitter:description" content="Radha Krishna Memorial Education Centre, Kanpur — ICSE, English-medium, co-educational schooling from kindergarten through class 12. Branches in Ratanlal Nagar, Govind Nagar and Meharban Singh Purva.">
+<meta name="twitter:image" content="https://www.example.com/images/MAIN%20BUILDING.jpeg">
+<link rel="icon" href="images/MAIN%20LOGO.jpeg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "School",
+  "name": "Radha Krishna Memorial Education Centre",
+  "alternateName": "RKMEC Kanpur",
+  "url": "https://www.example.com/",
+  "logo": "https://www.example.com/images/MAIN%20LOGO.jpeg",
+  "image": "https://www.example.com/images/MAIN%20BUILDING.jpeg",
+  "slogan": "Knowledge is Power",
+  "description": "ICSE, English-medium, co-educational school in Kanpur for Kindergarten and Classes 1 to 12.",
+  "email": "rkmec_knp@rediffmail.com",
+  "telephone": "+91-87388-85544",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "540-A, Ratanlal Nagar Main Road, Neemeshwar MahaMandir Society, Ratan Lal Nagar",
+    "addressLocality": "Kanpur",
+    "addressRegion": "Uttar Pradesh",
+    "postalCode": "208022",
+    "addressCountry": "IN"
+  },
+  "areaServed": "Kanpur, Uttar Pradesh",
+  "department": [
+    { "@type": "School", "name": "Ratanlal Nagar Branch", "url": "https://www.example.com/branch-ratanlal-nagar.html", "telephone": "+91-91513-15203" },
+    { "@type": "School", "name": "Govind Nagar Branch", "url": "https://www.example.com/branch-govind-nagar.html", "telephone": "+91-512-3271365" },
+    { "@type": "School", "name": "Meharban Singh Purva Branch", "url": "https://www.example.com/branch-meharban-singh-purva.html", "telephone": "+91-91513-15203" }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Spectral:wght@500;600;700&display=swap">
@@ -293,7 +339,7 @@ a{color:inherit}
   background:var(--panel);
   border:1px solid var(--line);
   box-shadow:var(--shadow);
-  display:grid;grid-template-columns:repeat(5,1fr);
+  display:grid;grid-template-columns:repeat(4,1fr);
 }
 
 .feat{
@@ -574,9 +620,9 @@ a{color:inherit}
    RESPONSIVE
    ============================================================ */
 @media (max-width:1100px){
-  .feature-card{grid-template-columns:repeat(3,1fr)}
-  .feat:nth-child(3){border-right:0}
-  .feat:nth-child(1),.feat:nth-child(2),.feat:nth-child(3){border-bottom:1px solid var(--line)}
+  .feature-card{grid-template-columns:repeat(2,1fr)}
+  .feat:nth-child(2n){border-right:0}
+  .feat:nth-child(1),.feat:nth-child(2){border-bottom:1px solid var(--line)}
   .fac-grid{grid-template-columns:repeat(2,1fr)}
   .acad-cards{grid-template-columns:repeat(2,1fr)}
   .footer-grid{grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:28px}
@@ -633,7 +679,7 @@ a{color:inherit}
   .feature-card{grid-template-columns:1fr 1fr}
   .feat{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
   .feat:nth-child(2n){border-right:0}
-  .feat:last-child{border-bottom:0;grid-column:1 / -1}
+  .feat:nth-last-child(-n+2){border-bottom:0}
 
   .about-stats{grid-template-columns:repeat(2,1fr);gap:22px}
   .gal-strip{grid-template-columns:repeat(2,1fr)}
@@ -990,6 +1036,8 @@ a{color:inherit}
   color:var(--green-800);white-space:nowrap;
 }
 
+.branch-note{font-size:.72rem;font-weight:600;letter-spacing:.02em;color:var(--gold-600);margin:0 0 8px}
+
 .branch-link{
   margin-top:auto;align-self:flex-start;
   display:inline-flex;align-items:center;gap:.5em;
@@ -1327,6 +1375,35 @@ a{color:inherit}
   .brand-text small{font-size:.5rem;letter-spacing:.02em;max-width:130px}
 }
 
+/* Header brand on a golden-ratio scale (φ ≈ 1.618): the logo is the
+   largest step, the name sits three steps down (logo / φ³) and the
+   tagline one more (name / φ). */
+.site-header .brand{--logo:54px;gap:calc(var(--logo) / 6.854)}
+.site-header .logo{width:var(--logo)}
+.site-header .brand-text strong{font-size:calc(var(--logo) / 2.058)}
+.site-header .brand-text small{font-size:calc(var(--logo) / 6.854);margin-top:calc(var(--logo) / 17.94)}
+@media (max-width:560px){.site-header .brand{--logo:46px}}
+
+/* School logo in the welcome section: shown whole on its own card,
+   never cropped. */
+.about-img.about-img-logo{
+  position:relative;max-width:420px;width:100%;justify-self:center;
+  padding:clamp(24px,4vw,44px);
+  border-radius:18px;border:none;overflow:visible;
+  background:radial-gradient(circle at 50% 40%,#fff 55%,#f3efe2 100%);
+  box-shadow:0 18px 40px -18px rgba(20,60,35,.35),0 0 0 1px var(--line);
+}
+.about-img.about-img-logo::before{
+  content:"";position:absolute;inset:-10px;border-radius:24px;
+  border:2px solid #c9a24a;opacity:.55;pointer-events:none;
+}
+.about-img.about-img-logo img{
+  display:block;width:100%;height:auto;
+  aspect-ratio:620/645;object-fit:contain;
+  mix-blend-mode:multiply;
+}
+@media (max-width:760px){.about-img.about-img-logo{max-width:300px}}
+
 /* ---------- hero: full-bleed cover photo ----------
    The photo fills the whole banner; .hero-overlay (above) darkens its
    left side so the headline stays readable over it. */
@@ -1371,9 +1448,17 @@ a{color:inherit}
 }
 .adm-map iframe{width:100%;height:100%;min-height:320px;border:0;display:block}
 
+/* Maps column a little narrower than the form so the two come out
+   close in height; the message box then grows to take up the rest,
+   so no empty white is left under the form. */
+.adm-columns{grid-template-columns:5fr 6fr}
+.enquiry-form{display:flex;flex-direction:column}
+.enquiry-field:has(textarea){flex:1;display:flex;flex-direction:column}
+.enquiry-field textarea{flex:1}
+
 @media (max-width:760px){
   .adm-columns{grid-template-columns:1fr}
-  .adm-map{order:2}
+  .adm-map,.adm-maps{order:2}
   .enquiry-form{order:1}
 }
 
@@ -1474,6 +1559,23 @@ a{color:inherit}
   .fac-grid-5{grid-template-columns:1fr}
 }
 
+/* One map card per branch, above the enquiry form. */
+/* Maps on the left (two squares, the Ratanlal Nagar map as a 2:1
+   rectangle below them), the enquiry form on the right. */
+.adm-maps{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start}
+.map-card{background:var(--panel);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;}
+.map-card-frame{aspect-ratio:1}
+.map-card:first-child{order:1;grid-column:1 / -1}
+.map-card:first-child .map-card-frame{aspect-ratio:2/1}
+.map-card-frame iframe{width:100%;height:100%;border:0;display:block}
+.map-card{position:relative}
+/* Branch name sits on the map as a small label, not below it. */
+.map-card-body{position:absolute;left:8px;bottom:8px;padding:4px 10px;background:rgba(255,255,255,.92);border-radius:999px}
+.map-card-tag{font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-600)}
+.map-card-body h3{font-family:inherit;font-size:.7rem;font-weight:600;letter-spacing:.02em;color:var(--green-800);margin:0}
+.map-card-link{font-size:.8rem;font-weight:700;color:var(--green-700);text-decoration:none}
+.map-card-link:hover{color:var(--gold-600)}
+
 </style>
 </head>
 <body>
@@ -1537,18 +1639,20 @@ a{color:inherit}
           <a href="about.html#principal">MD's Message</a>
           <a href="about.html#results">Our Students</a>
           <a href="about.html#branches">Our Branches</a>
+          <a href="branch-ratanlal-nagar.html">Ratanlal Nagar</a>
+          <a href="branch-govind-nagar.html">Govind Nagar</a>
+          <a href="branch-meharban-singh-purva.html">Meharban Singh Purva</a>
         </div>
       </div>
 
       <div class="has-sub">
         <button aria-expanded="false">Programmes <svg class="caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg></button>
         <div class="submenu">
-          <a href="#academics">IIT-JEE</a>
-          <a href="#academics">NEET</a>
-          <a href="#academics">NDA</a>
-          <a href="#academics">Foundation Courses</a>
-          <a href="#academics">Classes 9th&ndash;12th</a>
           <a href="#academics">Kindergarten</a>
+          <a href="#academics">Our Schools</a>
+          <a href="#academics">Our Gurukulam</a>
+          <a href="#academics">Our Pharmacy College</a>
+          <a href="#academics">Our Hospital</a>
         </div>
       </div>
 
@@ -1567,7 +1671,6 @@ a{color:inherit}
         <button aria-expanded="false">Admissions <svg class="caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg></button>
         <div class="submenu">
           <a href="contact.html#enquire">Admission Process</a>
-          <a href="#">Fee Structure</a>
           <a href="#">Download Prospectus</a>
         </div>
       </div>
@@ -1612,9 +1715,7 @@ a{color:inherit}
   <div class="wrap hero-content">
     <h1>Knowledge is <span class="gold">Power</span></h1>
     <p>
-      ICSE schooling from kindergarten through class 12, with preparation
-      for IIT-JEE, NEET and NDA, and hostel and mess facilities for
-      students who stay with us.
+      ICSE schooling from Kindergarten through Class 12.
     </p>
     <div class="hero-actions">
       <a href="#enquire" class="btn btn-gold">Admission Open <span class="arw" aria-hidden="true">&rarr;</span></a>
@@ -1653,11 +1754,6 @@ a{color:inherit}
         <div class="feat-text"><strong>Discipline &amp; Values</strong><span>Character built alongside marks</span></div>
       </div>
 
-      <div class="feat">
-        <span class="feat-badge"><svg class="feat-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></svg></span>
-        <div class="feat-text"><strong>Hostel &amp; Mess</strong><span>Stay and meals for resident students</span></div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1666,24 +1762,19 @@ a{color:inherit}
 <section class="section about" id="about">
   <div class="wrap about-grid">
 
-    <figure class="about-img about-img-tall">
-      <img src="images/MAIN%20BUILDING.jpeg" alt="The school building, with its name across the top floor" loading="lazy" width="624" height="640">
+    <figure class="about-img about-img-logo">
+      <img src="images/MAIN%20LOGO.jpeg" alt="Radha Krishna Memorial Education Centre logo" loading="lazy" width="620" height="645">
     </figure>
 
     <div class="about-body">
       <p class="eyebrow">Welcome to</p>
       <h2>Radha Krishna Memorial Education Centre</h2>
       <p>
-        An ICSE, English-medium, co-educational school in Kanpur, from a
-        kindergarten section through Classes 1 to 12, with dedicated
-        preparation for IIT-JEE, NEET and NDA for our senior students.
-        Students who live away from home can stay in our hostel, with
-        meals from the mess.
-      </p>
-      <p>
-        We teach with experienced faculty, keep a close eye on progress
-        through regular tests, and give every student a mentor.
-        Discipline and values are part of the day, not an afterthought.
+        An ICSE, English-medium, co-educational school in Kanpur for
+        Kindergarten and Classes 1 to 12. We teach with experienced
+        faculty, keep a close eye on progress through regular tests, and
+        give every student a mentor, with discipline and values part of
+        every day.
       </p>
 
       <dl class="about-stats">
@@ -1696,7 +1787,7 @@ a{color:inherit}
           <dd>Branches in Kanpur</dd>
         </div>
         <div>
-          <dt class="stat-big">6</dt>
+          <dt class="stat-big">5</dt>
           <dd>Programmes offered</dd>
         </div>
         <div>
@@ -1704,8 +1795,6 @@ a{color:inherit}
           <dd>Classes taught</dd>
         </div>
       </dl>
-
-      <a href="#academics" class="btn btn-green">See Our Programmes <span class="arw" aria-hidden="true">&rarr;</span></a>
     </div>
 
   </div>
@@ -1743,6 +1832,84 @@ a{color:inherit}
   </div>
 </section>
 
+<!-- ================= BRANCHES ================= -->
+<section class="section branches" id="branches">
+  <div class="wrap">
+    <div class="branches-head">
+      <div>
+        <p class="eyebrow">Our Campuses</p>
+        <h2>Three Branches, One Standard</h2>
+      </div>
+      <p class="branches-lede">
+        Find the branch nearest you. Each address opens in Google Maps for
+        directions.
+      </p>
+    </div>
+
+    <div class="branch-grid">
+
+      <article class="branch-card">
+        <div class="branch-img">
+          <img src="images/branch-1.jpg" alt="Ratanlal Nagar branch" loading="lazy" width="900" height="600">
+          <span class="branch-tag">Main Branch</span>
+        </div>
+        <div class="branch-body">
+          <h3>Ratanlal Nagar</h3>
+          <p class="branch-note">Kindergarten and Classes 1 to 12</p>
+          <p class="branch-addr">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
+            540-A, Ratanlal Nagar Main Road, Neemeshwar MahaMandir Society, Near Petrol Pump, Ratan Lal Nagar, Kanpur, UP &ndash; 208022
+          </p>
+          <p class="branch-tel">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z"/></svg>
+            <a href="tel:+919151315203">+91 91513 15203</a>
+          </p>
+          <a class="branch-link" href="branch-ratanlal-nagar.html">View branch <span class="arw" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+
+      <article class="branch-card">
+        <div class="branch-img">
+          <img src="images/branch-2.jpg" alt="Govind Nagar branch" loading="lazy" width="900" height="600">
+          <span class="branch-tag">Branch</span>
+        </div>
+        <div class="branch-body">
+          <h3>Govind Nagar</h3>
+          <p class="branch-addr">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
+            98/4, Block-10, Near Nandlal Chauraha, Govind Nagar, Kanpur, UP &ndash; 208006
+          </p>
+          <p class="branch-tel">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z"/></svg>
+            <a href="tel:+915123271365">0512-3271365</a>
+          </p>
+          <a class="branch-link" href="branch-govind-nagar.html">View branch <span class="arw" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+
+      <article class="branch-card">
+        <div class="branch-img">
+          <img src="images/branch-3.jpg" alt="Meharban Singh Purva branch" loading="lazy" width="900" height="600">
+          <span class="branch-tag">Branch</span>
+        </div>
+        <div class="branch-body">
+          <h3>Meharban Singh Purva</h3>
+          <p class="branch-addr">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
+            C7GM+9C, Meharavan Singh Purva, Meharban Singh Ka Purva, Durjanpur, Uttar Pradesh 209305
+          </p>
+          <p class="branch-tel">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z"/></svg>
+            <a href="tel:+919151315203">+91 91513 15203</a>
+          </p>
+          <a class="branch-link" href="branch-meharban-singh-purva.html">View branch <span class="arw" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <!-- ================= RESULTS ================= -->
 <section class="section results" id="results">
   <div class="wrap">
@@ -1752,10 +1919,6 @@ a{color:inherit}
         <p class="eyebrow eyebrow-light">Our Students, Our Pride</p>
         <h2 class="on-dark">Where our students have gone</h2>
       </div>
-      <p class="results-lede">
-        Radha Krishna students have been selected in IIT, NIT, SSC and
-        Uttar Pradesh state examinations.
-      </p>
     </div>
 
     <!-- Podium: 2nd, 1st, 3rd — winner centre and tallest. Generic ranks
@@ -1822,43 +1985,37 @@ a{color:inherit}
 
     <div class="academics-main">
       <p class="eyebrow">Programmes</p>
-      <h2>School and entrance preparation, together</h2>
+      <h2>From Kindergarten to college and care</h2>
 
       <div class="acad-cards acad-cards-6">
-        <article class="acad-card">
-          <svg class="acad-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9zm3-19A7 7 0 0 0 8 14.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2z"/></svg>
-          <h3>IIT-JEE</h3>
-          <p>Preparation for the engineering entrance exams, JEE Main and Advanced.</p>
-        </article>
-
-        <article class="acad-card">
-          <svg class="acad-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/></svg>
-          <h3>NEET</h3>
-          <p>Preparation for the national medical entrance exam.</p>
-        </article>
-
-        <article class="acad-card">
-          <svg class="acad-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.4 21.7l1.8-7.3L1.5 9.5l7.5-.6z"/></svg>
-          <h3>NDA</h3>
-          <p>Preparation for the National Defence Academy entrance exam.</p>
-        </article>
-
-        <article class="acad-card">
-          <svg class="acad-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.2C10.5 5.1 8.4 4.5 6 4.5c-1.2 0-2.4.2-3.5.5v14c1.1-.3 2.3-.5 3.5-.5 2.4 0 4.5.6 6 1.7 1.5-1.1 3.6-1.7 6-1.7 1.2 0 2.4.2 3.5.5V5c-1.1-.3-2.3-.5-3.5-.5-2.4 0-4.5.6-6 1.7zm-1 11.9c-1.4-.7-3.1-1.1-5-1.1-.7 0-1.4.1-2 .2V6.6c.6-.1 1.3-.1 2-.1 1.9 0 3.6.4 5 1.1zm2 0V7.6c1.4-.7 3.1-1.1 5-1.1.7 0 1.4 0 2 .1v10.6c-.6-.1-1.3-.2-2-.2-1.9 0-3.6.4-5 1.1z"/></svg>
-          <h3>Foundation Courses</h3>
-          <p>Building the base in maths and science ahead of the entrance years.</p>
-        </article>
-
-        <article class="acad-card">
-          <svg class="acad-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.9V17h2V9zm0 13.5L5 12.7v3.6l7 3.8 7-3.8v-3.6z"/></svg>
-          <h3>Classes 9th&ndash;12th</h3>
-          <p>School through the board years, alongside entrance preparation.</p>
-        </article>
-
         <article class="acad-card">
           <svg class="acad-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg>
           <h3>Kindergarten</h3>
           <p>Nursery, LKG and UKG, for the youngest learners.</p>
+        </article>
+
+        <article class="acad-card">
+          <svg class="acad-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 8v2h20V8zM4 12v6H3v3h18v-3h-1v-6h-3v6h-2v-6h-3v6h-2v-6H7v6H6v-6z"/></svg>
+          <h3>Our Schools</h3>
+          <p>Our school branches across Kanpur, from Kindergarten to Class 12.</p>
+        </article>
+
+        <article class="acad-card">
+          <svg class="acad-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 2 9h3v11h14V9h3zm0 6a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
+          <h3>Our Gurukulam</h3>
+          <p>Learning rooted in discipline, values and tradition.</p>
+        </article>
+
+        <article class="acad-card">
+          <svg class="acad-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.5a5 5 0 0 1 7.1 0l4.9 4.9a5 5 0 0 1-7.1 7.1l-4.9-4.9a5 5 0 0 1 0-7.1zm1.4 1.4a3 3 0 0 0 0 4.2l2.1 2.1 4.2-4.2-2.1-2.1a3 3 0 0 0-4.2 0zM3 20h18v2H3z"/></svg>
+          <h3>Our Pharmacy College</h3>
+          <p>Pharmacy education for students after school.</p>
+        </article>
+
+        <article class="acad-card">
+          <svg class="acad-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16v18h-6v-4h-4v4H4zm7 3v2H9v2h2v2h2v-2h2V8h-2V6z"/></svg>
+          <h3>Our Hospital</h3>
+          <p>Healthcare services from our own hospital.</p>
         </article>
       </div>
     </div>
@@ -1949,87 +2106,24 @@ a{color:inherit}
         </div>
       </article>
 
-    </div>
-  </div>
-</section>
-
-
-<!-- ================= BRANCHES ================= -->
-<section class="section branches" id="branches">
-  <div class="wrap">
-    <div class="branches-head">
-      <div>
-        <p class="eyebrow">Our Campuses</p>
-        <h2>Three Branches, One Standard</h2>
-      </div>
-      <p class="branches-lede">
-        Find the branch nearest you. Each address opens in Google Maps for
-        directions.
-      </p>
-    </div>
-
-    <div class="branch-grid">
-
-      <article class="branch-card">
-        <div class="branch-img">
-          <img src="images/branch-1.jpg" alt="Ratanlal Nagar branch" loading="lazy" width="900" height="600">
-          <span class="branch-tag">Main Branch</span>
+      <article class="fac-card">
+        <div class="fac-img">
+          <img src="images/gal-3.jpg" alt="Students taking part in an art, music and dance activity" loading="lazy" width="800" height="560">
+          <span class="fac-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3 9 5.2v9.5A3.5 3.5 0 1 0 11 18V9.1l7-1.4v5.1a3.5 3.5 0 1 0 2 3.2z"/></svg>
+          </span>
         </div>
-        <div class="branch-body">
-          <h3>Ratanlal Nagar</h3>
-          <p class="branch-addr">
-            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
-            540-A, Ratanlal Nagar Main Road, Neemeshwar MahaMandir Society, Near Petrol Pump, Ratan Lal Nagar, Kanpur, UP &ndash; 208022
-          </p>
-          <p class="branch-tel">
-            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z"/></svg>
-            <a href="tel:+919151315203">+91 91513 15203</a>
-          </p>
-          <a class="branch-link" href="https://www.google.com/maps/search/?api=1&amp;query=540-A%2C%20Ratanlal%20Nagar%20Main%20Road%2C%20Neemeshwar%20MahaMandir%20Society%2C%20Ratan%20Lal%20Nagar%2C%20Kanpur%2C%20Uttar%20Pradesh%20208022" target="_blank" rel="noopener">Get directions <span class="arw" aria-hidden="true">&rarr;</span></a>
-        </div>
-      </article>
-
-      <article class="branch-card">
-        <div class="branch-img">
-          <img src="images/branch-2.jpg" alt="Govind Nagar branch" loading="lazy" width="900" height="600">
-          <span class="branch-tag">Branch</span>
-        </div>
-        <div class="branch-body">
-          <h3>Govind Nagar</h3>
-          <p class="branch-addr">
-            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
-            98/4, Block-10, Near Nandlal Chauraha, Govind Nagar, Kanpur, UP &ndash; 208006
-          </p>
-          <p class="branch-tel">
-            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z"/></svg>
-            <a href="tel:+915123271365">0512-3271365</a>
-          </p>
-          <a class="branch-link" href="https://www.google.com/maps/search/?api=1&amp;query=98%2F4%2C%20Block-10%2C%20Near%20Nandlal%20Chauraha%2C%20Govind%20Nagar%2C%20Kanpur%2C%20Uttar%20Pradesh%20208006" target="_blank" rel="noopener">Get directions <span class="arw" aria-hidden="true">&rarr;</span></a>
-        </div>
-      </article>
-
-      <article class="branch-card">
-        <div class="branch-img">
-          <img src="images/branch-3.jpg" alt="Meharban Singh Purva branch" loading="lazy" width="900" height="600">
-          <span class="branch-tag">Branch</span>
-        </div>
-        <div class="branch-body">
-          <h3>Meharban Singh Purva</h3>
-          <p class="branch-addr">
-            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
-            C7GM+9C, Meharavan Singh Purva, Meharban Singh Ka Purva, Durjanpur, Uttar Pradesh 209305
-          </p>
-          <p class="branch-tel">
-            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z"/></svg>
-            <a href="tel:+919151315203">+91 91513 15203</a>
-          </p>
-          <a class="branch-link" href="https://www.google.com/maps/search/?api=1&amp;query=C7GM%2B9C%20Durjanpur%2C%20Uttar%20Pradesh%20209305" target="_blank" rel="noopener">Get directions <span class="arw" aria-hidden="true">&rarr;</span></a>
+        <div class="fac-body">
+          <h3>Art, Music &amp; Dance</h3>
+          <p>Space and activities for art, music and dance.</p>
         </div>
       </article>
 
     </div>
   </div>
 </section>
+
+
 
 <!-- ================= STUDENT LIFE / GALLERY ================= -->
 <section class="section gallery" id="gallery">
@@ -2124,15 +2218,34 @@ a{color:inherit}
 
   <div class="wrap adm-form-wrap">
     <div class="adm-columns">
+    <div class="adm-maps">
+      <article class="map-card">
+        <div class="map-card-frame">
+          <iframe src="https://www.google.com/maps?q=540-A%2C%20Ratanlal%20Nagar%20Main%20Road%2C%20Neemeshwar%20MahaMandir%20Society%2C%20Ratan%20Lal%20Nagar%2C%20Kanpur%2C%20Uttar%20Pradesh%20208022&amp;output=embed" title="Radha Krishna Memorial Education Centre, Ratanlal Nagar branch location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <div class="map-card-body">
+          <h3>Ratanlal Nagar</h3>
+        </div>
+      </article>
 
-      <div class="adm-map">
-        <iframe
-          src="https://www.google.com/maps?q=540-A%2C%20Ratanlal%20Nagar%20Main%20Road%2C%20Neemeshwar%20MahaMandir%20Society%2C%20Ratan%20Lal%20Nagar%2C%20Kanpur%2C%20Uttar%20Pradesh%20208022&output=embed"
-          title="Radha Krishna Memorial Education Centre, Ratanlal Nagar branch location"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen></iframe>
-      </div>
+      <article class="map-card">
+        <div class="map-card-frame">
+          <iframe src="https://www.google.com/maps?q=98%2F4%2C%20Block-10%2C%20Near%20Nandlal%20Chauraha%2C%20Govind%20Nagar%2C%20Kanpur%2C%20Uttar%20Pradesh%20208006&amp;output=embed" title="Radha Krishna Memorial Education Centre, Govind Nagar branch location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <div class="map-card-body">
+          <h3>Govind Nagar</h3>
+        </div>
+      </article>
+
+      <article class="map-card">
+        <div class="map-card-frame">
+          <iframe src="https://www.google.com/maps?q=C7GM%2B9C%20Durjanpur%2C%20Uttar%20Pradesh%20209305&amp;output=embed" title="Radha Krishna Memorial Education Centre, Meharban Singh Purva branch location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <div class="map-card-body">
+          <h3>Meharban Singh Purva</h3>
+        </div>
+      </article>
+    </div>
 
       <form class="enquiry-form" id="enquiryForm" novalidate>
         <p class="enquiry-title">Or send us your details and we&rsquo;ll call you back</p>
@@ -2149,15 +2262,11 @@ a{color:inherit}
         </div>
 
         <div class="enquiry-field">
-          <label for="enqClass">Class or programme</label>
+          <label for="enqClass">Class</label>
           <select id="enqClass" name="class">
             <option value="">Select one</option>
-            <option>Kindergarten (Nursery, LKG, UKG)</option>
-            <option>Classes 9th&ndash;12th</option>
-            <option>Foundation Courses</option>
-            <option>IIT-JEE</option>
-            <option>NEET</option>
-            <option>NDA</option>
+            <option>Kindergarten</option>
+            <option>Class 1 to 12</option>
           </select>
         </div>
 
@@ -2187,7 +2296,7 @@ a{color:inherit}
         <img class="logo" src="images/MAIN%20LOGO.jpeg" alt="Radha Krishna Memorial Education Centre logo" width="620" height="645" loading="lazy">
         <span class="brand-text"><strong>RADHA KRISHNA</strong><small>MEMORIAL EDUCATION CENTRE</small></span>
       </a>
-      <p>Knowledge is Power. ICSE schooling with IIT-JEE, NEET and NDA preparation, and hostel and mess facilities, across three branches in Kanpur.</p>
+      <p>Knowledge is Power. ICSE schooling from Kindergarten to Class 12, across three branches in Kanpur.</p>
       <div class="socials">
         <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 22v-8h3l1-4h-4V8c0-1.1.3-1.8 1.9-1.8H17V2.7A26 26 0 0 0 14.3 2.5C11.6 2.5 9.8 4.2 9.8 7.3V10H7v4h2.8v8z"/></svg></a>
         <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 5 5 .1 1.3.1 1.6.1 4.7s0 3.4-.1 4.7c-.2 3.3-1.7 4.9-5 5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-5-5C2 15.4 2 15 2 12s0-3.4.1-4.7c.2-3.3 1.7-4.9 5-5C8.4 2.2 8.8 2.2 12 2.2zm0 3.9A5.9 5.9 0 1 0 17.9 12 5.9 5.9 0 0 0 12 6.1zm0 9.7A3.8 3.8 0 1 1 15.8 12 3.8 3.8 0 0 1 12 15.8zm6.1-9.9a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4z"/></svg></a>
@@ -2203,6 +2312,9 @@ a{color:inherit}
       <a href="about.html#principal">MD's Message</a>
       <a href="about.html#results">Our Students</a>
       <a href="about.html#branches">Our Branches</a>
+      <a href="branch-ratanlal-nagar.html">Ratanlal Nagar</a>
+      <a href="branch-govind-nagar.html">Govind Nagar</a>
+      <a href="branch-meharban-singh-purva.html">Meharban Singh Purva</a>
       <a href="#academics">Programmes</a>
       <a href="#facilities">Facilities</a>
       <a href="album.html">Album</a>
@@ -2211,7 +2323,6 @@ a{color:inherit}
 
     <nav aria-label="Information">
       <h4>Information</h4>
-      <a href="#">Fee Structure</a>
       <a href="contact.html#enquire">Admission Process</a>
       <a href="#">School Calendar</a>
       <a href="events.html">Events</a>
@@ -2282,8 +2393,7 @@ a{color:inherit}
   <div class="chat-chips" id="chatChips">
     <button type="button" data-ask="How do I apply for admission?">Admission process</button>
     <button type="button" data-ask="Where are your three branches?">Branches</button>
-    <button type="button" data-ask="Do you have a hostel and mess?">Hostel</button>
-    <button type="button" data-ask="Which entrance exams do you prepare for, IIT-JEE, NEET or NDA?">Programmes</button>
+    <button type="button" data-ask="Which classes do you teach?">Classes</button>
     <button type="button" data-ask="What are your phone numbers and email?">Contact</button>
   </div>
 

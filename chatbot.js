@@ -16,8 +16,8 @@
   var STORE_KEY  = 'rkg-chat-history';
 
   var GREETING =
-    'Namaste! I can help with admissions, branches and our IIT-JEE, ' +
-    'NEET and NDA programmes. What would you like to know?';
+    'Namaste! I can help with admissions, branches and our ' +
+    'classes from Kindergarten to Class 12. What would you like to know?';
 
   var fab   = document.getElementById('chatFab');
   var panel = document.getElementById('chatPanel');

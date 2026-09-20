@@ -1313,6 +1313,14 @@ a{color:inherit}
    proportions; on the dark footer and chat header it gets a white tile,
    so its white ground reads as deliberate rather than a stray box. */
 .logo{width:56px;height:auto;flex:0 0 auto;display:block}
+
+/* Header brand on a golden-ratio scale (φ ≈ 1.618): the logo is the
+   largest step, the name sits three steps down (logo / φ³) and the
+   tagline one more (name / φ), so the text block is ~logo / φ tall. */
+.site-header .brand{--logo:76px;gap:calc(var(--logo) / 6.854)}
+.site-header .logo{width:var(--logo)}
+.site-header .brand-text strong{font-size:calc(var(--logo) / 4.236)}
+.site-header .brand-text small{font-size:calc(var(--logo) / 6.854);margin-top:calc(var(--logo) / 17.94)}
 .brand-footer .logo{width:50px;background:#fff;border-radius:8px;padding:3px}
 .chat-logo{width:34px;height:auto;background:#fff;border-radius:6px;padding:2px}
 
@@ -1320,10 +1328,32 @@ a{color:inherit}
    rather than cropping the name sign off to fit a 4:3 frame. */
 .about-img-tall img{aspect-ratio:624/640;object-position:top}
 
+/* School logo in the welcome section: shown whole on its own white
+   ground, never cropped. */
+.about-img-logo{
+  position:relative;max-width:440px;width:100%;justify-self:center;
+  padding:clamp(24px,4vw,44px);
+  border-radius:18px;border:none;overflow:visible;
+  background:radial-gradient(circle at 50% 40%,#fff 55%,#f3efe2 100%);
+  box-shadow:0 18px 40px -18px rgba(20,60,35,.35),0 0 0 1px var(--line);
+}
+/* thin gold frame just outside the card */
+.about-img-logo::before{
+  content:"";position:absolute;inset:-10px;border-radius:24px;
+  border:2px solid #c9a24a;opacity:.55;pointer-events:none;
+}
+.about-img-logo img{
+  display:block;width:100%;height:auto;
+  aspect-ratio:auto;object-fit:contain;object-position:center;
+  mix-blend-mode:multiply;
+}
+@media (max-width:760px){.about-img-logo{max-width:300px}}
+
 @media (max-width:560px){
   .logo{width:46px}
   .brand-text strong{font-size:1.05rem}
   .brand-text small{font-size:.5rem;letter-spacing:.02em;max-width:130px}
+  .site-header .brand{--logo:60px}
 }
 
 /* ---------- hero: framed photo on a blurred backdrop ----------
