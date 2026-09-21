@@ -563,6 +563,40 @@ a{color:inherit}
 .credit a{color:var(--gold);text-decoration:none;font-weight:600}
 .credit a:hover,.credit a:focus-visible{text-decoration:underline}
 
+.f-partner{
+  display:flex;align-items:center;gap:11px;
+  margin-top:20px;padding:.72em .95em;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.16);border-radius:6px;
+  text-decoration:none;max-width:290px;
+  transition:border-color .2s ease,background .2s ease,transform .2s ease;
+}
+.f-partner-logo{
+  width:34px;height:34px;flex:0 0 auto;border-radius:50%;
+  background:#fff;padding:2px;
+}
+.f-partner-txt{display:flex;flex-direction:column;gap:1px;min-width:0}
+.f-partner-label{
+  font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);
+}
+.f-partner-name{
+  font-family:var(--ff-display);font-size:.84rem;font-weight:600;
+  color:#fff;line-height:1.3;
+}
+.f-partner .arw{
+  margin-left:auto;flex:0 0 auto;
+  color:var(--gold);font-size:.9rem;
+  transition:transform .2s ease;
+}
+.f-partner:hover,.f-partner:focus-visible{
+  background:rgba(255,255,255,.09);
+  border-color:var(--gold);
+  transform:translateY(-1px);
+}
+.f-partner:hover .f-partner-name,.f-partner:focus-visible .f-partner-name{color:var(--gold)}
+.f-partner:hover .arw{transform:translateX(3px)}
+
 /* ============================================================
    SCROLL REVEAL
    Cards drop into place the first time their section is reached.
@@ -1348,6 +1382,12 @@ a{color:inherit}
 /* The building-front photo is nearly square: keep its own proportions
    rather than cropping the name sign off to fit a 4:3 frame. */
 .about-img-tall img{aspect-ratio:624/640;object-position:top}
+/* logo sits inside the frame instead of being cropped to fill it */
+.about-img-logo{background:#fff;display:grid;place-items:center}
+.about-img-logo img{
+  aspect-ratio:624/640;object-fit:contain;object-position:center;
+  padding:clamp(18px,4vw,42px);
+}
 
 @media (max-width:560px){
   .logo{width:46px}
@@ -1585,9 +1625,6 @@ a{color:inherit}
           <a href="about.html#principal">MD's Message</a>
           <a href="about.html#results">Our Students</a>
           <a href="about.html#branches">Our Branches</a>
-          <a href="branch-ratanlal-nagar.html">Ratanlal Nagar</a>
-          <a href="branch-govind-nagar.html">Govind Nagar</a>
-          <a href="branch-meharban-singh-purva.html">Meharban Singh Purva</a>
         </div>
       </div>
 
@@ -1645,8 +1682,8 @@ a{color:inherit}
 <section class="section about" id="about">
   <div class="wrap about-grid">
 
-    <figure class="about-img about-img-tall">
-      <img src="images/MAIN%20BUILDING.jpeg" alt="The school building, with its name across the top floor" loading="lazy" width="624" height="640">
+    <figure class="about-img about-img-tall about-img-logo">
+      <img src="images/MAIN%20LOGO.jpeg" alt="Radha Krishna Memorial Education Centre crest" loading="lazy" width="619" height="645">
     </figure>
 
     <div class="about-body">
@@ -1690,7 +1727,7 @@ a{color:inherit}
   <div class="wrap principal-grid">
 
     <figure class="principal-figure">
-      <img src="images/MAIN%20BUILDING.jpeg" alt="Radha Krishna Memorial Education Centre" loading="lazy" width="624" height="640">
+      <img src="images/md.jpg" alt="Managing Director, Radha Krishna Memorial Education Centre" loading="lazy" width="768" height="960">
     </figure>
 
     <div class="principal-body">
@@ -1873,8 +1910,8 @@ a{color:inherit}
       </a>
       <p>Knowledge is Power. ICSE schooling from Kindergarten to Class 12, across three branches in Kanpur.</p>
       <div class="socials">
-        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 22v-8h3l1-4h-4V8c0-1.1.3-1.8 1.9-1.8H17V2.7A26 26 0 0 0 14.3 2.5C11.6 2.5 9.8 4.2 9.8 7.3V10H7v4h2.8v8z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 5 5 .1 1.3.1 1.6.1 4.7s0 3.4-.1 4.7c-.2 3.3-1.7 4.9-5 5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-5-5C2 15.4 2 15 2 12s0-3.4.1-4.7c.2-3.3 1.7-4.9 5-5C8.4 2.2 8.8 2.2 12 2.2zm0 3.9A5.9 5.9 0 1 0 17.9 12 5.9 5.9 0 0 0 12 6.1zm0 9.7A3.8 3.8 0 1 1 15.8 12 3.8 3.8 0 0 1 12 15.8zm6.1-9.9a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4z"/></svg></a>
+        <a href="https://www.facebook.com/rkmec/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 22v-8h3l1-4h-4V8c0-1.1.3-1.8 1.9-1.8H17V2.7A26 26 0 0 0 14.3 2.5C11.6 2.5 9.8 4.2 9.8 7.3V10H7v4h2.8v8z"/></svg></a>
+        <a href="https://www.instagram.com/rkmecofficial/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 5 5 .1 1.3.1 1.6.1 4.7s0 3.4-.1 4.7c-.2 3.3-1.7 4.9-5 5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-5-5C2 15.4 2 15 2 12s0-3.4.1-4.7c.2-3.3 1.7-4.9 5-5C8.4 2.2 8.8 2.2 12 2.2zm0 3.9A5.9 5.9 0 1 0 17.9 12 5.9 5.9 0 0 0 12 6.1zm0 9.7A3.8 3.8 0 1 1 15.8 12 3.8 3.8 0 0 1 12 15.8zm6.1-9.9a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4z"/></svg></a>
         <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 12s0-3.4-.4-5a2.7 2.7 0 0 0-1.9-1.9C19 4.7 12 4.7 12 4.7s-7 0-8.7.4A2.7 2.7 0 0 0 1.4 7C1 8.6 1 12 1 12s0 3.4.4 5a2.7 2.7 0 0 0 1.9 1.9c1.7.4 8.7.4 8.7.4s7 0 8.7-.4a2.7 2.7 0 0 0 1.9-1.9c.4-1.6.4-5 .4-5zM9.8 15.3V8.7l5.7 3.3z"/></svg></a>
         <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.9 21H3.3V9h3.6zM5.1 7.4A2.1 2.1 0 1 1 7.2 5.3a2.1 2.1 0 0 1-2.1 2.1zM21 21h-3.6v-5.8c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21H9.6V9H13v1.6h.1a3.7 3.7 0 0 1 3.4-1.8c3.6 0 4.3 2.4 4.3 5.5z"/></svg></a>
       </div>
@@ -1930,6 +1967,14 @@ a{color:inherit}
           <a href="mailto:rkmec_knp@rediffmail.com">rkmec_knp@rediffmail.com</a>
         </li>
       </ul>
+      <a class="f-partner" href="https://futureedgedigitalmarketing.com/" target="_blank" rel="noopener">
+        <img class="f-partner-logo" src="images/partner-future-edge.png" alt="" width="96" height="96" loading="lazy">
+        <span class="f-partner-txt">
+          <span class="f-partner-label">Technical Partner</span>
+          <span class="f-partner-name">Future Edge Digital Marketing</span>
+        </span>
+        <span class="arw" aria-hidden="true">&rarr;</span>
+      </a>
     </div>
 
   </div>
@@ -1937,7 +1982,6 @@ a{color:inherit}
   <div class="footer-base">
     <div class="wrap footer-base-inner">
       <small>&copy; 2026 Radha Krishna Memorial Education Centre. All Rights Reserved.</small>
-      <small class="credit">Designed &amp; developed by <a href="https://aadityabhatnagar.online/" target="_blank" rel="noopener">Aaditya Bhatnagar</a></small>
       <small class="legal"><a href="#">Privacy Policy</a> <span aria-hidden="true">|</span> <a href="#">Terms &amp; Conditions</a></small>
     </div>
   </div>
