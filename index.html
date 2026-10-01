@@ -1428,7 +1428,7 @@ a{color:inherit}
    The feature strip no longer overlaps the hero. */
 .hero{min-height:0;display:block;background:var(--green-900)}
 .hero-stage{position:relative;aspect-ratio:16 / 9;overflow:hidden;background:#0b2a5b}
-.slide a{display:block;height:100%}
+.slide a,.slide picture{display:block;height:100%}
 .slide-img{object-fit:contain}
 .hero-dots{bottom:14px}
 
@@ -1460,8 +1460,13 @@ a{color:inherit}
   .hero-actions .btn{padding:.7em 1em;font-size:.72rem}
 }
 @media (max-width:760px){
-  .hero-dots{bottom:8px}
-  .dot{width:7px;height:7px}
+  /* Phones get their own tall 9:16 banners (via <picture>), and only
+     the two branches that have one; the Meharban Singh Purva slide,
+     its dot and its caption are desktop only. script.js skips them. */
+  .hero-stage{aspect-ratio:9 / 16}
+  .slide.hero-desktop-only,.dot.hero-desktop-only,.hero-cap.hero-desktop-only{display:none}
+  .hero-dots{bottom:10px}
+  .dot{width:8px;height:8px}
   .hero-caption{
     position:static;width:auto;background:var(--green-900);
   }
@@ -1749,15 +1754,21 @@ a{color:inherit}
   <div class="slides">
     <div class="slide is-active">
       <a href="branch-ratanlal-nagar.html">
-        <img class="slide-img" src="images/hero-banner-ratanlal-nagar.jpg" alt="Radha Krishna Memorial Education Centre, Ratanlal Nagar Branch, ICSE Board. Phone 8573000541, 8573000544, 9582305719" fetchpriority="high" width="1600" height="900">
+        <picture>
+          <source media="(max-width:760px)" srcset="images/hero-phone-ratanlal-nagar.jpg" width="900" height="1600">
+          <img class="slide-img" src="images/hero-banner-ratanlal-nagar.jpg" alt="Radha Krishna Memorial Education Centre, Ratanlal Nagar Branch, ICSE Board. Phone 8573000541, 8573000544, 9582305719" fetchpriority="high" width="1600" height="900">
+        </picture>
       </a>
     </div>
     <div class="slide">
       <a href="branch-govind-nagar.html">
-        <img class="slide-img" src="images/hero-banner-govind-nagar.jpg" alt="Radha Krishna Memorial Education Center, Govind Nagar Branch, ICSE Board. Phone 9305456741, 8573000548, 9582305719" loading="lazy" width="1600" height="900">
+        <picture>
+          <source media="(max-width:760px)" srcset="images/hero-phone-govind-nagar.jpg" width="900" height="1600">
+          <img class="slide-img" src="images/hero-banner-govind-nagar.jpg" alt="Radha Krishna Memorial Education Center, Govind Nagar Branch, ICSE Board. Phone 9305456741, 8573000548, 9582305719" loading="lazy" width="1600" height="900">
+        </picture>
       </a>
     </div>
-    <div class="slide">
+    <div class="slide hero-desktop-only">
       <a href="branch-meharban-singh-purva.html">
         <img class="slide-img" src="images/hero-banner-meharban-singh-purva.jpg" alt="Radha Krishna Group of Institutions, Meharban Singh Purwa Branch: multidisciplinary education under one roof. Phone 8810727415, 9336342824, 7318300991, 9582305719" loading="lazy" width="1600" height="900">
       </a>
@@ -1774,7 +1785,7 @@ a{color:inherit}
   <div class="hero-dots" role="tablist" aria-label="Choose a slide">
     <button class="dot is-active" role="tab" aria-selected="true"  data-go="0"><em class="sr-only">Ratanlal Nagar Branch</em></button>
     <button class="dot"           role="tab" aria-selected="false" data-go="1"><em class="sr-only">Govind Nagar Branch</em></button>
-    <button class="dot"           role="tab" aria-selected="false" data-go="2"><em class="sr-only">Meharban Singh Purva Branch</em></button>
+    <button class="dot hero-desktop-only" role="tab" aria-selected="false" data-go="2"><em class="sr-only">Meharban Singh Purva Branch</em></button>
   </div>
   </div>
 
@@ -1801,7 +1812,7 @@ a{color:inherit}
         <a href="branch-govind-nagar.html" class="btn btn-ghost" aria-label="Visit the Govind Nagar Branch">Visit Branch <span class="arw" aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
-    <div class="wrap hero-caption-inner hero-cap" data-slide="2" aria-hidden="true">
+    <div class="wrap hero-caption-inner hero-cap hero-desktop-only" data-slide="2" aria-hidden="true">
       <div class="hero-text">
         <h2>Learning Under <span class="gold">One Roof</span></h2>
         <p>Our Meharban Singh Purva branch is part of the Radha Krishna Group of Institutions campus.</p>

@@ -19,9 +19,19 @@
   var timer  = null;
   var DELAY  = 5500;
 
+  // Phones show only the slides that have a phone banner. Desktop-only
+  // slides come last in the markup, so the first `count()` indexes line
+  // up with the slides, dots and captions on every screen size.
+  var phone = window.matchMedia('(max-width: 760px)');
+  function count() {
+    if (!phone.matches) return slides.length;
+    return slides.filter(function (s) { return !s.classList.contains('hero-desktop-only'); }).length;
+  }
+
   function goTo(n) {
-    if (!slides.length) return;
-    index = (n + slides.length) % slides.length;
+    var total = count();
+    if (!total) return;
+    index = (n + total) % total;
     slides.forEach(function (s, i) { s.classList.toggle('is-active', i === index); });
     caps.forEach(function (c, i) {
       c.classList.toggle('is-active', i === index);
@@ -41,7 +51,7 @@
   }
 
   function start() {
-    if (slides.length < 2) return;
+    if (count() < 2) return;
     stop();
     timer = setInterval(function () { goTo(index + 1); }, DELAY);
   }
@@ -70,6 +80,11 @@
       if (e.key === 'ArrowRight') jump(index + 1);
     });
   }
+
+  // Crossing the phone breakpoint can leave a desktop-only slide active.
+  function onBreakpoint() { if (index >= count()) goTo(0); start(); }
+  if (phone.addEventListener) { phone.addEventListener('change', onBreakpoint); }
+  else if (phone.addListener) { phone.addListener(onBreakpoint); }
 
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) { stop(); } else { start(); }
