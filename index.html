@@ -1422,9 +1422,8 @@ a{color:inherit}
    numbers along the bottom, so the stage takes their exact aspect ratio
    and shows them whole: no cropping and no darkening overlay. The
    headline and buttons sit straight on the banner, bottom left, just
-   above its phone-number strip, with no panel behind them. On phones
-   the banner is too short to carry both, so they move to a green band
-   under it.
+   above its phone-number strip, with no panel behind them, on phones
+   as well as desktop.
    The feature strip no longer overlaps the hero. */
 .hero{min-height:0;display:block;background:var(--green-900)}
 .hero-stage{position:relative;aspect-ratio:16 / 9;overflow:hidden;background:#0b2a5b}
@@ -1467,17 +1466,14 @@ a{color:inherit}
   .slide.hero-desktop-only,.dot.hero-desktop-only,.hero-cap.hero-desktop-only{display:none}
   .hero-dots{bottom:10px}
   .dot{width:8px;height:8px}
-  .hero-caption{
-    position:static;width:auto;background:var(--green-900);
-  }
-  .hero-text h2,.hero-text p{text-shadow:none}
-  .hero-caption .btn-ghost{background:transparent}
-  .hero-caption .hero-text p{font-weight:400}
-  .hero-caption .wrap{padding:24px 16px}
-  .hero-caption-inner{text-align:center}
-  .hero-text h2{font-size:1.6rem}
-  .hero-text p{margin-inline:auto;max-width:52ch;font-size:.95rem}
-  .hero-actions .btn{flex:1 1 100%;justify-content:center}
+  /* As on desktop, the caption sits on the banner itself, bottom left,
+     just above the phone-number strip, with the same text shadow. */
+  .hero-caption{left:16px;right:16px;bottom:20%;width:auto}
+  .hero-caption-inner{gap:12px}
+  .hero-text h2{font-size:1.55rem;line-height:1.15}
+  .hero-text p{font-size:.9rem;line-height:1.45}
+  .hero-actions{flex-wrap:nowrap;gap:8px}
+  .hero-actions .btn{flex:1 1 0;justify-content:center;padding:.75em .6em;font-size:.7rem;letter-spacing:.04em}
   .hero ~ .feature-strip{margin-top:0}
 }
 
@@ -1746,8 +1742,7 @@ a{color:inherit}
 
   <!-- Each slide is a finished branch banner with its own text and
        phone numbers, so it is shown whole (16:9) with no darkening
-       overlay. The headline and buttons sit over its bottom left (a band
-       under it on phones). -->
+       overlay. The headline and buttons sit over its bottom left. -->
   <h1 class="sr-only">Radha Krishna Memorial Education Centre, Kanpur: ICSE schooling from Kindergarten through Class 12</h1>
 
   <div class="hero-stage">
