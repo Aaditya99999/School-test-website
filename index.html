@@ -288,26 +288,6 @@ a{color:inherit}
 .slide.is-active{opacity:1}
 .slide-img{width:100%;height:100%;object-fit:cover;display:block}
 
-.hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(100deg,rgba(11,40,26,.88) 0%,rgba(11,40,26,.6) 45%,rgba(11,40,26,.2) 100%);
-}
-
-.hero-content{position:relative;z-index:3;padding-block:60px}
-
-.hero-content h1{
-  font-size:clamp(2rem,4.6vw,3.3rem);
-  font-weight:700;margin-bottom:.45em;color:#fff;
-}
-.gold{color:var(--gold)}
-
-.hero-content p{
-  max-width:44ch;font-size:.98rem;
-  color:rgba(255,255,255,.88);margin-bottom:1.9em;
-}
-
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
-
 .hero-arrow{
   position:absolute;z-index:4;top:50%;transform:translateY(-50%);
   width:44px;height:44px;border-radius:50%;
@@ -725,7 +705,6 @@ a{color:inherit}
   .acad-cards,.fac-grid{grid-template-columns:1fr}
   .gal-strip{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr}
-  .hero-actions .btn{flex:1 1 100%;justify-content:center}
   .gallery-head{align-items:flex-start}
 }
 
@@ -1438,28 +1417,21 @@ a{color:inherit}
 }
 @media (max-width:760px){.about-img.about-img-logo{max-width:300px}}
 
-/* ---------- hero: full-bleed cover photo ----------
-   The photo fills the whole banner; .hero-overlay (above) darkens its
-   left side so the headline stays readable over it. */
-.slide{z-index:1}
-/* Above the slides (z-index:1, which stacks them over an auto-index
-   overlay) but under the headline (3). */
-.hero-overlay{z-index:2}
-
-/* Leave the right half to the photo. */
-.hero-content > *{max-width:50%}
-
-/* Phones get the same full-screen cover photo as desktop, with the
-   headline over it. The text now spans the whole width rather than the
-   left half, so the overlay is darkened evenly to keep it readable. */
+/* ---------- hero: branch banners ----------
+   The slides are finished 16:9 banners with their own text and phone
+   numbers along the bottom, so the hero takes their exact aspect ratio
+   and shows them whole: no cropping, no darkening overlay, and the
+   feature strip no longer overlaps the bottom edge. */
+.hero{min-height:0;aspect-ratio:16 / 9;background:#0b2a5b}
+.slide a{display:block;height:100%}
+.slide-img{object-fit:contain}
+.hero-dots{bottom:14px}
+.hero ~ .feature-strip{margin-top:28px}
 @media (max-width:760px){
-  /* The top bar and header sit above the hero (about 207px), so subtract
-     them: the hero then fits the screen with its text and buttons in view. */
-  .hero{min-height:max(540px,calc(100vh - 207px));min-height:max(540px,calc(100svh - 207px))}
-  .hero-overlay{
-    background:linear-gradient(180deg,rgba(11,40,26,.72) 0%,rgba(11,40,26,.6) 50%,rgba(11,40,26,.82) 100%);
-  }
-  .hero-content > *{max-width:none}
+  .hero{min-height:0}
+  .hero-dots{bottom:8px}
+  .dot{width:7px;height:7px}
+  .hero ~ .feature-strip{margin-top:0}
 }
 
 /* ---------- admission enquiry form ----------
@@ -1725,16 +1697,28 @@ a{color:inherit}
 <!-- ================= HERO SLIDER ================= -->
 <section class="hero" id="top">
 
+  <!-- Each slide is a finished branch banner with its own text and
+       phone numbers, so it is shown whole (16:9) with no overlay or
+       headline on top. The h1 stays for screen readers and search. -->
+  <h1 class="sr-only">Radha Krishna Memorial Education Centre, Kanpur: ICSE schooling from Kindergarten through Class 12</h1>
+
   <div class="slides">
     <div class="slide is-active">
-      <img class="slide-img" src="images/MAIN%20BUILDING%202.jpeg" alt="The campus building" fetchpriority="high" width="880" height="353">
+      <a href="branch-ratanlal-nagar.html">
+        <img class="slide-img" src="images/hero-banner-ratanlal-nagar.jpg" alt="Radha Krishna Memorial Education Centre, Ratanlal Nagar Branch, ICSE Board. Phone 8573000541, 8573000544, 9582305719" fetchpriority="high" width="1600" height="900">
+      </a>
     </div>
     <div class="slide">
-      <img class="slide-img" src="images/MAIN%20BUILDING.jpeg" alt="The building front with its name sign" loading="lazy" width="624" height="640">
+      <a href="branch-govind-nagar.html">
+        <img class="slide-img" src="images/hero-banner-govind-nagar.jpg" alt="Radha Krishna Memorial Education Center, Govind Nagar Branch, ICSE Board. Phone 9305456741, 8573000548, 9582305719" loading="lazy" width="1600" height="900">
+      </a>
+    </div>
+    <div class="slide">
+      <a href="branch-meharban-singh-purva.html">
+        <img class="slide-img" src="images/hero-banner-meharban-singh-purva.jpg" alt="Radha Krishna Group of Institutions, Meharban Singh Purwa Branch: multidisciplinary education under one roof. Phone 8810727415, 9336342824, 7318300991, 9582305719" loading="lazy" width="1600" height="900">
+      </a>
     </div>
   </div>
-
-  <div class="hero-overlay"></div>
 
   <button class="hero-arrow hero-prev" aria-label="Previous slide">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4-4.6-4.6z"/></svg>
@@ -1743,20 +1727,10 @@ a{color:inherit}
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4 4.6 4.6z"/></svg>
   </button>
 
-  <div class="wrap hero-content">
-    <h1>Knowledge is <span class="gold">Power</span></h1>
-    <p>
-      ICSE schooling from Kindergarten through Class 12.
-    </p>
-    <div class="hero-actions">
-      <a href="#enquire" class="btn btn-gold">Admission Open <span class="arw" aria-hidden="true">&rarr;</span></a>
-      <a href="#academics" class="btn btn-ghost">See Programmes <span class="arw" aria-hidden="true">&rarr;</span></a>
-    </div>
-  </div>
-
   <div class="hero-dots" role="tablist" aria-label="Choose a slide">
-    <button class="dot is-active" role="tab" aria-selected="true"  data-go="0"><em class="sr-only">Campus building</em></button>
-    <button class="dot"           role="tab" aria-selected="false" data-go="1"><em class="sr-only">Building front</em></button>
+    <button class="dot is-active" role="tab" aria-selected="true"  data-go="0"><em class="sr-only">Ratanlal Nagar Branch</em></button>
+    <button class="dot"           role="tab" aria-selected="false" data-go="1"><em class="sr-only">Govind Nagar Branch</em></button>
+    <button class="dot"           role="tab" aria-selected="false" data-go="2"><em class="sr-only">Meharban Singh Purva Branch</em></button>
   </div>
 </section>
 
