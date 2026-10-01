@@ -28,8 +28,15 @@
     });
   }
 
+  // Reduced motion still advances (the banners carry each branch's
+  // details), but more slowly and without the cross-fade.
+  if (reduceMotion) {
+    DELAY = 8000;
+    slides.forEach(function (s) { s.style.transition = 'none'; });
+  }
+
   function start() {
-    if (reduceMotion || slides.length < 2) return;
+    if (slides.length < 2) return;
     stop();
     timer = setInterval(function () { goTo(index + 1); }, DELAY);
   }
@@ -48,11 +55,11 @@
   if (prev) prev.addEventListener('click', function () { jump(index - 1); });
   if (next) next.addEventListener('click', function () { jump(index + 1); });
 
+  // No pause on hover: the banners fill most of the screen, so the cursor
+  // nearly always rests on them, and on touch screens a tap fires
+  // mouseenter with no mouseleave, which stopped the slider for good.
   var hero = document.querySelector('.hero');
   if (hero) {
-    hero.addEventListener('mouseenter', stop);
-    hero.addEventListener('mouseleave', start);
-
     hero.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowLeft')  jump(index - 1);
       if (e.key === 'ArrowRight') jump(index + 1);

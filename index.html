@@ -1419,18 +1419,34 @@ a{color:inherit}
 
 /* ---------- hero: branch banners ----------
    The slides are finished 16:9 banners with their own text and phone
-   numbers along the bottom, so the hero takes their exact aspect ratio
-   and shows them whole: no cropping, no darkening overlay, and the
-   feature strip no longer overlaps the bottom edge. */
-.hero{min-height:0;aspect-ratio:16 / 9;background:#0b2a5b}
+   numbers along the bottom, so the stage takes their exact aspect ratio
+   and shows them whole: no cropping and no darkening overlay. The
+   headline and buttons sit in a green band underneath instead of on top
+   of the banner art, and the feature strip no longer overlaps the hero. */
+.hero{min-height:0;display:block;background:var(--green-900)}
+.hero-stage{position:relative;aspect-ratio:16 / 9;overflow:hidden;background:#0b2a5b}
 .slide a{display:block;height:100%}
 .slide-img{object-fit:contain}
 .hero-dots{bottom:14px}
+
+.hero-caption{background:var(--green-900);color:#fff}
+.hero-caption-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px 40px;flex-wrap:wrap;padding-block:30px;
+}
+.hero-text h1{font-size:clamp(1.6rem,3vw,2.3rem);color:#fff;margin:0 0 .25em}
+.hero-text p{margin:0;max-width:52ch;color:rgba(255,255,255,.85);font-size:.98rem}
+.gold{color:var(--gold)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+
 .hero ~ .feature-strip{margin-top:28px}
 @media (max-width:760px){
-  .hero{min-height:0}
   .hero-dots{bottom:8px}
   .dot{width:7px;height:7px}
+  .hero-caption-inner{padding-block:24px;text-align:center;justify-content:center}
+  .hero-text p{margin-inline:auto}
+  .hero-actions{width:100%}
+  .hero-actions .btn{flex:1 1 100%;justify-content:center}
   .hero ~ .feature-strip{margin-top:0}
 }
 
@@ -1698,10 +1714,9 @@ a{color:inherit}
 <section class="hero" id="top">
 
   <!-- Each slide is a finished branch banner with its own text and
-       phone numbers, so it is shown whole (16:9) with no overlay or
-       headline on top. The h1 stays for screen readers and search. -->
-  <h1 class="sr-only">Radha Krishna Memorial Education Centre, Kanpur: ICSE schooling from Kindergarten through Class 12</h1>
-
+       phone numbers, so it is shown whole (16:9) with no overlay on top.
+       The headline and buttons sit in the green band underneath. -->
+  <div class="hero-stage">
   <div class="slides">
     <div class="slide is-active">
       <a href="branch-ratanlal-nagar.html">
@@ -1731,6 +1746,20 @@ a{color:inherit}
     <button class="dot is-active" role="tab" aria-selected="true"  data-go="0"><em class="sr-only">Ratanlal Nagar Branch</em></button>
     <button class="dot"           role="tab" aria-selected="false" data-go="1"><em class="sr-only">Govind Nagar Branch</em></button>
     <button class="dot"           role="tab" aria-selected="false" data-go="2"><em class="sr-only">Meharban Singh Purva Branch</em></button>
+  </div>
+  </div>
+
+  <div class="hero-caption">
+    <div class="wrap hero-caption-inner">
+      <div class="hero-text">
+        <h1>Knowledge is <span class="gold">Power</span></h1>
+        <p>ICSE, English-medium schooling from Kindergarten through Class 12, at three branches across Kanpur.</p>
+      </div>
+      <div class="hero-actions">
+        <a href="#enquire" class="btn btn-gold">Admission Open <span class="arw" aria-hidden="true">&rarr;</span></a>
+        <a href="#branches" class="btn btn-ghost">Our Branches <span class="arw" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
   </div>
 </section>
 
