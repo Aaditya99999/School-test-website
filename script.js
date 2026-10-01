@@ -14,6 +14,7 @@
   /* ---------- 1. HERO SLIDER ---------- */
   var slides = [].slice.call(document.querySelectorAll('.slide'));
   var dots   = [].slice.call(document.querySelectorAll('.dot'));
+  var caps   = [].slice.call(document.querySelectorAll('.hero-cap'));
   var index  = 0;
   var timer  = null;
   var DELAY  = 5500;
@@ -22,6 +23,10 @@
     if (!slides.length) return;
     index = (n + slides.length) % slides.length;
     slides.forEach(function (s, i) { s.classList.toggle('is-active', i === index); });
+    caps.forEach(function (c, i) {
+      c.classList.toggle('is-active', i === index);
+      if (i === index) { c.removeAttribute('aria-hidden'); } else { c.setAttribute('aria-hidden', 'true'); }
+    });
     dots.forEach(function (d, i) {
       d.classList.toggle('is-active', i === index);
       d.setAttribute('aria-selected', i === index ? 'true' : 'false');

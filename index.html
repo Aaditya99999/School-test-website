@@ -1438,12 +1438,17 @@ a{color:inherit}
 }
 /* No panel behind the text, so a soft shadow keeps it legible over
    the bright parts of the banners. */
-.hero-text h1,.hero-text p{text-shadow:0 1px 2px rgba(0,0,0,.95),0 2px 10px rgba(0,0,0,.8),0 0 24px rgba(0,0,0,.55)}
+.hero-text h2,.hero-text p{text-shadow:0 1px 2px rgba(0,0,0,.95),0 2px 10px rgba(0,0,0,.8),0 0 24px rgba(0,0,0,.55)}
 .hero-caption .hero-text p{color:#fff;font-weight:500}
 .hero-caption .btn-ghost{background:rgba(0,0,0,.45)}
 .hero-caption .wrap{width:auto;max-width:none;margin:0;padding:0}
 .hero-caption-inner{display:flex;flex-direction:column;gap:clamp(12px,1.4vw,20px)}
-.hero-text h1{font-size:clamp(1.3rem,2.6vw,2.4rem);color:#fff;margin:0 0 .25em}
+.hero-text h2{font-size:clamp(1.3rem,2.6vw,2.4rem);color:#fff;margin:0 0 .25em}
+/* Only the caption for the active banner shows; it fades in with it. */
+.hero-cap{display:none}
+.hero-cap.is-active{display:flex;animation:heroCapIn .7s ease both}
+@keyframes heroCapIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.hero-cap.is-active{animation:none}}
 .hero-text p{margin:0;color:rgba(255,255,255,.88);font-size:clamp(.88rem,1.2vw,1.1rem)}
 .gold{color:var(--gold)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:10px}
@@ -1460,12 +1465,12 @@ a{color:inherit}
   .hero-caption{
     position:static;width:auto;background:var(--green-900);
   }
-  .hero-text h1,.hero-text p{text-shadow:none}
+  .hero-text h2,.hero-text p{text-shadow:none}
   .hero-caption .btn-ghost{background:transparent}
   .hero-caption .hero-text p{font-weight:400}
   .hero-caption .wrap{padding:24px 16px}
   .hero-caption-inner{text-align:center}
-  .hero-text h1{font-size:1.6rem}
+  .hero-text h2{font-size:1.6rem}
   .hero-text p{margin-inline:auto;max-width:52ch;font-size:.95rem}
   .hero-actions .btn{flex:1 1 100%;justify-content:center}
   .hero ~ .feature-strip{margin-top:0}
@@ -1738,6 +1743,8 @@ a{color:inherit}
        phone numbers, so it is shown whole (16:9) with no darkening
        overlay. The headline and buttons sit over its bottom left (a band
        under it on phones). -->
+  <h1 class="sr-only">Radha Krishna Memorial Education Centre, Kanpur: ICSE schooling from Kindergarten through Class 12</h1>
+
   <div class="hero-stage">
   <div class="slides">
     <div class="slide is-active">
@@ -1771,15 +1778,37 @@ a{color:inherit}
   </div>
   </div>
 
+  <!-- One caption per banner; script.js shows the one whose slide is
+       active. Keep the order in step with the slides above. -->
   <div class="hero-caption">
-    <div class="wrap hero-caption-inner">
+    <div class="wrap hero-caption-inner hero-cap is-active" data-slide="0">
       <div class="hero-text">
-        <h1>Knowledge is <span class="gold">Power</span></h1>
-        <p>ICSE, English-medium schooling from Kindergarten through Class 12, at three branches across Kanpur.</p>
+        <h2>Knowledge is <span class="gold">Power</span></h2>
+        <p>Our main branch in Ratanlal Nagar: ICSE, English-medium schooling from Kindergarten through Class 12.</p>
       </div>
       <div class="hero-actions">
         <a href="#enquire" class="btn btn-gold">Admission Open <span class="arw" aria-hidden="true">&rarr;</span></a>
-        <a href="#branches" class="btn btn-ghost">Our Branches <span class="arw" aria-hidden="true">&rarr;</span></a>
+        <a href="branch-ratanlal-nagar.html" class="btn btn-ghost" aria-label="Visit the Ratanlal Nagar Branch">Visit Branch <span class="arw" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+    <div class="wrap hero-caption-inner hero-cap" data-slide="1" aria-hidden="true">
+      <div class="hero-text">
+        <h2>Admissions Open in <span class="gold">Govind Nagar</span></h2>
+        <p>ICSE, English-medium and co-educational, near Nandlal Chauraha in Govind Nagar.</p>
+      </div>
+      <div class="hero-actions">
+        <a href="#enquire" class="btn btn-gold">Admission Open <span class="arw" aria-hidden="true">&rarr;</span></a>
+        <a href="branch-govind-nagar.html" class="btn btn-ghost" aria-label="Visit the Govind Nagar Branch">Visit Branch <span class="arw" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+    <div class="wrap hero-caption-inner hero-cap" data-slide="2" aria-hidden="true">
+      <div class="hero-text">
+        <h2>Learning Under <span class="gold">One Roof</span></h2>
+        <p>Our Meharban Singh Purva branch is part of the Radha Krishna Group of Institutions campus.</p>
+      </div>
+      <div class="hero-actions">
+        <a href="#enquire" class="btn btn-gold">Admission Open <span class="arw" aria-hidden="true">&rarr;</span></a>
+        <a href="branch-meharban-singh-purva.html" class="btn btn-ghost" aria-label="Visit the Meharban Singh Purva Branch">Visit Branch <span class="arw" aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </div>
