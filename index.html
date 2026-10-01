@@ -1421,9 +1421,10 @@ a{color:inherit}
    The slides are finished 16:9 banners with their own text and phone
    numbers along the bottom, so the stage takes their exact aspect ratio
    and shows them whole: no cropping and no darkening overlay. The
-   banners keep their own text on the left, so the headline and buttons
-   sit in a translucent card over the top right. On phones the banner is
-   too short to carry both, so the card becomes a green band under it.
+   headline and buttons sit straight on the banner, bottom left, just
+   above its phone-number strip, with no panel behind them. On phones
+   the banner is too short to carry both, so they move to a green band
+   under it.
    The feature strip no longer overlaps the hero. */
 .hero{min-height:0;display:block;background:var(--green-900)}
 .hero-stage{position:relative;aspect-ratio:16 / 9;overflow:hidden;background:#0b2a5b}
@@ -1432,38 +1433,41 @@ a{color:inherit}
 .hero-dots{bottom:14px}
 
 .hero-caption{
-  position:absolute;z-index:4;top:5%;right:6%;width:min(36%,520px);
-  background:rgba(11,60,36,.82);color:#fff;
-  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
-  border:1px solid rgba(255,255,255,.18);border-radius:14px;
-  box-shadow:0 18px 40px rgba(0,0,0,.28);
+  position:absolute;z-index:4;left:4%;bottom:18%;width:min(34%,500px);
+  color:#fff;
 }
-.hero-caption .wrap{width:auto;max-width:none;margin:0;padding:clamp(16px,2vw,30px)}
+/* No panel behind the text, so a soft shadow keeps it legible over
+   the bright parts of the banners. */
+.hero-text h1,.hero-text p{text-shadow:0 1px 2px rgba(0,0,0,.95),0 2px 10px rgba(0,0,0,.8),0 0 24px rgba(0,0,0,.55)}
+.hero-caption .hero-text p{color:#fff;font-weight:500}
+.hero-caption .btn-ghost{background:rgba(0,0,0,.45)}
+.hero-caption .wrap{width:auto;max-width:none;margin:0;padding:0}
 .hero-caption-inner{display:flex;flex-direction:column;gap:clamp(12px,1.4vw,20px)}
 .hero-text h1{font-size:clamp(1.3rem,2.6vw,2.4rem);color:#fff;margin:0 0 .25em}
-.hero-text p{margin:0;color:rgba(255,255,255,.88);font-size:clamp(.82rem,1.05vw,1rem)}
+.hero-text p{margin:0;color:rgba(255,255,255,.88);font-size:clamp(.88rem,1.2vw,1.1rem)}
 .gold{color:var(--gold)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:10px}
-.hero-actions .btn{flex:1 1 auto;justify-content:center}
 
 .hero ~ .feature-strip{margin-top:28px}
 
 @media (min-width:761px) and (max-width:1100px){
-  .hero-caption{width:42%;right:4%}
+  .hero-caption{width:46%;bottom:17%}
   .hero-actions .btn{padding:.7em 1em;font-size:.72rem}
 }
 @media (max-width:760px){
   .hero-dots{bottom:8px}
   .dot{width:7px;height:7px}
   .hero-caption{
-    position:static;width:auto;border:0;border-radius:0;box-shadow:none;
-    background:var(--green-900);-webkit-backdrop-filter:none;backdrop-filter:none;
+    position:static;width:auto;background:var(--green-900);
   }
+  .hero-text h1,.hero-text p{text-shadow:none}
+  .hero-caption .btn-ghost{background:transparent}
+  .hero-caption .hero-text p{font-weight:400}
   .hero-caption .wrap{padding:24px 16px}
   .hero-caption-inner{text-align:center}
   .hero-text h1{font-size:1.6rem}
   .hero-text p{margin-inline:auto;max-width:52ch;font-size:.95rem}
-  .hero-actions .btn{flex:1 1 100%}
+  .hero-actions .btn{flex:1 1 100%;justify-content:center}
   .hero ~ .feature-strip{margin-top:0}
 }
 
@@ -1732,8 +1736,8 @@ a{color:inherit}
 
   <!-- Each slide is a finished branch banner with its own text and
        phone numbers, so it is shown whole (16:9) with no darkening
-       overlay. The headline and buttons sit in a card over its top right
-       (a band under it on phones). -->
+       overlay. The headline and buttons sit over its bottom left (a band
+       under it on phones). -->
   <div class="hero-stage">
   <div class="slides">
     <div class="slide is-active">
