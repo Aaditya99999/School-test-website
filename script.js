@@ -17,7 +17,7 @@
   var caps   = [].slice.call(document.querySelectorAll('.hero-cap'));
   var index  = 0;
   var timer  = null;
-  var DELAY  = 5500;
+  var DELAY  = 3500;
 
   // Phones show only the slides that have a phone banner. Desktop-only
   // slides come last in the markup, so the first `count()` indexes line
@@ -46,7 +46,7 @@
   // Reduced motion still advances (the banners carry each branch's
   // details), but more slowly and without the cross-fade.
   if (reduceMotion) {
-    DELAY = 8000;
+    DELAY = 5000;
     slides.forEach(function (s) { s.style.transition = 'none'; });
   }
 
