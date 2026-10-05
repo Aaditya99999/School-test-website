@@ -12,7 +12,7 @@
 
 return [
     // Your domain without https:// or www, e.g. 'rkmec.in'
-    'site_domain'   => 'example.com',
+    'site_domain'   => 'radhakrishnaschool.com',
 
     // Google Sheet that stores admission enquiries (see HOSTINGER-SETUP.md).
     // sheet_url:    the Web app URL from Apps Script -> Deploy (ends in /exec)
