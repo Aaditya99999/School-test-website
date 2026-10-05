@@ -194,7 +194,7 @@ a{color:inherit}
   font-family:var(--ff-body);font-size:.8rem;font-weight:600;
   letter-spacing:.06em;text-transform:uppercase;
   color:var(--ink);background:none;border:0;cursor:pointer;
-  text-decoration:none;position:relative;
+  text-decoration:none;position:relative;white-space:nowrap;
   transition:color .16s ease;
 }
 .mainnav > a:hover,.has-sub > button:hover{color:var(--green-800)}
@@ -1010,6 +1010,11 @@ a{color:inherit}
 
 .branch-img{position:relative;overflow:hidden}
 .branch-img img{aspect-ratio:3/2;width:100%;height:auto;object-fit:cover}
+/* Branch banners are designed artwork with lettering near the edges, so
+   show them whole (16:9) rather than cropping, and keep the tag clear of
+   the school name in their top-left corner. */
+.branch-img img.is-banner,.about-img img.is-banner{aspect-ratio:16/9}
+.branch-img img.is-banner + .branch-tag{left:auto;right:0}
 
 .branch-tag{
   position:absolute;left:0;top:14px;
@@ -1839,7 +1844,7 @@ a{color:inherit}
 
       <article class="branch-card">
         <div class="branch-img">
-          <img src="images/branch-ratanlal-nagar.jpg" alt="Ratanlal Nagar branch" loading="lazy" width="720" height="480">
+          <img src="images/hero-banner-ratanlal-nagar.jpg" class="is-banner" alt="Ratanlal Nagar branch" loading="lazy" width="1600" height="900">
           <span class="branch-tag">Main Branch</span>
         </div>
         <div class="branch-body">
@@ -1858,7 +1863,7 @@ a{color:inherit}
 
       <article class="branch-card">
         <div class="branch-img">
-          <img src="images/branch-2.jpg?v=2" alt="Govind Nagar branch" loading="lazy" width="900" height="600">
+          <img src="images/hero-banner-govind-nagar.jpg" class="is-banner" alt="Govind Nagar branch" loading="lazy" width="1600" height="900">
           <span class="branch-tag">Branch</span>
         </div>
         <div class="branch-body">
@@ -1877,7 +1882,7 @@ a{color:inherit}
 
       <article class="branch-card">
         <div class="branch-img">
-          <img src="images/branch-meharban-singh-purva.jpg" alt="Meharban Singh Purva branch" loading="lazy" width="1495" height="1052">
+          <img src="images/hero-banner-meharban-singh-purva.jpg" class="is-banner" alt="Meharban Singh Purva branch" loading="lazy" width="1600" height="900">
           <span class="branch-tag">Branch</span>
         </div>
         <div class="branch-body">
