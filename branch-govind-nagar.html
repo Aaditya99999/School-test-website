@@ -194,7 +194,7 @@ a{color:inherit}
   font-family:var(--ff-body);font-size:.8rem;font-weight:600;
   letter-spacing:.06em;text-transform:uppercase;
   color:var(--ink);background:none;border:0;cursor:pointer;
-  text-decoration:none;position:relative;
+  text-decoration:none;position:relative;white-space:nowrap;
   transition:color .16s ease;
 }
 .mainnav > a:hover,.has-sub > button:hover{color:var(--green-800)}
@@ -1010,6 +1010,11 @@ a{color:inherit}
 
 .branch-img{position:relative;overflow:hidden}
 .branch-img img{aspect-ratio:3/2;width:100%;height:auto;object-fit:cover}
+/* Branch banners are designed artwork with lettering near the edges, so
+   show them whole (16:9) rather than cropping, and keep the tag clear of
+   the school name in their top-left corner. */
+.branch-img img.is-banner,.about-img img.is-banner{aspect-ratio:16/9}
+.branch-img img.is-banner + .branch-tag{left:auto;right:0}
 
 .branch-tag{
   position:absolute;left:0;top:14px;
@@ -1681,7 +1686,7 @@ a{color:inherit}
   <div class="wrap about-grid">
 
     <figure class="about-img">
-      <img src="images/branch-2.jpg?v=2" alt="The Govind Nagar branch" width="900" height="600">
+      <img src="images/hero-banner-govind-nagar.jpg" class="is-banner" alt="The Govind Nagar branch" width="1600" height="900">
     </figure>
 
     <div class="about-body">

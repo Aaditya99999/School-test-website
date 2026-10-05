@@ -2,6 +2,8 @@
 .env
 .env.*
 .htaccess
+# the Hostinger rules hold no secrets
+!hostinger/.htaccess
 
 # vercel
 .vercel

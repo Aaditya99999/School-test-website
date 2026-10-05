@@ -1,0 +1,27 @@
+# Radha Krishna Memorial Education Centre — Hostinger (Apache / LiteSpeed)
+
+# Never serve the settings file, even by mistake.
+<Files "config.php">
+  Require all denied
+</Files>
+
+Options -Indexes
+
+# Allow /about as well as /about.html (matches the old Vercel clean URLs).
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^([^.]+)$ $1.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # Photos are cache-busted with ?v=N in the HTML, so cache them for a year.
+  <FilesMatch "\.(jpe?g|png|gif|webp|svg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
